@@ -1,0 +1,16 @@
+/* Estilo para mat-tab-group */
+mat-tab-group {
+    margin: 0 auto; /* Centra horizontalmente el tab group */
+    background-color: #f0dddd; /* Cambia el fondo del tab group */
+
+  }
+  
+  /* Estilo para mat-tab */
+  .custom-tab-label .mat-tab-label {
+    color: rgb(74, 16, 184) !important;
+  }
+  
+  /* Estilo para el contenido del mat-tab */
+  mat-tab-content {
+    padding: 50px; /* Agrega espacio interno al contenido del tab */
+  }

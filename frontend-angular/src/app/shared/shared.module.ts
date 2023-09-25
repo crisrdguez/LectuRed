@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from '../modules/material/material.module';
 
 
 
@@ -13,11 +14,13 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MaterialModule
   ],
   exports: [
     NavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MaterialModule
   ]
 })
 export class SharedModule { }

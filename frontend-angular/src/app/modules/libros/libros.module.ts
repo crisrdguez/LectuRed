@@ -6,7 +6,8 @@ import { ResultadoBusquedaComponent } from './resultado-busqueda/resultado-busqu
 import { LibroDetalleComponent } from './libro-detalle/libro-detalle.component';
 import { RouterModule } from '@angular/router';
 import { LibrosRoutingModule } from './libros-routing.module';
-
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -19,7 +20,9 @@ import { LibrosRoutingModule } from './libros-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    LibrosRoutingModule
+    LibrosRoutingModule,
+    FormsModule,
+    SharedModule
 
   ],
   exports: [
@@ -27,6 +30,7 @@ import { LibrosRoutingModule } from './libros-routing.module';
     LibroListasComponent,
     ResultadoBusquedaComponent,
     LibroDetalleComponent
-  ]
+  ],
+  providers: [],
 })
 export class LibrosModule { }
