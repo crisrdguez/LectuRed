@@ -3,6 +3,8 @@ export class Libro {
     private _title: string | undefined;
     private _authors: string[] | undefined;
     private _thumbnail: string | undefined;
+    private _subtitle:string | undefined;
+    private _publisher:string | undefined;
 
     constructor() {
 
@@ -36,9 +38,28 @@ export class Libro {
     return this._thumbnail;
   }
 
-  set thumbnail(title: string | undefined) {
-    this._thumbnail = title;
+  set thumbnail(thumbnail: string | undefined) {
+    this._thumbnail = thumbnail;
   }
+
+  get subtitle(): string | undefined {
+    return this._subtitle;
+  }
+
+  set subtitle(subtitle: string | undefined) {
+    this._subtitle = subtitle;
+  }
+
+  get publisher(): string | undefined {
+    return this._publisher;
+  }
+
+  set publisher(publisher: string | undefined) {
+    this._publisher = publisher;
+  }
+  
+
+
 
 
 }

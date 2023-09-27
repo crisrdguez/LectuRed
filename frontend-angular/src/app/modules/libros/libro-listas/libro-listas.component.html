@@ -1,1 +1,8 @@
-<p>Listado de libros!!</p>
+<h2>Lista libros</h2>
+<div class="container">
+  <div class="libro-container">
+    <div *ngFor="let libro of listaLibros" class="libro-card">    
+      <app-libro [libro] = "libro"></app-libro>  
+    </div>
+  </div>  
+</div>

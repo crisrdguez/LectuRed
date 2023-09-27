@@ -1,0 +1,14 @@
+.example-card {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección de la disposición a columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    max-width: 300px;
+    background-color: rgb(235, 216, 189);
+}
+
+.container{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    
+  }

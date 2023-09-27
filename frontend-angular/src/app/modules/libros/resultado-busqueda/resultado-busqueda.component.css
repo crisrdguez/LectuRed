@@ -1,16 +1,37 @@
+.container-busqueda{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 90vw; /* Cambia este valor según tus necesidades */
+  padding: 20px; /* Ajusta el espacio de margen a tus necesidades */
+  background-color: rgba(236, 234, 231, 0.548);
+}
+
+.input{
+    width: 100%; /* El ancho ocupará todo el espacio disponible */
+    padding: 10px;
+    font-size: 1.5em;
+    margin-bottom: 20px; /* Espacio inferior para separar el input de los tabs */
+}
+
 /* Estilo para mat-tab-group */
 mat-tab-group {
+    width: 100%;
     margin: 0 auto; /* Centra horizontalmente el tab group */
-    background-color: #f0dddd; /* Cambia el fondo del tab group */
-
   }
   
   /* Estilo para mat-tab */
-  .custom-tab-label .mat-tab-label {
-    color: rgb(74, 16, 184) !important;
-  }
-  
+  .mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
+    --mdc-tab-indicator-active-indicator-color: #c2185b;
+    --mat-tab-header-inactive-label-text-color: #744931;
+    --mat-tab-header-active-label-text-color: #c2185b;
+    --mat-tab-header-active-ripple-color: #c2185b;
+    --mat-tab-header-inactive-ripple-color: #c2185b;
+    --mat-tab-header-inactive-focus-label-text-color: rgba(117, 85, 85, 0.61);
+    --mat-tab-header-inactive-hover-label-text-color: rgba(168, 166, 166, 0.911);
+}
   /* Estilo para el contenido del mat-tab */
   mat-tab-content {
-    padding: 50px; /* Agrega espacio interno al contenido del tab */
+    padding: 10px; /* Agrega espacio interno al contenido del tab */
   }

@@ -1,0 +1,26 @@
+.container {
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+.libro-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .libro-card {
+    width: calc(20% - 20px); /* Establece el ancho de cada libro al 25% del contenedor */
+    margin: 10px; /* Espacio entre los libros */
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 7px 4px rgba(26, 25, 25, 0.1);
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+  }

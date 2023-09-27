@@ -1,1 +1,10 @@
-<p>libro-detalle works!</p>
+<p>detalle-libro works!</p>
+
+<div *ngIf="libroSeleccionado">
+    <h2>Detalles del Libro</h2>
+    <img mat-card-image [src]="libroSeleccionado.thumbnail" alt="Portada del libro">
+    <p>Título: {{ libroSeleccionado.title }}</p>
+    <p>Subtítulo: {{ libroSeleccionado.subtitle }}</p>
+    <p>Autor(es): {{ libroSeleccionado.authors?.join(', ') }}</p>
+    <p>Editorial: {{libroSeleccionado.publisher}}</p>
+</div>

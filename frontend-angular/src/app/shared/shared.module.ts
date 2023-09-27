@@ -4,22 +4,27 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../modules/material/material.module';
-
+import { HttpClientModule } from '@angular/common/http';
+//Pipe
+import { TruncateTextPipe } from './pipes/corta-texto.pipe';
 
 
 @NgModule({
   declarations: [
     PageNotFoundComponent,
     NavbarComponent,
+    TruncateTextPipe
   ],
   imports: [
     CommonModule,
     RouterModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule
   ],
   exports: [
     NavbarComponent,
     PageNotFoundComponent,
+    TruncateTextPipe,
     MaterialModule
   ]
 })
