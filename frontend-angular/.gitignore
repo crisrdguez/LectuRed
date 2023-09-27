@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # middleware-expressjs
-../middleware-express/server.js
+/../middleware-express/server.js
