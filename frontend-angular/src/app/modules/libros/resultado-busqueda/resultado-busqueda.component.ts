@@ -3,6 +3,7 @@ import { Libro } from 'src/app/core/models/libro.model';
 import { LibroListasComponent } from '../libro-listas/libro-listas.component';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { BuscadorService } from 'src/app/services/buscador.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-resultado-busqueda',
@@ -13,6 +14,8 @@ export class ResultadoBusquedaComponent implements OnInit{
 //Desde el buscador tengo que enviar al componente booklist la queryparams y la opcion
 queryparams:string="";
 opcionBusqueda:number=0;
+
+selectedTabIndex: number = 0; // Por defecto, selecciona la pestaña "Todo"
 
 listaLibros:Libro[] = [];
 
@@ -26,11 +29,17 @@ libroSeleccionado:Libro | null = null;
 @ViewChild('bookList3', { static: false }) bookList3!: LibroListasComponent;
 */
 
-constructor(private buscadorService : BuscadorService){
+constructor(private buscadorService : BuscadorService, private route: ActivatedRoute){
 
 }
 
 ngOnInit():void{
+  // Suscribirse a los cambios en los parámetros de consulta
+  this.route.queryParams.subscribe((params) => {
+    this.queryparams = params['q'] || ''; // 'q' es el nombre del parámetro de consulta
+    this.buscadorService.setQueryParams(this.queryparams);
+    this.buscadorService.setOpcionBusqueda(1);
+  });
 }
 
 onTabChange(event: MatTabChangeEvent) {
@@ -50,6 +59,12 @@ onTabChange(event: MatTabChangeEvent) {
     default:
       this.buscadorService.setOpcionBusqueda(0);
   }
+}
+
+buscarclick(){
+  this.buscadorService.setQueryParams(this.queryparams);
+  this.buscadorService.setOpcionBusqueda(this.opcionBusqueda);
+}
 }
 
 
@@ -89,4 +104,4 @@ onTabChange(event: MatTabChangeEvent) {
 
 
 
-}
+

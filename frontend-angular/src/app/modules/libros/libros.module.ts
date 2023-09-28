@@ -6,7 +6,7 @@ import { ResultadoBusquedaComponent } from './resultado-busqueda/resultado-busqu
 import { LibroDetalleComponent } from './libro-detalle/libro-detalle.component';
 import { RouterModule } from '@angular/router';
 import { LibrosRoutingModule } from './libros-routing.module';
-import { FormsModule } from '@angular/forms';
+//import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
@@ -21,7 +21,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     RouterModule,
     LibrosRoutingModule,
-    FormsModule,
     SharedModule
 
   ],

@@ -5,6 +5,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from '../modules/material/material.module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 //Pipe
 import { TruncateTextPipe } from './pipes/corta-texto.pipe';
 
@@ -19,13 +20,15 @@ import { TruncateTextPipe } from './pipes/corta-texto.pipe';
     CommonModule,
     RouterModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [
     NavbarComponent,
     PageNotFoundComponent,
     TruncateTextPipe,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

@@ -8,10 +8,31 @@
   background-color: rgba(236, 234, 231, 0.548);
 }
 
+.container-form{
+  width: 60%; 
+}
+
+.boton-buscar{
+  border-radius: 3px;
+  border: 1px solid #D6D0C4;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: inline-block;
+  color: #242222;
+  background-color: #f3f0eb;
+  line-height: 1;
+  padding: 8px 12px;
+  margin-left: 5px;
+}
+
+.boton-buscar:hover{
+  background-color: #dbd8d2;
+}
+
 .input{
-    width: 100%; /* El ancho ocupará todo el espacio disponible */
+    width: 80%; /* El ancho ocupará todo el espacio disponible */
     padding: 10px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 20px; /* Espacio inferior para separar el input de los tabs */
 }
 
