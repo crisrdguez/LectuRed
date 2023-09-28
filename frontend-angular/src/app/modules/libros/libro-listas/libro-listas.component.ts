@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Libro } from 'src/app/core/models';
+import { BuscadorService } from 'src/app/services/buscador.service';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 @Component({
@@ -7,20 +8,36 @@ import { GoogleBooksService } from 'src/app/services/google-books.service';
   templateUrl: './libro-listas.component.html',
   styleUrls: ['./libro-listas.component.css']
 })
-export class LibroListasComponent {
+export class LibroListasComponent implements OnInit{
 
   numeroLibros:number = 3;
   listaLibros:Libro[] = [];
 
-  //TODO MANDO TB LA OPCION SELECCIONADA
+  //TODO MANDO TB LA OPCION SELECCIONAD
+  /*
   @Input() opcionBusqueda:number=0;
-  @Input() queryparams:string="";
-
+  @Input() queryparams:string="";*/
+  queryparams: string = '';
+  opcionBusqueda: number = 0;
 
   libroSeleccionado:Libro | null = null;
 
-  constructor(private googleBooksService:GoogleBooksService){
+  constructor(private googleBooksService:GoogleBooksService, private buscadorService: BuscadorService){
 
+  }
+
+  ngOnInit(): void {
+    this.buscadorService.getQueryParams().subscribe(queryParams => {
+      this.queryparams = queryParams;
+      // Realizar la búsqueda con los nuevos valores de queryParams
+      this.busquedaLibros();
+    });
+
+    this.buscadorService.getOpcionBusqueda().subscribe(opcionBusqueda => {
+      this.opcionBusqueda = opcionBusqueda;
+      // Realizar la búsqueda con el nuevo valor de opcionBusqueda
+      this.busquedaLibros();
+    });
   }
 
   
@@ -88,10 +105,11 @@ export class LibroListasComponent {
     console.log("Salgo del metodo busqueda libros");
   }
 
+  /*
   realizarBusquedaDesdeBuscador(){
     console.log("la opcion de busqueda en list-books es:" + this.opcionBusqueda);
     console.log("la opcion de queryparams en list-books es:" + this.queryparams);
     this.busquedaLibros();
-  }
+  }*/
 
 }

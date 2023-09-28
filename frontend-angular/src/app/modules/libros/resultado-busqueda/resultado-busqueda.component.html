@@ -1,6 +1,24 @@
 <h2>Personaliza tu búsqueda</h2>
 
 <div class="container-busqueda">
+  <input class="input" type="text" [(ngModel)]='queryparams' placeholder="Buscar libros">
+  <button>Buscar</button>
+  <mat-tab-group animationDuration="0ms" (selectedTabChange)="onTabChange($event)">
+    <mat-tab class="custom-tab-label" label="Todo">
+      <app-libro-listas></app-libro-listas>
+    </mat-tab>
+    <mat-tab label="Autor">
+      <app-libro-listas></app-libro-listas>
+    </mat-tab>
+    <mat-tab label="Titulo">
+      <app-libro-listas></app-libro-listas>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+<!--
+<h2>Personaliza tu búsqueda</h2>
+
+<div class="container-busqueda">
 <input class="input" type="text" [(ngModel)]='queryparams' placeholder="Buscar libros">
 <mat-tab-group animationDuration="0ms" (selectedTabChange)="onTabChange($event)">
     
@@ -21,4 +39,4 @@
 
 </mat-tab-group>
 
-</div>
+</div>-->

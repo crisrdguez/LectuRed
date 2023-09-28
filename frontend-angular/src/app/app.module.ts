@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GoogleBooksService } from './services/google-books.service';
+import { BuscadorService } from './services/buscador.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { GoogleBooksService } from './services/google-books.service';
     SharedModule,
     BrowserAnimationsModule
   ],
-  providers: [GoogleBooksService],
+  providers: [GoogleBooksService,BuscadorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
