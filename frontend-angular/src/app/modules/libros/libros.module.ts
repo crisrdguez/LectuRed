@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { LibrosRoutingModule } from './libros-routing.module';
 //import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { LibroCategoriasComponent } from './libro-categorias/libro-categorias.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     LibroComponent,
     LibroListasComponent,
     ResultadoBusquedaComponent,
-    LibroDetalleComponent
+    LibroDetalleComponent,
+    LibroCategoriasComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     LibroComponent,
     LibroListasComponent,
     ResultadoBusquedaComponent,
-    LibroDetalleComponent
+    LibroDetalleComponent,
+    LibroCategoriasComponent
   ],
   providers: [],
 })

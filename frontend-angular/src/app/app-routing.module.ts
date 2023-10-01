@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LibroCategoriasComponent } from './modules/libros/libro-categorias/libro-categorias.component';
 //Componentes
 //import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
 //import { ResultadoBusquedaComponent } from './modules/libros/resultado-busqueda/resultado-busqueda.component';
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: 'home', 
-    loadChildren: () => import('./modules').then(m => m.HomeModule)},
+    loadChildren: () => import('./modules').then(m => m.HomeModule)
+  },
   //{path: 'buscador', component:ResultadoBusquedaComponent},
   {
     path: 'auth',
@@ -19,6 +21,7 @@ const routes: Routes = [
   {path: 'libros', 
     loadChildren: () => import('./modules').then(m => m.LibrosModule)
   },
+  {path: 'categorias', component:LibroCategoriasComponent},
   {
     path: '**',
     redirectTo: 'home'
