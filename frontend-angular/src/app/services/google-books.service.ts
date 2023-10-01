@@ -39,7 +39,7 @@ export class GoogleBooksService {
     if (!queryParams || queryParams.trim() === '') {//TODO afinarlo
       // Si queryParams está vacío o solo contiene espacios en blanco, no realizar la solicitud
       alert("Es necesario introducir un nombre o palabra clave");
-      queryParams="Sanderson";
+      //queryParams="Sanderson";
       //return of(null); // o puedes devolver un observable vacío o un valor predeterminado según tus necesidades
     }
 
@@ -84,6 +84,12 @@ export class GoogleBooksService {
 
   getTitle(queryParams: string):  Observable<Libro[]> {
     queryParams = "intitle:"+queryParams;
+    return this.search(queryParams);
+  }
+
+  //Metodo para las categorias
+  getSubject(queryParams: string): Observable<Libro[]>{
+    queryParams = "subject:"+queryParams;
     return this.search(queryParams);
   }
 

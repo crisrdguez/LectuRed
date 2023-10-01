@@ -1,10 +1,11 @@
-<p>libro-categorias works!</p>
-<p>Fantasia</p>
-<p>Ciencia Ficción</p>
-<p>Suspense</p>
-<p>Romántica</p>
-<p>Histórica</p>
-<p>Filosofía</p>
+<div class="contenedor-categoria">
+<div class="categoria" *ngFor="let categoria of categorias">
+        <h2 (click)="verLibrosPorCategoria(categoria.subject)">{{ categoria.titulo }}</h2>
+        <img [src]="categoria.imagen" alt="{{ categoria.titulo }}" (click)="verLibrosPorCategoria(categoria.subject)"/>
+        <p class="categoria-texto">{{ categoria.descripcion }}</p>
+  </div>
+</div>
 
-<!--Click en alguna categoria, de ahi navego a libro-lista
--->
+<!--   categoria.subject es la palabra clave para buscar por categoria q=subject=categoria.libro   -->
+
+<!-- todo <app-libro-listas></app-libro-listas> -->

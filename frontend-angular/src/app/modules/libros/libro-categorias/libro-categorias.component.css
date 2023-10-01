@@ -1,0 +1,27 @@
+.contenedor-categoria{
+    max-width: 90%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.categoria {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin: 20px; /* Añade margen para separar las categorías */
+}
+
+.categoria img {
+    max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+}
+
+.categoria h2 {
+    margin: 10px 0; /* Añade margen entre la imagen y el título */
+}
+
+.categoria-texto{
+    margin: 10px 0;
+    max-width: 50%;
+    font-size: 1.1em;
+}
