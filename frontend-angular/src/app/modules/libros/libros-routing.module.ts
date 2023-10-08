@@ -18,7 +18,7 @@ const routes: Routes = [
           {path: 'libro-listas', component:LibroListasComponent },
           {path: 'libro-detalle/:id', component:LibroDetalleComponent },
           {path: 'resultado-busqueda', component:ResultadoBusquedaComponent},
-          {path: 'categorias', component:LibroCategoriasComponent},
+          {path: 'categorias/:subject', component:LibroCategoriasComponent},
           {path: '**', redirectTo:'libro-listas'}//cualquier otro path va a redirigir al login
       ]
   }

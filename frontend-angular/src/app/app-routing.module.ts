@@ -21,7 +21,8 @@ const routes: Routes = [
   {path: 'libros', 
     loadChildren: () => import('./modules').then(m => m.LibrosModule)
   },
-  {path: 'categorias', component:LibroCategoriasComponent},
+  {path: 'categorias/:subject', component:LibroCategoriasComponent},
+  //{path: 'categorias', component:LibroCategoriasComponent},
   {
     path: '**',
     redirectTo: 'home'

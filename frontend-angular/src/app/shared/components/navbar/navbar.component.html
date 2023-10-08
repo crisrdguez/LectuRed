@@ -1,14 +1,22 @@
+<nav class="horizontal-navigation">
 <ul>
-    <li>
+    <li class="li">
         <a routerLink="/auth/login">Login</a>
     </li>
-    <li>
+    <li class="li">
         <a routerLink="/home">Home</a>
     </li>
-    <li>
-        <a routerLink="/categorias">Categorias</a>
+
+    <li class="li">
+
+            <div class="dropdown-conten" *ngFor="let categoria of categorias">
+                <a routerLink="/categorias/{{ categoria.subject}}">{{ categoria.titulo }}</a>
+            </div>
+
+        
     </li>
-    <li>
+
+    <li class="li">
         <div class="container-form">
             <input class="input" type="text" placeholder="Buscar libros" [(ngModel)]='queryparams'>
             <button class="boton-buscar" (click)="buscarLibros()">Buscar</button>
@@ -16,3 +24,4 @@
         
     </li>
 </ul>
+</nav>

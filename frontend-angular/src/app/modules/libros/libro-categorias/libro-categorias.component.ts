@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {categorias} from '../../../core/models/categorias';
 
 @Component({
@@ -8,15 +8,19 @@ import {categorias} from '../../../core/models/categorias';
   styleUrls: ['./libro-categorias.component.css']
 })
 export class LibroCategoriasComponent implements OnInit{
+  subject:string="";
 
   categorias: any[] = categorias.categorias;
 
-  constructor(private router: Router){
+  constructor(private router: Router, private route: ActivatedRoute){
 
   }
 
   ngOnInit() {
-
+    this.route.params.subscribe(params => {
+      this.subject = params['subject']; // Obtengo el ID del libro de los parámetros de la URL
+      console.log(this.subject);
+    });
   }
 
   verLibrosPorCategoria(categoria:string){
