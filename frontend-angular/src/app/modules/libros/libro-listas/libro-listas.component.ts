@@ -30,7 +30,7 @@ export class LibroListasComponent implements OnInit{
     this.buscadorService.getQueryParams().subscribe(queryParams => {
       this.queryparams = queryParams;
       // Realizar la búsqueda con los nuevos valores de queryParams
-      this.busquedaLibros();
+     
     });
 
     this.buscadorService.getOpcionBusqueda().subscribe(opcionBusqueda => {
@@ -40,12 +40,13 @@ export class LibroListasComponent implements OnInit{
     });
 
     // Suscribirse a los cambios en los parámetros de consulta
+    /*
     this.route.queryParams.subscribe((params) => {
       this.queryparams = params['q'] || ''; // 'q' es el nombre del parámetro de consulta
       this.buscadorService.setQueryParams(this.queryparams);
       this.buscadorService.setOpcionBusqueda(4); //cuatro es la opcion de categorias
       this.busquedaLibros();
-    });
+    });*/
   }
 
   

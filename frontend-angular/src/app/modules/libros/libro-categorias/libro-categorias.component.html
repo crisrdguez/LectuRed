@@ -1,14 +1,13 @@
 <div class="contenedor-categoria">
-  <div class="categoria" *ngFor="let categoria of categorias">
-    <h2 (click)="verLibrosPorCategoria(categoria.subject)">{{ categoria.titulo }}</h2>
-    <img [src]="categoria.imagen" alt="{{ categoria.titulo }}" (click)="verLibrosPorCategoria(categoria.subject)"/>
-    <p class="categoria-texto">{{ categoria.descripcion }}</p>
-  </div>
-<h2>{{subject}}</h2>
+ 
+  <h2>{{ categoria.titulo }}</h2>
+  <img [src]="categoria.imagen" alt="{{ categoria.titulo }}"/>
+  <p class="categoria-texto">{{ categoria.descripcion }}</p>
 
 </div>
 
 <!--   categoria.subject es la palabra clave para buscar por categoria q=subject=categoria.libro   -->
 
-<!-- todo <app-libro-listas></app-libro-listas> -->
+<!--TODO pasar q y opcion-->
+<app-libro-listas></app-libro-listas>
 

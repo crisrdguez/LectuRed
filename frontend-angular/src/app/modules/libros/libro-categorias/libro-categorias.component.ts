@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {categorias} from '../../../core/models/categorias';
+import { BuscadorService } from 'src/app/services/buscador.service';
 
 @Component({
   selector: 'app-libro-categorias',
@@ -8,25 +9,26 @@ import {categorias} from '../../../core/models/categorias';
   styleUrls: ['./libro-categorias.component.css']
 })
 export class LibroCategoriasComponent implements OnInit{
-  subject:string="";
+  url:string="";
+  categoria:any;
 
   categorias: any[] = categorias.categorias;
 
-  constructor(private router: Router, private route: ActivatedRoute){
+  constructor(private router: Router, private route: ActivatedRoute, private buscadorService : BuscadorService){
 
   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.subject = params['subject']; // Obtengo el ID del libro de los parámetros de la URL
-      console.log(this.subject);
+      this.url = params['url']; // Obtengo categorias.url del json de categorias que paso por url
+      console.log(this.url);
+      //guardo en categorias el objeto cuyo url sea al
+      this.categoria = categorias.categorias.find(categoria => categoria.url === this.url);
+      this.buscadorService.setQueryParams(this.categoria.subject);
+      this.buscadorService.setOpcionBusqueda(4); //opcion de busqueda 4 - categorias
     });
   }
 
-  verLibrosPorCategoria(categoria:string){
-    // Navegar a la ruta de listado de libros con la palabra clave de búsqueda con los parámetros de consulta
-    this.router.navigate(['/libros/libro-listas'], { queryParams: { q: categoria } });
-  }
 
   
 
