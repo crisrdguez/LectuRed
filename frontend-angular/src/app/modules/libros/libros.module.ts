@@ -9,6 +9,7 @@ import { LibrosRoutingModule } from './libros-routing.module';
 //import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LibroCategoriasComponent } from './libro-categorias/libro-categorias.component';
+import { LibroActividadComponent } from './libro-actividad/libro-actividad.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LibroCategoriasComponent } from './libro-categorias/libro-categorias.co
     LibroListasComponent,
     ResultadoBusquedaComponent,
     LibroDetalleComponent,
-    LibroCategoriasComponent
+    LibroCategoriasComponent,
+    LibroActividadComponent
   ],
   imports: [
     CommonModule,
@@ -31,7 +33,8 @@ import { LibroCategoriasComponent } from './libro-categorias/libro-categorias.co
     LibroListasComponent,
     ResultadoBusquedaComponent,
     LibroDetalleComponent,
-    LibroCategoriasComponent
+    LibroCategoriasComponent,
+    LibroActividadComponent
   ],
   providers: [],
 })

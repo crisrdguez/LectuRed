@@ -7,6 +7,7 @@ import { LibroListasComponent } from './libro-listas/libro-listas.component';
 import { LibroDetalleComponent } from './libro-detalle/libro-detalle.component';
 import { ResultadoBusquedaComponent } from './resultado-busqueda/resultado-busqueda.component';
 import { LibroCategoriasComponent } from './libro-categorias/libro-categorias.component';
+//import { LibroActividadComponent } from './libro-actividad/libro-actividad.component';
 
 
 //Rutas secundarias
@@ -19,6 +20,7 @@ const routes: Routes = [
           {path: 'libro-detalle/:id', component:LibroDetalleComponent },
           {path: 'resultado-busqueda', component:ResultadoBusquedaComponent},
           {path: 'categorias/:subject', component:LibroCategoriasComponent},
+          //{path: 'actividad', component:LibroActividadComponent},
           {path: '**', redirectTo:'libro-listas'}//cualquier otro path va a redirigir al login
       ]
   }

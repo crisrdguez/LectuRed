@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LibroCategoriasComponent } from './modules/libros/libro-categorias/libro-categorias.component';
+import { LibroActividadComponent } from './modules/libros/libro-actividad/libro-actividad.component';
 //Componentes
 //import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
 //import { ResultadoBusquedaComponent } from './modules/libros/resultado-busqueda/resultado-busqueda.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
     loadChildren: () => import('./modules').then(m => m.LibrosModule)
   },
   {path: 'categorias/:url', component:LibroCategoriasComponent},
-  //{path: 'categorias', component:LibroCategoriasComponent},
+  {path: 'actividad', component:LibroActividadComponent},
+
   {
     path: '**',
     redirectTo: 'home'

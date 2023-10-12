@@ -1,3 +1,5 @@
+{
+    "items":
 [
     {
       "idPersona": "usuario1",
@@ -35,3 +37,4 @@
       "estado": "leido"
     }
   ]
+}

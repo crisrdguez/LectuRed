@@ -17,6 +17,7 @@ export class LibroListasComponent implements OnInit{
   /*
   @Input() opcionBusqueda:number=0;
   @Input() queryparams:string="";*/
+  @Input() AuxText:string='';
   queryparams: string = '';
   opcionBusqueda: number = 0;
 
@@ -27,7 +28,10 @@ export class LibroListasComponent implements OnInit{
   }
 
   ngOnInit(): void {
+    console.log("IIIIIIIIIIIIIIIIIINIT    " + this.AuxText);
     this.buscadorService.getQueryParams().subscribe(queryParams => {
+      
+      console.log("---------------------------------NIT");
       this.queryparams = queryParams;
       // Realizar la búsqueda con los nuevos valores de queryParams
      
@@ -36,6 +40,7 @@ export class LibroListasComponent implements OnInit{
     this.buscadorService.getOpcionBusqueda().subscribe(opcionBusqueda => {
       this.opcionBusqueda = opcionBusqueda;
       // Realizar la búsqueda con el nuevo valor de opcionBusqueda
+      console.log("+++++++++++++++++++++++++++++++NIT");
       this.busquedaLibros();
     });
 
@@ -49,14 +54,19 @@ export class LibroListasComponent implements OnInit{
     });*/
   }
 
+  ngOnDestroy(): void {
+    // todo destruir
+    
+  }
+
   
 
   //Metodo que obtiene listado de libros
   busquedaLibros(){
-    console.log("Entra en busqueda libros del libro-listas")
+    //console.log("<<<<<Entra en busqueda libros del libro-listas")
     //this.opcion=1;
     if(this.opcionBusqueda==1){
-      console.log("Entra en opcion 1 en libros-listas")
+      console.log(">>>>>>Entra en opcion 1 en libros-listas")
 
       // Llama al método getAll del servicio para obtener la lista de libros
       this.googleBooksService.getAll(this.queryparams, 6).subscribe({
@@ -78,7 +88,7 @@ export class LibroListasComponent implements OnInit{
       console.log("Entra en opcion 2 en libros-listas")
 
       // Llama al método getAll del servicio para obtener la lista de libros
-      this.googleBooksService.getAuthor(this.queryparams).subscribe({
+      this.googleBooksService.getAuthor(this.queryparams, 5).subscribe({
         next: (libros: Libro[]) => {
           this.listaLibros = libros;
           console.log(this.listaLibros);
@@ -129,7 +139,7 @@ export class LibroListasComponent implements OnInit{
 
     }
 
-    console.log("Salgo del metodo busqueda libros");
+    console.log("****************Salgo del metodo busqueda libros");
   }
 
   /*

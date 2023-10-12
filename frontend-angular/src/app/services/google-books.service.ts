@@ -68,28 +68,39 @@ export class GoogleBooksService {
    * @returns 
    */
   getAll(queryParams: string, maxResult?: number, orderby?: string): Observable<Libro[]> {
+    
     if(maxResult){
       queryParams += "&maxResults="+maxResult;
     }
     if(orderby){
       queryParams += "&orderby="+orderby;
     }
+    console.log("desde getall de GoogleBooksService");
     return this.search(queryParams);
   }
 
-  getAuthor(queryParams: string):  Observable<Libro[]> {
+  getAuthor(queryParams: string, maxResult?: number, orderby?: string):  Observable<Libro[]> {
+    if(maxResult){
+      queryParams += "&maxResults="+maxResult;
+    }
+    if(orderby){
+      queryParams += "&orderby="+orderby;
+    }
     queryParams = "inauthor:"+queryParams;
+    console.log("desde getautor de GoogleBooksService");
     return this.search(queryParams);
   }
 
   getTitle(queryParams: string):  Observable<Libro[]> {
     queryParams = "intitle:"+queryParams;
+    console.log("desde intitle de GoogleBooksService");
     return this.search(queryParams);
   }
 
   //Metodo para las categorias
   getSubject(queryParams: string): Observable<Libro[]>{
     queryParams = "subject:"+queryParams;
+    console.log("desde subject de GoogleBooksService");
     return this.search(queryParams);
   }
 
@@ -118,11 +129,14 @@ export class GoogleBooksService {
     const options = { headers };
 
     // Construir la URL de la solicitud utilizando los parámetros de consulta
-    const url = `${this.urlDetalle}?idLibro=${idLibro}`;
+    let url = `${this.urlDetalle}?idLibro=${idLibro}`;
     console.log("DETALLELIBRO: "+url + " - "+ options);
 
     //Realizar la solicitud HTTP a la API de Google Books y obtener una respuesta en formato JSON
+
+    url+="&busqueda=1";
     const jsonRespuesta: Observable<VolumeItem> = this.http.get<VolumeItem>(url, options);
+    console.log(url);
 
     // Transformar la respuesta JSON en un arreglo de objetos Libro utilizando la función fromJsonToLibroArray
     return fromJsonToLibro(jsonRespuesta);
