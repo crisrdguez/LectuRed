@@ -1,0 +1,37 @@
+[
+    {
+      "idPersona": "usuario1",
+      "idLibro": "libro123456",
+      "puntuacion": 4,
+      "critica": "Me encantó este libro, muy recomendado.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "usuario2",
+      "idLibro": "libro789012",
+      "puntuacion": 5,
+      "critica": "Uno de los mejores libros que he leído.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "usuario3",
+      "idLibro": "libro456789",
+      "puntuacion": 3,
+      "critica": "Fue un libro interesante, aunque podría haber sido mejor.",
+      "estado": "leyendo"
+    },
+    {
+      "idPersona": "usuario4",
+      "idLibro": "libro111222",
+      "puntuacion": 2,
+      "critica": "No me gustó este libro en absoluto, no lo recomiendo.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "usuario5",
+      "idLibro": "libro333444",
+      "puntuacion": 5,
+      "critica": "Excelente libro, me mantuvo intrigado de principio a fin.",
+      "estado": "leido"
+    }
+  ]

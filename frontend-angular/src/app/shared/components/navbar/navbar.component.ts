@@ -16,9 +16,6 @@ export class NavbarComponent {
   
   constructor(private router: Router) {}
 
-  toggleCategoriesDropdown() {
-    this.showCategoriesDropdown = !this.showCategoriesDropdown;
-  }
 
   buscarLibros() {
     // Navegar a la ruta de resultados de búsqueda con los parámetros de consulta

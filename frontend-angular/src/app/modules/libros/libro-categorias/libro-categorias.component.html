@@ -3,11 +3,9 @@
   <h2>{{ categoria.titulo }}</h2>
   <img [src]="categoria.imagen" alt="{{ categoria.titulo }}"/>
   <p class="categoria-texto">{{ categoria.descripcion }}</p>
+  <app-libro-listas></app-libro-listas>
 
 </div>
 
-<!--   categoria.subject es la palabra clave para buscar por categoria q=subject=categoria.libro   -->
 
-<!--TODO pasar q y opcion-->
-<app-libro-listas></app-libro-listas>
 
