@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Libro } from 'src/app/core/models';
 import { BuscadorService } from 'src/app/services/buscador.service';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
@@ -9,7 +10,7 @@ import { GoogleBooksService } from 'src/app/services/google-books.service';
   templateUrl: './libro-listas.component.html',
   styleUrls: ['./libro-listas.component.css']
 })
-export class LibroListasComponent implements OnInit{
+export class LibroListasComponent implements OnInit, OnDestroy{
 
   listaLibros:Libro[] = [];
 
@@ -23,13 +24,16 @@ export class LibroListasComponent implements OnInit{
 
   libroSeleccionado:Libro | null = null;
 
+  private queryServiceSubscription: Subscription | undefined;
+  private opcionServiceSubscription: Subscription | undefined;
+
   constructor(private googleBooksService:GoogleBooksService, private buscadorService: BuscadorService, private route: ActivatedRoute){
 
   }
 
   ngOnInit(): void {
     console.log("IIIIIIIIIIIIIIIIIINIT    " + this.AuxText);
-    this.buscadorService.getQueryParams().subscribe(queryParams => {
+    this.queryServiceSubscription= this.buscadorService.getQueryParams().subscribe(queryParams => {
       
       console.log("---------------------------------NIT");
       this.queryparams = queryParams;
@@ -37,12 +41,15 @@ export class LibroListasComponent implements OnInit{
      
     });
 
-    this.buscadorService.getOpcionBusqueda().subscribe(opcionBusqueda => {
+    this.opcionServiceSubscription = this.buscadorService.getOpcionBusqueda().subscribe(opcionBusqueda => {
       this.opcionBusqueda = opcionBusqueda;
       // Realizar la búsqueda con el nuevo valor de opcionBusqueda
       console.log("+++++++++++++++++++++++++++++++NIT");
       this.busquedaLibros();
+      
     });
+    
+    
 
     // Suscribirse a los cambios en los parámetros de consulta
     /*
@@ -54,10 +61,7 @@ export class LibroListasComponent implements OnInit{
     });*/
   }
 
-  ngOnDestroy(): void {
-    // todo destruir
-    
-  }
+  
 
   
 
@@ -140,6 +144,14 @@ export class LibroListasComponent implements OnInit{
     }
 
     console.log("****************Salgo del metodo busqueda libros");
+  }
+
+  ngOnDestroy(): void {
+    
+    this.queryServiceSubscription?.unsubscribe();
+    this.opcionServiceSubscription?.unsubscribe();
+
+    
   }
 
   /*

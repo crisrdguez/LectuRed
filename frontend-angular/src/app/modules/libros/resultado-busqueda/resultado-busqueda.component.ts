@@ -3,7 +3,7 @@ import { Libro } from 'src/app/core/models/libro.model';
 import { LibroListasComponent } from '../libro-listas/libro-listas.component';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { BuscadorService } from 'src/app/services/buscador.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-resultado-busqueda',
@@ -29,7 +29,7 @@ libroSeleccionado:Libro | null = null;
 @ViewChild('bookList3', { static: false }) bookList3!: LibroListasComponent;
 */
 
-constructor(private buscadorService : BuscadorService, private route: ActivatedRoute){
+constructor(private buscadorService : BuscadorService, private route: ActivatedRoute, private router: Router){
 
 }
 
@@ -63,7 +63,8 @@ onTabChange(event: MatTabChangeEvent) {
 
 buscarclick(){
   this.buscadorService.setQueryParams(this.queryparams);
-  this.buscadorService.setOpcionBusqueda(this.opcionBusqueda);
+  //this.buscadorService.setOpcionBusqueda(this.opcionBusqueda);
+  //todo vuelvo a llamar a la vista de applistas
 }
 }
 

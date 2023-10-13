@@ -40,3 +40,9 @@ export class BuscadorService {
  * a los componentes suscribirse y recibir actualizaciones de queryparams y opcionBusqueda. 
  * Los componentes pueden suscribirse a estos observables para escuchar cambios en estos valores y reaccionar en consecuencia.
  */
+
+/**
+ * BehaviorSubject es una de las clases de observables proporcionadas por la biblioteca RxJS, que se utiliza para crear observables que emiten un valor inicial 
+ * y luego emiten valores subsiguientes cada vez que cambian. Es particularmente útil en situaciones donde necesitas mantener un estado o compartir datos en 
+ * tiempo real entre componentes de una aplicación Angular.
+ */
