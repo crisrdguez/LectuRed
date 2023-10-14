@@ -1,14 +1,14 @@
-<!--TODO DetalleLibro-->
-
-<mat-card class="example-card">
-  <img [routerLink]="'/libros/libro-detalle/'+libro.id" mat-card-image [src]="libro.thumbnail" alt="Portada del libro">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title (click)="dameDetalle()">{{libro.title | cortaTexto : 45}}</mat-card-title> <!--Uso pipe cortaTexto, situado en el modulo shared-->
-    <mat-card-subtitle>{{libro.authors?.join(', ') | cortaTexto : 45}}</mat-card-subtitle>
-  </mat-card-header>
-</mat-card>
-
 <!--Cuando uso corchetes [routerLink]  significa que estás pasando una propiedad enlazable(una variable)
 sin corchetes estás pasando solo cadena y no puedes cambiarla, está codificada y será así en toda tu app -> <a routerLink="/home"></a>
 -->
+    <ng-container *ngIf="libro!=undefined">
+      <mat-card class="example-card">
+        <img [routerLink]="'/libros/libro-detalle/'+libro.id" mat-card-image [src]="libro.thumbnail" alt="Portada del libro">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title (click)="dameDetalle()">{{libro.title | cortaTexto : 45}}</mat-card-title> <!--Uso pipe cortaTexto, situado en el modulo shared-->
+          <mat-card-subtitle>{{libro.authors?.join(', ') | cortaTexto : 45}}</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </ng-container>
+

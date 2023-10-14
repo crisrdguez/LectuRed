@@ -2,39 +2,44 @@
     "items":
 [
     {
-      "idPersona": "usuario1",
-      "idLibro": "libro123456",
+      "idPersona": "000",
+      "nombre": "Cris",
+      "idLibro": "4iQN0AEACAAJ",
       "puntuacion": 4,
       "critica": "Me encantó este libro, muy recomendado.",
       "estado": "leido"
     },
     {
-      "idPersona": "usuario2",
-      "idLibro": "libro789012",
-      "puntuacion": 5,
-      "critica": "Uno de los mejores libros que he leído.",
-      "estado": "leido"
+      "idPersona": "111",
+      "nombre": "Cris",
+      "idLibro": "qPFFSUgJlLwC",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "leyendo"
     },
     {
-      "idPersona": "usuario3",
-      "idLibro": "libro456789",
+      "idPersona": "222",
+      "nombre": "Pepe",
+      "idLibro": "XPBQDnsa8DYC",
       "puntuacion": 3,
       "critica": "Fue un libro interesante, aunque podría haber sido mejor.",
       "estado": "leyendo"
     },
     {
-      "idPersona": "usuario4",
-      "idLibro": "libro111222",
+      "idPersona": "333",
+      "nombre": "Pepa",
+      "idLibro": "uU-8ISKTGxIC",
       "puntuacion": 2,
       "critica": "No me gustó este libro en absoluto, no lo recomiendo.",
       "estado": "leido"
     },
     {
-      "idPersona": "usuario5",
-      "idLibro": "libro333444",
-      "puntuacion": 5,
-      "critica": "Excelente libro, me mantuvo intrigado de principio a fin.",
-      "estado": "leido"
+      "idPersona": "444",
+      "nombre": "Cris",
+      "idLibro": "ouJJwd01G78C",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "por leer"
     }
   ]
 }

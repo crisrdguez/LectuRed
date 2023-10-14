@@ -13,6 +13,7 @@ export class ActividadService {
   constructor(private http: HttpClient) { }
 
   getCriticas(): Observable<any> {
+    console.log(this.http.get(this.jsonURL));
     return this.http.get(this.jsonURL);
   }
 

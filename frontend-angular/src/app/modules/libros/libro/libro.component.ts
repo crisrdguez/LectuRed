@@ -9,16 +9,12 @@ import { Libro } from 'src/app/core/models';
 })
 export class LibroComponent {
 
-  @Input() libro!: Libro; // Declara una propiedad "libro" que recibirá el objeto libro del componente padre.
+  @Input() libro: Libro | undefined; // Declara una propiedad "libro" que recibirá el objeto libro del componente padre libro-lista
 
   queryparams="";
 
-  listaLibros:Libro[] = [];
-
-  
-
   constructor(private router: Router){
-
+    //console.log(this.entrada);
   }
 
   dameDetalle(){
@@ -27,4 +23,8 @@ export class LibroComponent {
       this.router.navigate(['/libro-detalle', libroId]);
     }
   }
+
+
+  
+
 }

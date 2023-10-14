@@ -104,6 +104,8 @@ export class GoogleBooksService {
     return this.search(queryParams);
   }
 
+  //todo Metodo para buscar las novedades - tienes que incluir autor, titulo o palabra clave
+
   /*************************************************DETALLE LIBRO*************************************************************** */
 
   /**
@@ -134,7 +136,6 @@ export class GoogleBooksService {
 
     //Realizar la solicitud HTTP a la API de Google Books y obtener una respuesta en formato JSON
 
-    url+="&busqueda=1";
     const jsonRespuesta: Observable<VolumeItem> = this.http.get<VolumeItem>(url, options);
     console.log(url);
 
@@ -146,6 +147,7 @@ export class GoogleBooksService {
     
     return this.searchLibro(idLibro);
   }
+
 
 }
 /**

@@ -24,7 +24,7 @@ export const categorias = {
       },
       {
         "titulo": "Romantica",
-        "subject": "Romantic",
+        "subject": "Love",
         "url":"romantica",
         "descripcion": "La novela romántica te sumerge en un mundo de pasión, emociones intensas y amores apasionados. Descubre historias de corazones entrelazados y suspiros compartidos mientras exploras el poder del amor en todas sus formas. ¡Ven y déjate llevar por un viaje lleno de romance que te hará palpitar el corazón!",
         "imagen": "../assets/categorias/romantica.jpeg"
