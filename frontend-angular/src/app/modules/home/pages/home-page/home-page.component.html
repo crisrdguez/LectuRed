@@ -2,8 +2,8 @@
 <div class="banner"></div>
 <section id="cont" class="seccion-oscura contacto">
     <div class="container">
-        <div class="container text-center rectangulo d-flex justify-content-evenly">
-            <div class="row" *ngFor="let entrada of listaRecomendados">
+        <div class="container text-center rectangulo">
+            <div class="elemento-superpuesto" *ngFor="let entrada of listaRecomendados">
                 <app-libro class="superpuesto" [libro]="buscaLibro(entrada.idLibro)"></app-libro>
             </div>
         </div>

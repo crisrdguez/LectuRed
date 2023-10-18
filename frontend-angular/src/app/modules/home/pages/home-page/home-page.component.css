@@ -8,12 +8,12 @@
 }  
 
 .superpuesto {
-    width: 900px;
-    bottom: -200px; /* Ajusta este valor para superponer el div sobre el banner según tus necesidades */
+    /*width: 900px;
+    margin-left: 10px;
     background-color: white; /* Puedes ajustar el color de fondo si lo deseas */
-    padding: 10px; /* Agrega espacio al contenido dentro del div superpuesto */
-    border-radius: 5px; /* Opcional: agrega bordes redondeados al div superpuesto */
-    z-index: 1; /* Asegura que el div superpuesto esté por encima del banner */
+    padding: 5px; /* Agrega espacio al contenido dentro del div superpuesto */
+    /*border-radius: 15px; /* Opcional: agrega bordes redondeados al div superpuesto */
+    /*z-index: 1; /* Asegura que el div superpuesto esté por encima del banner */
   }
 
 
@@ -27,8 +27,8 @@
 .contacto .container{
     max-width: 1400px;
     width: 100%;
-    min-height: 600px;
-    padding:20px;
+    min-height: 500px;
+    padding:10px;
 }
 
 .rectangulo{
@@ -40,8 +40,12 @@
     box-shadow: 0px 1px 4px 1px wheat;
 }
 
-.contacto .row{
-    width: 100%;
-    display:flex;
-    align-items:center;
-}
+
+.elemento-superpuesto {
+    display: inline-block;
+    width: calc(20%); /* Establece el ancho de cada libro al 20% del contenedor */
+  }
+
+  .superpuesto[_ngcontent-ng-c3809421292]{
+    background-color: rgb(33, 49, 73);
+  }

@@ -2,8 +2,12 @@
     display: flex;
     flex-direction: column; /* Cambia la dirección de la disposición a columna */
     align-items: center; /* Centra los elementos horizontalmente */
-    max-width: 300px;
-    background-color:#1b1b32;
+    width: 240px;
+    max-width: 250px;
+    height:350px;
+    max-height: 400px;
+    background-color:#16192b;
+    padding: 10px;
 }
 
 .container{
@@ -11,4 +15,9 @@
     justify-content: left;
     align-items: center;
     
+  }
+
+  .titulo{
+    font-size: medium;
+    color:rgb(231, 231, 231);
   }
