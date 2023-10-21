@@ -2,63 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rating;
 use Illuminate\Http\Request;
 
 class RatingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $ratings = Rating::all();
+        return response()->json($ratings);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show($id)
     {
-        //
+        $rating = Rating::find($id);
+        return response()->json($rating);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $rating = Rating::create($request->all());
+        return response()->json($rating, 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $rating = Rating::find($id);
+        $rating->update($request->all());
+        return response()->json($rating);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function destroy($id)
     {
-        //
+        Rating::find($id)->delete();
+        return response()->json(null, 204);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    
+    public function book($id)
     {
-        //
+        $book = Rating::find($id)->book;
+        return response()->json($book);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    
+    public function user($id)
     {
-        //
+        $user = Rating::find($id)->user;
+        return response()->json($user);
     }
 }
