@@ -1,5 +1,5 @@
 .horizontal-navigation {
-    background-color: #3a3a3a;
+    background-color: #1b1b32;
     padding: 10px 0;
     list-style-type: none;
     margin: 0;
@@ -47,7 +47,7 @@
   }
   
   .boton-buscar {
-    background-color: #50443a;
+    background-color: #1b1b32;
     color: #fff;
     border: none;
     padding: 10px 10px;
@@ -55,13 +55,18 @@
   }
 
   .boton-buscar:hover{
-    background-color: #7a726b;
+    background-color: #393966;
   }
 
   .item-categoria a {
+    background-color: #1b1b32;
     color: white;
     text-decoration: none;
   }
+
+  .item-categoria{
+    background-color: #1b1b32;
+  }
   .item-categoria a:hover {
-    color: tu-color-deseado;
+    background-color: #313157;
   }

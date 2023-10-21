@@ -3,10 +3,15 @@ sin corchetes estás pasando solo cadena y no puedes cambiarla, está codificada
 -->
     <ng-container *ngIf="libro!=undefined">
       <mat-card class="example-card">
-        <img [routerLink]="'/libros/libro-detalle/'+libro.id" mat-card-image [src]="libro.thumbnail" alt="Portada del libro">
+        <!--Si el libro no tiene thumbail, le añado una imagen que tengo en la carpeta assets-->
+        <img
+          [routerLink]="'/libros/libro-detalle/' + libro.id"
+          mat-card-image
+          [src]="libro.thumbnail ? libro.thumbnail : '../../assets/imagenlibro.jpg'"
+          alt="Portada del libro"
+        />
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title (click)="dameDetalle()">{{libro.title | cortaTexto : 45}}</mat-card-title> <!--Uso pipe cortaTexto, situado en el modulo shared-->
+          <mat-card-title class="titulo" (click)="dameDetalle()">{{libro.title | cortaTexto : 45}}</mat-card-title> <!--Uso pipe cortaTexto, situado en el modulo shared-->
           <mat-card-subtitle>{{libro.authors?.join(', ') | cortaTexto : 45}}</mat-card-subtitle>
         </mat-card-header>
       </mat-card>
