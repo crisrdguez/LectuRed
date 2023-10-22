@@ -49,3 +49,61 @@
   .superpuesto[_ngcontent-ng-c3809421292]{
     background-color: rgb(33, 49, 73);
   }
+
+  /*footer*/
+  footer{
+    min-height: 500px;
+}
+
+.seccion-oscura{
+  color:white;
+  background-color:#0c1c34;
+}
+
+.footer-logo{
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+}
+
+.footer-texto{
+    font-size: 1.5rem;
+    padding: 20px;
+    margin-top: 20px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.iconos-redes a{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 10px;
+    border: 2px solid white;
+    border-radius:50%;
+    transition: all 0.2s ease-in;
+}
+
+.iconos-redes i{
+    color:white;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in;
+}
+
+.iconos-redes a:hover{
+    background-color: white;
+    border:2px solid rgb(13, 110, 253);
+
+}
+
+.iconos-redes a:hover i{
+    color:black;
+}
+
+.derechos{
+    font-size: 15px;
+    color:#aeaeae;
+    padding:20px;
+}
