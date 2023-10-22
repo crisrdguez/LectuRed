@@ -1,5 +1,5 @@
 .horizontal-navigation {
-    background-color: #1b1b32;
+    background-color: #0c1c34;
     padding: 10px 0;
     list-style-type: none;
     margin: 0;
@@ -46,27 +46,23 @@
     margin-right: 0; /* Elimina el margen derecho */
   }
   
-  .boton-buscar {
-    background-color: #1b1b32;
-    color: #fff;
-    border: none;
-    padding: 10px 10px;
-    cursor: pointer;
-  }
-
-  .boton-buscar:hover{
-    background-color: #393966;
-  }
-
   .item-categoria a {
-    background-color: #1b1b32;
+    background-color: #0c1c34;
     color: white;
     text-decoration: none;
   }
 
   .item-categoria{
-    background-color: #1b1b32;
+    background-color: #0c1c34;
+  }
+  .item-categoria:hover{
+    background-color: #162b49;
   }
   .item-categoria a:hover {
-    background-color: #313157;
+    background-color: #0c1c34;
   }
+
+  .logo-pequeno {
+    width: 70px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Esto mantiene la proporción original al ajustar el ancho */
+}

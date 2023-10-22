@@ -1,5 +1,8 @@
 <nav class="horizontal-navigation">
     <div class="nav-opcion">
+        <img src="../../../../assets/logo1.png" alt="logo proyecto" class="logo-pequeno">
+    </div>
+    <div class="nav-opcion">
         <button mat-button><a routerLink="/home">Home</a></button>
     </div>
     <div class="nav-opcion">
@@ -17,7 +20,7 @@
     <div class="nav-opcion">
         <div class="container-form">
             <input class="input" type="text" placeholder="Buscar libros" [(ngModel)]='queryparams'>
-            <button class="boton-buscar" (click)="buscarLibros()">Buscar</button>
+            <button mat-button (click)="buscarLibros()">Buscar</button>
         </div>
     </div>   
     <div class="nav-opcion nav-login">
