@@ -1,26 +1,37 @@
 <div class="container-principal">
 <div class="banner"></div>
-<section id="cont" class="contacto">
+<section class="listado-recomendados">
     <div class="container">
         <div class="container text-center rectangulo">
             <div class="elemento-superpuesto" *ngFor="let entrada of listaRecomendados">
                 <app-libro class="superpuesto" [libro]="buscaLibro(entrada.idLibro)"></app-libro>
             </div>
+            <p>Recomendados</p>
+        </div>
+    </div>
+</section>
+<section class="listado-recomendados">
+    <div class="container">
+        <div class="container text-center rectangulo2">
+            <div class="elemento-superpuesto" *ngFor="let entrada of listaRecomendados">
+                <app-libro class="superpuesto" [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+            </div>
+            <p>Novedades</p>
         </div>
     </div>
 </section>
 <!--footer-->
 <footer class="seccion-oscura d-flex flex-column align-items-center justify-content-center">
-    <p class="footer-texto text-center">Los libros son el pasaporte a mundos desconocidos<br>y la llave para el crecimiento personal</p>
-    <div class="iconos-redes d-flex flex-wrap align-items-center justify-content-center">
-        <a href="https://github.com/crisrdguez" target="_blank" rel="noopener noreferrer">
+    <p class="footer-texto text-center">Los libros son el pasaporte a mundos desconocidos<br><br>y la llave para el crecimiento personal</p>
+    <div class="iconos-redes">
+        <a href="https://github.com/crisrdguez/LectuRed" target="_blank" rel="noopener noreferrer">
             <i class="bi bi-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/cristina-rodriguez-dev/" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-linkedin"></i>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-facebook"></i>
         </a>
-        <a href="mailto:cris@mail.com" target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-envelope"></i>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-instagram"></i>
         </a>
     </div>
     <div class="derechos">Creado por Mabel y Cris (2023) &#169;</div>
