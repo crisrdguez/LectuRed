@@ -42,6 +42,10 @@
             <x-primary-button class="ml-3">
                 {{ __('Log in') }}
             </x-primary-button>
+            <a href="{{ route('login_google') }}" class="ml-2">
+                <x-secondary-button>
+                    {{ __('Log in with Google') }}
+                </x-secondary-button>
         </div>
     </form>
 </x-guest-layout>

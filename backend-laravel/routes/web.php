@@ -1,9 +1,9 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ProfileController;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -23,12 +23,18 @@ Route::get('/', function () {
 
 Route::get('/google-auth/redirect', function () {
     return Socialite::driver('google')->redirect();
-    
-});
+})->name('login_google');
  
 Route::get('/google-auth/callback', function () {
-    $user_google = Socialite::driver('google')->stateless()->user();
-    dd($user_google);
+    $user = Socialite::driver('google')->user();
+    $user = User::updateOrCreate([
+        'id' => $user->id,
+    ], [
+        'email' => $user->email,
+        'name' => $user->name,
+    ]);
+    Auth::login($user);
+    return redirect()->route('dashboard');
 });
 
 Route::get('/dashboard', function () {
@@ -40,5 +46,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';

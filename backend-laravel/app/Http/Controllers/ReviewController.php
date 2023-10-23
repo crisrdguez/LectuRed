@@ -2,51 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $reviews = Review::all();
-        return response()->json($reviews);
+        //
     }
 
-    public function show($id)
-    {
-        $review = Review::find($id);
-        return response()->json($review);
-    }
-
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $review = Review::create($request->all());
-        return response()->json($review, 201);
+        //
     }
 
-    public function update(Request $request, $id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $review = Review::find($id);
-        $review->update($request->all());
-        return response()->json($review);
+        //
     }
 
-    public function destroy($id)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
     {
-        Review::find($id)->delete();
-        return response()->json(null, 204);
+        //
     }
-    
-    public function book($id)
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
     {
-        $book = Review::find($id)->book;
-        return response()->json($book);
-    }
-    
-    public function user($id)
-    {
-        $user = Review::find($id)->user;
-        return response()->json($user);
+        //
     }
 }

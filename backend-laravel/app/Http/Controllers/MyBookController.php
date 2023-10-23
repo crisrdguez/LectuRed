@@ -2,51 +2,47 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MyBook;
 use Illuminate\Http\Request;
 
 class MyBookController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $myBooks = MyBook::all();
-        return response()->json($myBooks);
+        //
     }
 
-    public function show($id)
-    {
-        $myBook = MyBook::find($id);
-        return response()->json($myBook);
-    }
-
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $myBook = MyBook::create($request->all());
-        return response()->json($myBook, 201);
+        //
     }
 
-    public function update(Request $request, $id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $myBook = MyBook::find($id);
-        $myBook->update($request->all());
-        return response()->json($myBook);
+        //
     }
 
-    public function destroy($id)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
     {
-        MyBook::find($id)->delete();
-        return response()->json(null, 204);
+        //
     }
-    
-    public function user($id)
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
     {
-        $user = MyBook::find($id)->user;
-        return response()->json($user);
-    }
-    
-    public function book($id)
-    {
-        $book = MyBook::find($id)->book;
-        return response()->json($book);
+        //
     }
 }
