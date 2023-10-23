@@ -15,6 +15,8 @@ export class HomePageComponent implements OnInit{
   listaRecomendados: any[] = []; // Definir una variable para almacenar los datos
   librosRecomendados : Libro[] = [];
 
+  //todo falta listado de novedades
+
   constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
