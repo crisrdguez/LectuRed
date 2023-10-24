@@ -13,6 +13,7 @@ p{
   margin-top:40px;
   color:beige;
   font-size: 2.9rem;
+  padding-bottom: 20px;
 }
 
 /*listado de libros*/
@@ -29,19 +30,15 @@ p{
     padding:10px;
 }
 
-.rectangulo{
+.rectangulo, .rectangulo2{
     width: 100%;
-    margin-top:  -7rem;
     background-color: rgb(33, 49, 73);
     border-radius:10px;
     box-shadow: 0px 1px 4px 1px wheat;
 }
 
-.rectangulo2{
-  width: 100%;
-  background-color: rgb(33, 49, 73);
-  border-radius:10px;
-  box-shadow: 0px 1px 4px 1px wheat;
+.rectangulo{
+  margin-top:  -7rem;
 }
 
 .elemento-superpuesto {
@@ -107,7 +104,7 @@ p{
 
 .iconos-redes a:hover{
     background-color: white;
-    border:2px solid rgb(13, 110, 253);
+    border:2px solid rgb(209, 212, 0);
 
 }
 
@@ -119,4 +116,9 @@ p{
     font-size: 15px;
     color:#aeaeae;
     padding:20px;
+}
+
+.logo-pequeno {
+  width: 200px; 
+  height: auto; 
 }

@@ -105,6 +105,18 @@ export class GoogleBooksService {
   }
 
   //todo Metodo para buscar las novedades - tienes que incluir autor, titulo o palabra clave
+  //https://www.googleapis.com/books/v1/volumes?q=inauthor:King&key=AIzaSyDLfxm2NrmcuUzdC10qj-q6fdmEfy7b1x8&langRestrict=es&orderBy=newest&maxResults=5
+  getNews(queryParams: string, maxResult?: number, orderby?: string): Observable<Libro[]> {
+    queryParams = "inauthor:"+queryParams;
+    if(maxResult){
+      queryParams += "&maxResults="+maxResult;
+    }
+    if(orderby){
+      queryParams += "&orderby="+orderby;
+    }
+    console.log("desde getall de GoogleBooksService");
+    return this.search(queryParams);
+  }
 
   /*************************************************DETALLE LIBRO*************************************************************** */
 

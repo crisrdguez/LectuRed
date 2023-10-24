@@ -36,7 +36,7 @@ app.get("/api/all", cors(), (req, res) => {
     });
 });
 
-//TODO Metodo que accede a la informacion de un unico libro, para contruir DetalleLibro
+//Metodo que accede a la informacion de un unico libro, para contruir DetalleLibro
 app.get("/detalle", cors(), (req, res) => {
   console.log("Entra en detalle");
 

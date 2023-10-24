@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Libro } from 'src/app/core/models';
 import { ActividadService } from 'src/app/services/actividad.service';
+import { BuscadorService } from 'src/app/services/buscador.service';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 
@@ -15,9 +16,11 @@ export class HomePageComponent implements OnInit{
   listaRecomendados: any[] = []; // Definir una variable para almacenar los datos
   librosRecomendados : Libro[] = [];
 
-  //todo falta listado de novedades
+  //array de autores
+  autores: string[] = ["King", "Sanderson", "agatha christie", "Jane Austen", "Megan Maxwell", "Javier Castillo"];
+  autorElegido : string = "";
 
-  constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
+  constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute, private buscadorService : BuscadorService) { }
 
   ngOnInit(): void {
     this.actividadService.getRecomendados().subscribe(data => {
@@ -26,6 +29,12 @@ export class HomePageComponent implements OnInit{
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
       data.recomendados.forEach((recomendados:any) => this.getLibroId(recomendados.idLibro));
     });
+    //todo setear la query y opcion de busqueda - random en query
+    // Llama al método para seleccionar un autor al azar
+    this.seleccionarAutorAlAzar();
+    this.buscadorService.setQueryParams(this.autorElegido);
+    this.buscadorService.setOpcionBusqueda(5); //opcion de busqueda 5 - novedades
+    
   }
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros
@@ -56,5 +65,11 @@ export class HomePageComponent implements OnInit{
     return libroEncontrado;
 
   }
+
+  seleccionarAutorAlAzar() {
+    let indiceAleatorio = Math.floor(Math.random() * this.autores.length);
+    this.autorElegido = this.autores[indiceAleatorio];
+  }
+  
 
 }

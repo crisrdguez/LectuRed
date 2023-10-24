@@ -124,11 +124,30 @@ export class LibroListasComponent implements OnInit, OnDestroy{
       });
 
     }
-
+    //opcion categorias
     if(this.opcionBusqueda==4){
       console.log("Entra en opcion 4 en libros-listas")
 
       this.googleBooksService.getSubject(this.queryparams).subscribe({
+        next: (libros: Libro[]) => {
+          this.listaLibros = libros;
+          console.log(this.listaLibros);
+        },
+        error: (error) => {
+          console.error('Error al obtener los libros', error);
+        },
+        complete: () => {
+          console.info("Peticion completada");
+        }
+      });
+
+    }
+
+    //opcion novedades
+    if(this.opcionBusqueda==5){
+      console.log("Entra en opcion 5 en libros-listas")
+
+      this.googleBooksService.getNews(this.queryparams, 10, "newest").subscribe({
         next: (libros: Libro[]) => {
           this.listaLibros = libros;
           console.log(this.listaLibros);
