@@ -13,14 +13,16 @@
     width: calc(20% - 20px); /* Establece el ancho de cada libro al 25% del contenedor */
     margin: 10px; /* Espacio entre los libros */
     padding: 10px;
-    border: 1px solid #9e9595;
+    
     box-shadow: 0 7px 4px rgba(26, 25, 25, 0.1);
     box-sizing: border-box;
     text-align: center;
+    background-color: rgb(33, 49, 73);
   }
   
   .container {
     max-width: 100%;
     padding: 0 15px;
     margin: 0 auto;
+    background-color: rgb(33, 49, 73);
   }

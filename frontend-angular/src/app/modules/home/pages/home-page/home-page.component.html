@@ -3,20 +3,19 @@
 <section class="listado-recomendados">
     <div class="container">
         <div class="container text-center rectangulo">
+            <p>Recomendados</p>
             <div class="elemento-superpuesto" *ngFor="let entrada of listaRecomendados">
                 <app-libro class="superpuesto" [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-            </div>
-            <p>Recomendados</p>
+            </div>           
         </div>
     </div>
 </section>
 <section class="listado-recomendados">
     <div class="container">
         <div class="container text-center rectangulo2">
-            <div class="elemento-superpuesto" *ngFor="let entrada of listaRecomendados">
-                <app-libro class="superpuesto" [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-            </div>
             <p>Novedades</p>
+            <app-libro-listas></app-libro-listas>
+            
         </div>
     </div>
 </section>
@@ -33,6 +32,9 @@
         <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
             <i class="bi bi-instagram"></i>
         </a>
+    </div>
+    <div class="logo-container">
+        <img src="../../../../assets/logo1.png" alt="logo proyecto" class="logo-pequeno">
     </div>
     <div class="derechos">Creado por Mabel y Cris (2023) &#169;</div>
 </footer>
