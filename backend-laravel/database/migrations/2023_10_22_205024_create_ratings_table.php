@@ -11,21 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('user_id');
-            $table->longText('content');
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent();
-            $table->softDeletes();
+            $table->unsignedTinyInteger('rating');
             $table->enum('previous_book_status', ['desired', 'reading', 'read'])->nullable();
-        
+            $table->timestamps();
+            $table->softDeletes();
+
             $table->foreign('book_id')->references('id')->on('books');
             $table->foreign('user_id')->references('id')->on('users');
             $table->unique(['book_id', 'user_id']);
         });
-
     }
 
     /**
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('ratings');
     }
 };

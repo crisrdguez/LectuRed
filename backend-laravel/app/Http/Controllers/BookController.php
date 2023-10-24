@@ -1,49 +1,48 @@
 <?php
-    
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Book;
 
 class BookController extends Controller
 {
-    // Listar todos los libros
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $books = Book::all();
-        return response()->json($books);
+        //
     }
 
-    // Mostrar un libro específico
-    public function show($id)
-    {
-        $book = Book::find($id);
-        return response()->json($book);
-    }
-
-    // Crear un nuevo libro
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
-        $book = new Book;
-        $book->fill($request->all());
-        $book->save();
-        return response()->json($book, 201);
+        //
     }
 
-    // Actualizar un libro
-    public function update(Request $request, $id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $book = Book::find($id);
-        $book->update($request->all());
-        return response()->json($book);
+        //
     }
 
-    // Eliminar un libro
-    public function destroy($id)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
     {
+        //
+    }
 
-        $book = Book::find($id);
-        $book->delete();
-        return response()->json(['message' => 'Libro eliminado']);
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }

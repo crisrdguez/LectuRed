@@ -9,11 +9,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Rating extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'book_id',
-        'user_id',
-        'rating',
-        'previous_book_status',
+
+    protected $guarded = [
+        'id',
     ];
 
     public function book()
@@ -33,5 +31,4 @@ class Rating extends Model
             Rule::in([1, 2, 3, 4, 5]),
         ],
     ];
-
 }

@@ -8,20 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Book extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'book_id',
-        'title',
-        'author',
-        'thumbnail',
-        'text_snippet',
-        'isbn',
-        'publisher',
-        'category',
-        'page_count',
-        'language',
-        'publication_date',
+    protected $guarded = [
+        'id',
     ];
 
+    
     public function users()
     {
         return $this->belongsToMany(User::class, 'my_books', 'book_id', 'user_id')
@@ -38,5 +29,6 @@ class Book extends Model
     {
         return $this->hasMany(Review::class, 'book_id');
     }
+
 
 }

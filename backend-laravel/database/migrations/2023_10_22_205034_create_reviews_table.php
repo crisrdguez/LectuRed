@@ -11,19 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('my_books', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('book_id');
-            $table->enum('status', ['desired', 'reading', 'read']);
-            $table->boolean('soft_deleted')->default(false);
+            $table->unsignedBigInteger('user_id');
+            $table->longText('content');
+            $table->enum('previous_book_status', ['desired', 'reading', 'read'])->nullable();
             $table->timestamps();
-        
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('book_id')->references('id')->on('books');
-            $table->unique(['user_id', 'book_id']);
-        });
+            $table->softDeletes();
 
+            $table->foreign('book_id')->references('id')->on('books');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unique(['book_id', 'user_id']);
+        });
     }
 
     /**
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('my_books');
+        Schema::dropIfExists('reviews');
     }
 };
