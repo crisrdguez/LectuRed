@@ -10,6 +10,14 @@
       "estado": "leido"
     },
     {
+      "idPersona": "000",
+      "nombre": "Cris",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 4,
+      "critica": "",
+      "estado": "leido"
+    },
+    {
       "idPersona": "111",
       "nombre": "Cris",
       "idLibro": "qPFFSUgJlLwC",
@@ -23,7 +31,7 @@
       "idLibro": "XPBQDnsa8DYC",
       "puntuacion": 3,
       "critica": "Fue un libro interesante, aunque podría haber sido mejor.",
-      "estado": "leyendo"
+      "estado": "leido"
     },
     {
       "idPersona": "333",
@@ -39,7 +47,16 @@
       "idLibro": "ouJJwd01G78C",
       "puntuacion": 0,
       "critica": "",
-      "estado": "por leer"
+      "estado": "deseado"
+    },
+    {
+      "idPersona": "555",
+      "nombre": "Manuela",
+      "idLibro": "f4JtQQAACAAJ",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "deseado"
     }
+
   ]
 }

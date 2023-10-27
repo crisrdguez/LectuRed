@@ -1,9 +1,29 @@
-<h3>Actividad de tooooooooooooooooooodos</h3>
+<h3>Actividad</h3>
 <div *ngFor="let entrada of listaActividad">
-    <h3>Nombre: {{ entrada.nombre }}</h3>
-    <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-    <p>Puntuación: {{ entrada.puntuacion }}</p>
-    <p>Critica: {{ entrada.critica }}</p>
-    <p>Estado: {{ entrada.estado }}</p>
-    <p>************************************</p>
-</div>
+    
+    <ng-container *ngIf="entrada.puntuacion === 0">
+      <!-- Si la puntuación es 0, el usuario no ha leído el libro -->
+      <ng-container *ngIf="entrada.estado === 'leyendo'">
+        <p>{{ entrada.nombre }} ha comenzado a leer el libro</p>
+        <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+      </ng-container>
+      <ng-container *ngIf="entrada.estado === 'deseado'">
+        <p>{{ entrada.nombre }} ha añadido el libro</p>
+        <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+        <p> a su lista de deseos</p>
+      </ng-container>
+    </ng-container>
+  
+    <ng-container *ngIf="entrada.puntuacion !== 0">
+      <!-- Si la puntuación es distinta de 0, el usuario ha leído el libro -->
+      <p>{{ entrada.nombre }} ha leído el libro</p>
+      <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+      <p>Puntuación: {{ entrada.puntuacion }} estrellas</p>    
+        <ng-container *ngIf="entrada.critica !== '' ">
+            <p>Reseña: "{{ entrada.critica }}"</p>
+        </ng-container>
+    </ng-container>
+
+    
+  </div>
+  
