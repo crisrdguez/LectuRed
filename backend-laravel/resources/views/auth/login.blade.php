@@ -35,16 +35,16 @@
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    {{ __('He olvidado la contraseña') }}
                 </a>
             @endif
 
             <x-primary-button class="ml-3">
-                {{ __('Log in') }}
+                {{ __('Iniciar sesión') }}
             </x-primary-button>
             <a href="{{ route('login_google') }}" class="ml-2">
                 <x-secondary-button>
-                    {{ __('Log in with Google') }}
+                    {{ __('Iniciar sesión con google') }}
                 </x-secondary-button>
         </div>
     </form>
