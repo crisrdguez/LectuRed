@@ -4,6 +4,7 @@
     {
       "idPersona": "000",
       "nombre": "Cris",
+      "fecha": "16/10/2023",
       "idLibro": "4iQN0AEACAAJ",
       "puntuacion": 4,
       "critica": "Me encantó este libro, muy recomendado.",
@@ -12,6 +13,7 @@
     {
       "idPersona": "000",
       "nombre": "Cris",
+      "fecha": "15/10/2023",
       "idLibro": "4iQN0AEACAAJ",
       "puntuacion": 4,
       "critica": "",
@@ -20,6 +22,7 @@
     {
       "idPersona": "111",
       "nombre": "Cris",
+      "fecha": "14/10/2023",
       "idLibro": "qPFFSUgJlLwC",
       "puntuacion": 0,
       "critica": "",
@@ -28,6 +31,7 @@
     {
       "idPersona": "222",
       "nombre": "Pepe",
+      "fecha": "13/10/2023",
       "idLibro": "XPBQDnsa8DYC",
       "puntuacion": 3,
       "critica": "Fue un libro interesante, aunque podría haber sido mejor.",
@@ -36,6 +40,7 @@
     {
       "idPersona": "333",
       "nombre": "Pepa",
+      "fecha": "12/10/2023",
       "idLibro": "uU-8ISKTGxIC",
       "puntuacion": 2,
       "critica": "No me gustó este libro en absoluto, no lo recomiendo.",
@@ -44,6 +49,7 @@
     {
       "idPersona": "444",
       "nombre": "Cris",
+      "fecha": "11/10/2023",
       "idLibro": "ouJJwd01G78C",
       "puntuacion": 0,
       "critica": "",
@@ -52,6 +58,7 @@
     {
       "idPersona": "555",
       "nombre": "Manuela",
+      "fecha": "10/10/2023",
       "idLibro": "f4JtQQAACAAJ",
       "puntuacion": 0,
       "critica": "",

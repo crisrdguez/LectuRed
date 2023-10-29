@@ -9,6 +9,7 @@ export class ActividadService {
 
   jsonURL = 'assets/mock/actividad.json'; // Ruta al archivo JSON
   json_Recomendados_URL = 'assets/mock/recomendados.json'; // Ruta al archivo JSON
+  json_misLibros = 'assets/mock/misLibros.json';
 
 
   constructor(private http: HttpClient) { }
@@ -21,6 +22,11 @@ export class ActividadService {
   getRecomendados(): Observable<any> {
     console.log(this.http.get(this.json_Recomendados_URL));
     return this.http.get(this.json_Recomendados_URL);
+  }
+
+  getMisLibros(): Observable<any> {
+    console.log(this.http.get(this.json_misLibros));
+    return this.http.get(this.json_misLibros);
   }
 
   

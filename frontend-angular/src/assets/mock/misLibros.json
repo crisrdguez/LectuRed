@@ -1,0 +1,45 @@
+{
+    "misLibros":
+[
+    {
+      "idLibro": "LsBkzwEACAAJ",
+      "estado": "leido"
+    },
+    {
+      "idLibro": "t1slEAAAQBAJ",
+      "estado": "leido"
+    },
+    {
+      "idLibro": "DDHFEAAAQBAJ",
+      "estado": "leyendo"
+    },
+    {
+      "idLibro": "YZseCgAAQBAJ",
+      "estado": "deseado"
+    },
+    {
+      "idLibro": "hWSmEAAAQBAJ",
+      "estado": "deseado"
+    },
+    {
+       "idLibro": "_NFdEAAAQBAJ",
+       "estado": "deseado"
+    },
+    {
+       "idLibro": "5iYfAQAAIAAJ",
+       "estado": "leido"
+    },
+    {
+       "idLibro": "sjuVEAAAQBAJ",
+       "estado": "leyendo"
+    },
+    {
+       "idLibro": "NWXDEAAAQBAJ",
+       "estado": "leido"
+    },
+    {
+       "idLibro": "O2BlAAAAMAAJ",
+       "estado": "leido"
+    }
+  ]
+}

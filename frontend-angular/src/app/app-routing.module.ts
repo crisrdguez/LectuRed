@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LibroCategoriasComponent } from './modules/libros/libro-categorias/libro-categorias.component';
 import { LibroActividadComponent } from './modules/libros/libro-actividad/libro-actividad.component';
 import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
+import { LibroMisLibrosComponent } from './modules/libros/libro-mis-libros/libro-mis-libros.component';
 //Componentes
 //import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
 //import { ResultadoBusquedaComponent } from './modules/libros/resultado-busqueda/resultado-busqueda.component';
@@ -22,6 +23,8 @@ const routes: Routes = [
   },
   {path: 'categorias/:url', component:LibroCategoriasComponent},
   {path: 'actividad', component:LibroActividadComponent},
+  {path: 'mislibros', component:LibroMisLibrosComponent},
+  
 
   {
     path: '**',

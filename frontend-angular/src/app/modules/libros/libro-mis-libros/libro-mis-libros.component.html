@@ -1,0 +1,29 @@
+<h2>Mis libros</h2>
+
+<h3> Leyendo </h3>
+<div class="contenedor-actividad">
+  <ng-container *ngFor="let entrada of listaMisLibros">
+    <ng-container *ngIf="entrada.estado === 'leyendo'">
+      <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+    </ng-container>
+  </ng-container>
+</div>
+
+<h3> Leidos </h3>
+<div class="contenedor-actividad">
+  <ng-container *ngFor="let entrada of listaMisLibros">
+    <ng-container *ngIf="entrada.estado === 'leido'">
+      <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+    </ng-container>
+  </ng-container>
+</div>
+
+<h3> Deseados</h3>
+<div class="contenedor-actividad">
+  <ng-container *ngFor="let entrada of listaMisLibros">
+    <ng-container *ngIf="entrada.estado === 'deseado'">
+      <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+    </ng-container>
+  </ng-container>
+</div>
+

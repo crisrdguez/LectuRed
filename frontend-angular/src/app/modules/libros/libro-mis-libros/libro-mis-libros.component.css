@@ -1,0 +1,17 @@
+.contenedor-actividad {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una sola fila */
+    gap: 10px; /* Espacio entre elementos */
+  }
+  
+  .activity-item {
+    flex: 1; /* Los elementos ocuparán un espacio igual en el contenedor */
+    /* Puedes agregar estilos adicionales según tus necesidades */
+  }
+  
+h3{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.9rem;
+    padding: 10px;
+    margin:10px;
+}
