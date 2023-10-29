@@ -17,14 +17,14 @@ export const categorias = {
       },
       {
         "titulo": "Suspense",
-        "subject": "Mistery",
+        "subject": "religion",
         "url":"suspense",
         "descripcion": "El suspense literario te sumerge en un mundo de intrigas, secretos y giros inesperados. Atrévete a desentrañar misterios y sentir la adrenalina mientras cada página te atrapa más en su red. ¡Ven y sumérgete en un emocionante juego de suspense que te mantendrá al borde de tu asiento!",
         "imagen": "../assets/categorias/misterio.jpeg"
       },
       {
         "titulo": "Romantica",
-        "subject": "Love",
+        "subject": "love",
         "url":"romantica",
         "descripcion": "La novela romántica te sumerge en un mundo de pasión, emociones intensas y amores apasionados. Descubre historias de corazones entrelazados y suspiros compartidos mientras exploras el poder del amor en todas sus formas. ¡Ven y déjate llevar por un viaje lleno de romance que te hará palpitar el corazón!",
         "imagen": "../assets/categorias/romantica.jpeg"
@@ -45,7 +45,7 @@ export const categorias = {
       },
       {
         "titulo": "Psicologia",
-        "subject": "psychologic",
+        "subject": "psicologia",
         "url":"psicologia",
         "descripcion": "La psicología y la autoayuda te guían hacia un viaje de autoexploración y crecimiento personal. Descubre cómo comprender tu mente, superar desafíos y alcanzar tu máximo potencial. ¡Únete a un emocionante viaje de autodescubrimiento y transformación personal que te llevará hacia una vida más plena y satisfactoria!",
         "imagen": "../assets/banner.png"

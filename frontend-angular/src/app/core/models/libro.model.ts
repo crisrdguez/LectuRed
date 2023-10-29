@@ -5,6 +5,7 @@ export class Libro {
     private _thumbnail: string | undefined;
     private _subtitle:string | undefined;
     private _publisher:string | undefined;
+    private _description:string | undefined;
 
     constructor() {
 
@@ -56,6 +57,14 @@ export class Libro {
 
   set publisher(publisher: string | undefined) {
     this._publisher = publisher;
+  }
+
+  get description(): string | undefined {
+    return this._description;
+  }
+
+  set description(description: string | undefined) {
+    this._description = description;
   }
   
 

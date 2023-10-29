@@ -48,6 +48,7 @@ export function fromJsonToLibro(jsonRespuesta: Observable<VolumeItem>): Observab
             libro.thumbnail = volumeInfo.imageLinks?.thumbnail || '';
             libro.subtitle = volumeInfo.subtitle;
             libro.publisher = volumeInfo.publisher;
+            libro.description = volumeInfo.description;
           
           return libro; // Retorna el objeto Libro como resultado de la transformación
         

@@ -7,4 +7,6 @@
     <p>Subtítulo: {{ libroSeleccionado.subtitle }}</p>
     <p>Autor(es): {{ libroSeleccionado.authors?.join(', ') }}</p>
     <p>Editorial: {{libroSeleccionado.publisher}}</p>
+    <p>Resumen: {{libroSeleccionado.description}}</p>
+    <div [innerHTML]="libroSeleccionado.description"></div>
 </div>
