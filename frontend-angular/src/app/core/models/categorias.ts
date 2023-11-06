@@ -39,7 +39,7 @@ export const categorias = {
       {
         "titulo": "Infantil",
         "subject": "Children",
-        "url":"children",
+        "url":"infantil",
         "descripcion": "Los libros infantiles son puertas mágicas hacia mundos llenos de aventuras, amistad y aprendizaje. Acompaña a los más pequeños en un viaje de imaginación, donde los personajes cobran vida y las historias enseñan valiosas lecciones. ¡Invita a los niños a descubrir la magia de la lectura y a crear recuerdos que perdurarán toda la vida!",
         "imagen": "../assets/categorias/infantil.jpeg"
       },

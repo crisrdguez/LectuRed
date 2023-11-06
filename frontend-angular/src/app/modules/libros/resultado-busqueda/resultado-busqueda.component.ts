@@ -36,7 +36,7 @@ constructor(private buscadorService : BuscadorService, private route: ActivatedR
 ngOnInit():void{
   // Suscribirse a los cambios en los parámetros de consulta
   this.route.queryParams.subscribe((params) => {
-    this.queryparams = params['q'] || ''; // 'q' es el nombre del parámetro de consulta
+    this.queryparams = params['q2'] || ''; // 'q' es el nombre del parámetro de consulta en navbar
     this.buscadorService.setQueryParams(this.queryparams);
     this.buscadorService.setOpcionBusqueda(1);
   });
@@ -65,6 +65,8 @@ buscarclick(){
   this.buscadorService.setQueryParams(this.queryparams);
   //this.buscadorService.setOpcionBusqueda(this.opcionBusqueda);
   //todo vuelvo a llamar a la vista de applistas
+  this.selectedTabIndex==0;
+  this.buscadorService.setOpcionBusqueda(1);
 }
 }
 

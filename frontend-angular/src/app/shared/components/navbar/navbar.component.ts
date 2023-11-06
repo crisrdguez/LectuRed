@@ -19,7 +19,7 @@ export class NavbarComponent {
 
   buscarLibros() {
     // Navegar a la ruta de resultados de búsqueda con los parámetros de consulta
-    this.router.navigate(['/libros/resultado-busqueda'], { queryParams: { q: this.queryparams } });
+    this.router.navigate(['/libros/resultado-busqueda'], { queryParams: { q2: this.queryparams } });
   }
 
 }
