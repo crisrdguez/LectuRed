@@ -34,4 +34,13 @@ export class LibroDetalleComponent implements OnInit{
     });
       
   }
+
+  agregarAFavoritos(libro: any): void {
+    console.log('Libro añadido a favoritos:', libro.title);
+  }
+
+  obtenerPuntuacionMedia(libro: any):string{
+    return "";
+  }
+
 }
