@@ -1,4 +1,3 @@
-<h3>Detalle de libro</h3>
 <div *ngIf="libroSeleccionado" class="bookpage_gridcontainer">
     <div class="bookpage_leftcolumn">
         <div class="sticky">
@@ -12,6 +11,20 @@
                     <button (click)="agregarAFavoritos(libroSeleccionado)">Añadir a Favoritos</button>
                 </div>
             </div>
+            <div class="rating" id="rating">
+                <input type="radio" name="star" id="star1" (click)="rate(1)">
+                <label for="star1">&#9733;</label><!--El código &#9733; es una entidad HTML que representa un carácter especial en HTML llamado "Black Star"-->
+                <input type="radio" name="star" id="star2"(click)="rate(2)">
+                <label for="star2">&#9733;</label>
+                <input type="radio" name="star" id="star3" (click)="rate(3)">
+                <label for="star3">&#9733;</label>
+                <input type="radio" name="star" id="star4" (click)="rate(4)">
+                <label for="star4">&#9733;</label>
+                <input type="radio" name="star" id="star5" (click)="rate(5)">
+                <label for="star5">&#9733;</label>
+            </div>
+            <p id="result">¡Gracias por tu puntuación!</p>
+            
         </div>
     </div>
     <div class="bookpage_rightcolumn">

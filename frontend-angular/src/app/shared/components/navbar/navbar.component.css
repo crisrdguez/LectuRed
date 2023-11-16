@@ -1,11 +1,16 @@
 .horizontal-navigation {
-    background-color: #0c1c34;
-    padding: 10px 0;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-between;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  background-color: #0c1c34;
+  padding: 10px 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1000; /* Ajusta el índice z para asegurar que esté por encima de otros elementos */
   }
 
   .logo-container {
@@ -25,7 +30,7 @@
   }
   
   .horizontal-navigation a {
-    color: #fff;
+    color: #F9F6F6;
     text-decoration: none;
   }
 
@@ -54,15 +59,16 @@
   
   .item-categoria a {
     background-color: #0c1c34;
-    color: white;
+    color: #F9F6F6;
     text-decoration: none;
   }
 
   .item-categoria{
     background-color: #0c1c34;
   }
+  /*no hace nada*/
   .item-categoria:hover{
-    background-color: #162b49;
+    background-color: #b2b5b9;
   }
   .item-categoria a:hover {
     background-color: #0c1c34;
@@ -71,4 +77,8 @@
   .logo-pequeno {
     width: 70px; /* Ajusta el ancho de la imagen según tus necesidades */
     height: auto; /* Esto mantiene la proporción original al ajustar el ancho */
+}
+
+.mat-mdc-button:not(:disabled){
+  color:#F9F6F6;
 }

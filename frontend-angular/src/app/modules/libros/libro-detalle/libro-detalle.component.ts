@@ -43,4 +43,12 @@ export class LibroDetalleComponent implements OnInit{
     return "";
   }
 
+  rate(stars:any) {
+    const resultElement = document.getElementById('result');
+    if(!resultElement) {
+        return;
+    }
+    resultElement.textContent = `Has puntuado con ${stars} estrellas`;
+}
+
 }

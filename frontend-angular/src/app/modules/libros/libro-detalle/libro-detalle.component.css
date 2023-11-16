@@ -1,53 +1,56 @@
-.detalle-libro-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60%;
-    background-color: rgb(217, 217, 241);
-  }
-  
-  .detalle-libro-content {
-    display: flex;
-    align-items: center;
-  }
-  
-  .detalle-libro-info {
-    margin-left: 20px; /* Ajusta el margen según sea necesario */
-  }
-  
-
-  /*pruebas*/
-
-
-  .bookpage_gridcontainer {
-    width: 60%;
+.bookpage_gridcontainer {
+    width: 80%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px; /* Ajusta el espacio entre las columnas según sea necesario */
+    grid-template-columns: 1fr 1fr; /* Cambié la definición de columnas para que la izquierda tenga un ancho fijo */
+    gap: 20px;
 }
 
 .bookpage_leftcolumn {
-    position: relative;
-}
-
-.sticky {
-    position: sticky;
-    top: 20px; /* Ajusta la distancia desde la parte superior según sea necesario */
-    margin-left: 20px;
+    position: fixed;
+    top: 110px;
+    left: 30px;
+    width: 15%; /* Ancho fijo para la columna izquierda */
 }
 
 .bookpage_bookcover img {
-    width: 50%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
 }
 
 .bookpage_rightcolumn {
-    /* Estilos para la columna derecha */
+    width: 100%;
+    margin-left: 50%; /* Ajusta el margen izquierdo para dejar espacio para la columna izquierda */
 }
 
-.bookActions_button button {
-    /* Estilos para el botón "Añadir a Favoritos" */
-}
+/* Otros estilos según sea necesario */
+
+
+
 
 mat-icon{
     color: rgb(22, 78, 161);
+}
+
+/*Estrellas*/
+.rating {
+    margin:10px;
+    font-size: 3em;
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+label:hover,
+label:hover ~ label {
+    color: #ffcc00;
+}
+
+input[type="radio"]:checked ~ label {
+    color: #ffcc00;
 }
