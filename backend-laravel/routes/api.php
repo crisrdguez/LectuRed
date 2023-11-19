@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\MyBookController;
 use App\Http\Controllers\RatingController;
@@ -23,6 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
  
 Route::apiResources([
+    'users'=>UserController::class,
     'books' => BookController::class,
     'mybooks' => MyBookController::class,
     'ratings' => RatingController::class,
