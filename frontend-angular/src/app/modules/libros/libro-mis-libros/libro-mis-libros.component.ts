@@ -13,6 +13,7 @@ export class LibroMisLibrosComponent implements OnInit{
 
   listaMisLibros: any[] = []; // Definir una variable para almacenar los datos
   misLibros : Libro[] = [];
+  librosBBDD : any[] = [];
 
   constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
 
@@ -23,6 +24,12 @@ export class LibroMisLibrosComponent implements OnInit{
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
       data.misLibros.forEach((item:any) => this.getLibroId(item.idLibro));
     });
+
+    this.actividadService.getMisLibrosBBDD().subscribe(data => {
+      console.log("dentro del componente ts")
+      console.log(data.data);
+      this.librosBBDD = data.data;
+    })
   }
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros

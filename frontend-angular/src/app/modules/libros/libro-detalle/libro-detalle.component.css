@@ -23,7 +23,9 @@
 
 /* Otros estilos según sea necesario */
 
-
+button{
+    background-color: #CE7979;
+}
 
 
 mat-icon{

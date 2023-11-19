@@ -27,3 +27,13 @@
   </ng-container>
 </div>
 
+<h3> Probando conexion a bbdd</h3>
+<div class="contenedor-actividad">
+  <ng-container *ngFor="let entrada of librosBBDD">
+    <p>user_id: {{ entrada.user_id }}</p>
+    <p>book_id: {{ entrada.book_id }}</p>
+    <p>status: {{ entrada.status }}</p>
+    <p>created_at: {{ entrada.created_at }}</p>
+  </ng-container>
+</div>
+

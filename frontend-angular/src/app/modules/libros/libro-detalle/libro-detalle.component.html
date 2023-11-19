@@ -3,7 +3,7 @@
         <div class="sticky">
             <div class="bookpage_bookcover">
                 <!-- Tu imagen de carátula aquí -->
-                <img mat-card-image [src]="libroSeleccionado.thumbnail" alt="Portada del libro">
+                <img mat-card-image [src]="libroSeleccionado.thumbnail ? libroSeleccionado.thumbnail : '../../assets/imagenlibro.jpg'" alt="Portada del libro">
             </div>
            
             <div class="rating-container">

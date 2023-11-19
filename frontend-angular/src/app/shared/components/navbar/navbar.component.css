@@ -82,3 +82,6 @@
 .mat-mdc-button:not(:disabled){
   color:#F9F6F6;
 }
+p{
+  background-color: white;
+}

@@ -2,7 +2,8 @@
     "items":
 [
     {
-      "idPersona": "000",
+      "idPersona": "111",
+      "imagenPerfil": "",
       "nombre": "Cris",
       "fecha": "16/10/2023",
       "idLibro": "4iQN0AEACAAJ",
@@ -11,7 +12,8 @@
       "estado": "leido"
     },
     {
-      "idPersona": "000",
+      "idPersona": "111",
+      "imagenPerfil": "",
       "nombre": "Cris",
       "fecha": "15/10/2023",
       "idLibro": "4iQN0AEACAAJ",
@@ -21,6 +23,7 @@
     },
     {
       "idPersona": "111",
+      "imagenPerfil": "",
       "nombre": "Cris",
       "fecha": "14/10/2023",
       "idLibro": "qPFFSUgJlLwC",
@@ -30,7 +33,8 @@
     },
     {
       "idPersona": "222",
-      "nombre": "Pepe",
+      "imagenPerfil": "",
+      "nombre": "Mabel",
       "fecha": "13/10/2023",
       "idLibro": "XPBQDnsa8DYC",
       "puntuacion": 3,
@@ -39,6 +43,7 @@
     },
     {
       "idPersona": "333",
+      "imagenPerfil": "",
       "nombre": "Pepa",
       "fecha": "12/10/2023",
       "idLibro": "uU-8ISKTGxIC",
@@ -47,8 +52,9 @@
       "estado": "leido"
     },
     {
-      "idPersona": "444",
-      "nombre": "Cris",
+      "idPersona": "222",
+      "imagenPerfil": "",
+      "nombre": "Mabel",
       "fecha": "11/10/2023",
       "idLibro": "ouJJwd01G78C",
       "puntuacion": 0,
@@ -56,7 +62,8 @@
       "estado": "deseado"
     },
     {
-      "idPersona": "555",
+      "idPersona": "444",
+      "imagenPerfil": "",
       "nombre": "Manuela",
       "fecha": "10/10/2023",
       "idLibro": "f4JtQQAACAAJ",

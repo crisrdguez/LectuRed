@@ -4,7 +4,7 @@
    * las solicitudes HTTP son asincrónicas, 
    * por lo que debes manejar la respuesta de manera asincrónica y, 
    * en lugar de devolver directamente un Libro[] desde el método getAll, 
-   * deberías usar un observable para que el cliente pueda suscribirse a los resultados una vez que estén disponibles
+   * se usa un observable para que el cliente pueda suscribirse a los resultados una vez que estén disponibles
    */
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -63,9 +63,12 @@ export class GoogleBooksService {
   }
 
   /**
-   *  Metodo público que se utilizará en otros componentes o servicios para obtener una lista de libros en función de ciertos parámetros
-   * @param queryParams 
-   * @returns 
+   * Método que se utilizará en otros componentes o servicios
+   * para obtener una lista de libros en función de ciertos parámetros.
+   * @param queryParams - Parámetros de consulta utilizados para buscar libros en la API.
+   * @param maxResult - Número máximo de resultados a obtener (opcional).
+   * @param orderby - Criterio de ordenación de los resultados (opcional).
+   * @returns Observable que emite un arreglo de objetos Libro que representan los libros encontrados.
    */
   getAll(queryParams: string, maxResult?: number, orderby?: string): Observable<Libro[]> {
     
@@ -79,6 +82,13 @@ export class GoogleBooksService {
     return this.search(queryParams);
   }
 
+  /**
+   * Método para obtener una lista de libros de un autor específico.
+   * @param queryParams - Nombre del autor.
+   * @param maxResult - Número máximo de resultados a obtener (opcional).
+   * @param orderby - Criterio de ordenación de los resultados (opcional).
+   * @returns Observable que emite un arreglo de objetos Libro que representan los libros del autor.
+   */
   getAuthor(queryParams: string, maxResult?: number, orderby?: string):  Observable<Libro[]> {
     if(maxResult){
       queryParams += "&maxResults="+maxResult;
@@ -91,21 +101,35 @@ export class GoogleBooksService {
     return this.search(queryParams);
   }
 
+  /**
+   * Método para obtener una lista de libros con un título específico.
+   * @param queryParams - Título del libro.
+   * @returns Observable que emite un arreglo de objetos Libro que representan los libros con el título específico.
+   */
   getTitle(queryParams: string):  Observable<Libro[]> {
     queryParams = "intitle:"+queryParams;
     console.log("desde intitle de GoogleBooksService");
     return this.search(queryParams);
   }
 
-  //Metodo para las categorias
+  /**
+   * Método para obtener una lista de libros de una categoría específica.
+   * @param queryParams - Categoría de los libros.
+   * @returns Observable que emite un arreglo de objetos Libro que representan los libros de la categoría.
+   */
   getSubject(queryParams: string): Observable<Libro[]>{
     queryParams = "subject:"+queryParams;
     console.log("desde subject de GoogleBooksService");
     return this.search(queryParams);
   }
 
-  //todo Metodo para buscar las novedades - tienes que incluir autor, titulo o palabra clave
-  //https://www.googleapis.com/books/v1/volumes?q=inauthor:King&key=AIzaSyDLfxm2NrmcuUzdC10qj-q6fdmEfy7b1x8&langRestrict=es&orderBy=newest&maxResults=5
+  /**
+   * Método para obtener una lista de novedades.
+   * @param queryParams - Nombre del autor, título o palabra clave.
+   * @param maxResult - Número máximo de resultados a obtener (opcional).
+   * @param orderby - Criterio de ordenación de los resultados (opcional).
+   * @returns Observable que emite un arreglo de objetos Libro que representan las novedades.
+   */
   getNews(queryParams: string, maxResult?: number, orderby?: string): Observable<Libro[]> {
     queryParams = "inauthor:"+queryParams;
     if(maxResult){
@@ -121,16 +145,15 @@ export class GoogleBooksService {
   /*************************************************DETALLE LIBRO*************************************************************** */
 
   /**
-   *  Realiza una solicitud HTTP a la API de Google Books - DETALLE LIBRO
-   * @param idLibro Parámetros de consulta utilizados para buscar libros en la API.
-   * @returns Un observable que emite un objetos Libro
+   * Realiza una solicitud HTTP a la API de Google Books para obtener detalles de un libro.
+   * @param idLibro - ID del libro.
+   * @returns Un observable que emite un objeto Libro que representa los detalles del libro.
    */
   private searchLibro(idLibro: string | undefined){
 
     if (!idLibro || idLibro.trim() === '') {//TODO afinarlo
       // Si queryParams está vacío o solo contiene espacios en blanco, no realizar la solicitud
       alert("Es necesario introducir un nombre o palabra clave");
-      idLibro="Sanderson";
       //return of(null); // o puedes devolver un observable vacío o un valor predeterminado según tus necesidades
     }
 
@@ -147,23 +170,22 @@ export class GoogleBooksService {
     console.log("DETALLELIBRO: "+url + " - "+ options);
 
     //Realizar la solicitud HTTP a la API de Google Books y obtener una respuesta en formato JSON
-
     const jsonRespuesta: Observable<VolumeItem> = this.http.get<VolumeItem>(url, options);
     console.log(url);
 
-    // Transformar la respuesta JSON en un arreglo de objetos Libro utilizando la función fromJsonToLibroArray
+    // Transformar la respuesta JSON en un objeto Libro utilizando la función fromJsonToLibro
     return fromJsonToLibro(jsonRespuesta);
   }
 
-  getDetalleLibro(idLibro: string | undefined):  Observable<Libro> {
-    
+  /**
+   * Método que se utilizará en otros componentes o servicios
+   * para obtener los detalles de un libro en función de su ID.
+   * @param idLibro - ID del libro.
+   * @returns Observable que emite un objeto Libro que representa los detalles del libro.
+   */
+  getDetalleLibro(idLibro: string | undefined):  Observable<Libro> {  
     return this.searchLibro(idLibro);
   }
 
 
 }
-/**
- * En general, esta estructura te permite mantener un código limpio y modular, 
- * ya que separa la lógica de transformación de datos en app-utils.ts y la lógica de interacción con la API en google-books.service.ts. 
- * Esto facilita la reutilización de la función de transformación en otros lugares si es necesario.
- */

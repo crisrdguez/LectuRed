@@ -6,7 +6,7 @@ import { Observable, map } from 'rxjs';
 /**
  * Toma un Observable de tipo BookVolumes y lo transforma en un Observable de tipo Libro[]
  * La función utiliza el operador pipe de RxJS y el operador map para realizar esta transformación
- * @param jsonRespuesta de tipo BookVolumes (observable de respuesta JSON)
+ * @param jsonRespuesta Observable de tipo BookVolumes (observable de respuesta JSON)
  * @returns Observable de tipo Libro[] (observable de arreglo de objetos Libro)
  */
 export function fromJsonToLibroArray(jsonRespuesta:Observable<BookVolumes>): Observable<Libro[]>{
@@ -56,5 +56,3 @@ export function fromJsonToLibro(jsonRespuesta: Observable<VolumeItem>): Observab
     );
 
 }
-
-//todo fromjsontoactividad[]
