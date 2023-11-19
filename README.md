@@ -25,7 +25,6 @@ Pasos para el backend:
           DB_PASSWORD=
    - Crear en tu SGBD una DB con nombre `backend_laravel`.
    - Crear la estructura de persistencia(tablas): php artisan migrate
-   - **Cargar los datos de prueba: php artisan db:seed 
+   - Cargar los datos de prueba: php artisan db:seed 
    - Levantar el servidor: php artisan serve
-  
-     **Disponible proximamente.
+ 
