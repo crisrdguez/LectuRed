@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use DateTime;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -18,11 +19,22 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'email' => fake()->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'name'=> fake()->firstName(),
+            'last_name' => fake()->lastName(),
+             'birth_date' => fake()->date($format = 'Y-m-d', $max = 'now'),
+             'email' => fake()->unique()->freeEmail(),
+             'email_verified_at' => fake()->dateTime(),
+             'password' => fake()->password(),
+             'city' =>fake()->city(),
+             'profile_image'=>fake()->imageUrl(),
+             'social_media'=>fake()->url(),
+             'google_id'=>fake()->numberBetween(100000000000000000000 - 999999999999999999999),
+             /*'google_acces_token'=> ,*/       
+             'activity_visible'=> fake()->randomElement(['1','0']),
+             'authentication_provider' => fake()->randomElement([null, 'google']),
+             'remember_token' => fake()->randomAscii(60),
+
+
         ];
     }
 
@@ -31,6 +43,7 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
+
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
         ]);

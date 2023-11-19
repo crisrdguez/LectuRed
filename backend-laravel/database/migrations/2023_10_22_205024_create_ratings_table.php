@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('book_id');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedTinyInteger('rating');
+            $table->Integer('rating')->check('rating >= 1 and rating <= 5');
             $table->enum('previous_book_status', ['desired', 'reading', 'read'])->nullable();
             $table->timestamps();
             $table->softDeletes();
