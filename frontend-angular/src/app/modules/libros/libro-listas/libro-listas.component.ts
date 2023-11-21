@@ -14,60 +14,30 @@ export class LibroListasComponent implements OnInit, OnDestroy{
 
   listaLibros:Libro[] = [];
 
-  //TODO MANDO TB LA OPCION SELECCIONAD
-  /*
-  @Input() opcionBusqueda:number=0;
-  @Input() queryparams:string="";*/
-  @Input() AuxText:string='';
   queryparams: string = '';
   opcionBusqueda: number = 0;
-
-  libroSeleccionado:Libro | null = null;
 
   private queryServiceSubscription: Subscription | undefined;
   private opcionServiceSubscription: Subscription | undefined;
 
-  constructor(private googleBooksService:GoogleBooksService, private buscadorService: BuscadorService, private route: ActivatedRoute){
+  constructor(private googleBooksService:GoogleBooksService, private buscadorService: BuscadorService){
 
   }
 
   ngOnInit(): void {
-    console.log("IIIIIIIIIIIIIIIIIINIT    " + this.AuxText);
     this.queryServiceSubscription= this.buscadorService.getQueryParams().subscribe(queryParams => {
-      
-      console.log("---------------------------------NIT");
-      this.queryparams = queryParams;
-      // Realizar la búsqueda con los nuevos valores de queryParams
-     
+      this.queryparams = queryParams;   
     });
 
     this.opcionServiceSubscription = this.buscadorService.getOpcionBusqueda().subscribe(opcionBusqueda => {
       this.opcionBusqueda = opcionBusqueda;
       // Realizar la búsqueda con el nuevo valor de opcionBusqueda
-      console.log("+++++++++++++++++++++++++++++++NIT");
-      this.busquedaLibros();
-      
+      this.busquedaLibros();     
     });
-    
-    
-
-    // Suscribirse a los cambios en los parámetros de consulta
-    /*
-    this.route.queryParams.subscribe((params) => {
-      this.queryparams = params['q'] || ''; // 'q' es el nombre del parámetro de consulta
-      this.buscadorService.setQueryParams(this.queryparams);
-      this.buscadorService.setOpcionBusqueda(4); //cuatro es la opcion de categorias
-      this.busquedaLibros();
-    });*/
   }
-
-  
-
-  
 
   //Metodo que obtiene listado de libros
   busquedaLibros(){
-    //console.log("<<<<<Entra en busqueda libros del libro-listas")
     //this.opcion=1;
     if(this.opcionBusqueda==1){
       console.log(">>>>>>Entra en opcion 1 en libros-listas")
@@ -169,15 +139,7 @@ export class LibroListasComponent implements OnInit, OnDestroy{
     
     this.queryServiceSubscription?.unsubscribe();
     this.opcionServiceSubscription?.unsubscribe();
-
-    
+   
   }
-
-  /*
-  realizarBusquedaDesdeBuscador(){
-    console.log("la opcion de busqueda en list-books es:" + this.opcionBusqueda);
-    console.log("la opcion de queryparams en list-books es:" + this.queryparams);
-    this.busquedaLibros();
-  }*/
 
 }

@@ -1,7 +1,7 @@
 .bookpage_gridcontainer {
     width: 80%;
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Cambié la definición de columnas para que la izquierda tenga un ancho fijo */
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
@@ -9,19 +9,20 @@
     position: fixed;
     top: 110px;
     left: 30px;
-    width: 15%; /* Ancho fijo para la columna izquierda */
+    width: 15%;
 }
 
 .bookpage_bookcover img {
-    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    width: 80%; 
+    margin-left: 25px;
 }
 
 .bookpage_rightcolumn {
-    width: 100%;
-    margin-left: 50%; /* Ajusta el margen izquierdo para dejar espacio para la columna izquierda */
+    width: 70%;
+    margin-left: 50%; 
 }
 
-/* Otros estilos según sea necesario */
+
 
 button{
     background-color: #CE7979;
@@ -37,6 +38,7 @@ mat-icon{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 10px;
 }
 .rating {
     margin:10px;

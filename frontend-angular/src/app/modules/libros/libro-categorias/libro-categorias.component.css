@@ -1,5 +1,4 @@
 .contenedor-categoria{
-    background-color: rgb(113, 163, 238);
     max-width: 90%;
     padding: 0 15px;
     margin: 0 auto;
@@ -8,17 +7,17 @@
 .categoria {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centra horizontalmente */
-    text-align: center; /* Centra el texto horizontalmente */
-    margin: 20px; /* Añade margen para separar las categorías */
+    align-items: center; 
+    text-align: center;
+    margin: 20px; 
 }
 
 .categoria img {
-    max-width: 100%; /* Ajusta la imagen al ancho del contenedor */
+    max-width: 100%; 
 }
 
 .categoria h2 {
-    margin: 10px 0; /* Añade margen entre la imagen y el título */
+    margin: 10px 0; 
 }
 
 .categoria-texto{

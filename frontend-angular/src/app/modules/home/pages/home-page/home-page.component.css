@@ -32,9 +32,9 @@ p{
 
 .rectangulo, .rectangulo2{
     width: 100%;
-    background-color: rgb(33, 49, 73);
+    background-color:#00426C;
     border-radius:10px;
-    box-shadow: 0px 1px 4px 1px wheat;
+    box-shadow: 0px 1px 4px 1px rgb(8, 8, 7);
 }
 
 .rectangulo{
@@ -59,7 +59,7 @@ p{
 
 .seccion-oscura{
   color:white;
-  background-color:#0c1c34;
+  background-color:#122747;
 }
 
 .footer-logo{

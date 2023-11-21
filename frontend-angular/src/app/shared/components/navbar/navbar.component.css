@@ -3,14 +3,14 @@
   top:0;
   left: 0;
   width: 100%;
-  background-color: #0c1c34;
+  background-color: #122747;
   padding: 10px 0;
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: space-between;
-  z-index: 1000; /* Ajusta el índice z para asegurar que esté por encima de otros elementos */
+  z-index: 1000; /* Aseguro que esté por encima de otros elementos */
   }
 
   .logo-container {
@@ -52,26 +52,26 @@
   }
   
   .input {
-    padding: 8px; /* Ajusta el padding según tu preferencia */
+    padding: 8px; 
     width: 300px;
     margin-right: 0; /* Elimina el margen derecho */
   }
   
   .item-categoria a {
-    background-color: #0c1c34;
+    background-color: #122747;
     color: #F9F6F6;
     text-decoration: none;
   }
 
   .item-categoria{
-    background-color: #0c1c34;
+    background-color: #122747;
   }
-  /*no hace nada*/
+
   .item-categoria:hover{
     background-color: #b2b5b9;
   }
   .item-categoria a:hover {
-    background-color: #0c1c34;
+    background-color: #122747;
   }
 
   .logo-pequeno {

@@ -2,14 +2,12 @@
     <div class="bookpage_leftcolumn">
         <div class="sticky">
             <div class="bookpage_bookcover">
-                <!-- Tu imagen de carátula aquí -->
                 <img mat-card-image [src]="libroSeleccionado.thumbnail ? libroSeleccionado.thumbnail : '../../assets/imagenlibro.jpg'" alt="Portada del libro">
             </div>
            
             <div class="rating-container">
                 <div class="bookActions">
                     <div class="bookActions_button">
-                        <!-- Tu botón "Añadir a Favoritos" aquí -->
                         <button (click)="agregarAFavoritos(libroSeleccionado)">Añadir a Favoritos</button>
                     </div>
                 </div>

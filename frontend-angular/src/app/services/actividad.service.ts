@@ -44,7 +44,7 @@ export class ActividadService {
     return this.http.get(this.json_misLibros);
   }
 
-  //Libros obtenidos de la bbdd
+  //Libros obtenidos de la bbdd - primera prueba
   getMisLibrosBBDD(): Observable<any> {
     console.log("entrando a getMisLibrosBBDD");
     console.log(this.urlMisLibrosBBDD);
