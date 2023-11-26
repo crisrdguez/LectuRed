@@ -7,6 +7,7 @@ Pasos para el frontend:
 - Instala angular/CLI  (npm install -g @angular/cli)
 - Instala las dependencias del proyecto (npm install)
 - Inicia la aplicacion (ng serve -o)
+- Es necesario tener clave de API de Google Books (pegarla en server.js)
 
 Pasos para el backend:
 
