@@ -8,7 +8,7 @@
             <div class="rating-container">
                 <div class="bookActions">
                     <div class="bookActions_button">
-                        <button (click)="agregarAFavoritos(libroSeleccionado)">{{estadoLibro}}</button>
+                        <button (click)="agregarAFavoritos(libroSeleccionado)" (click)="openDialog('1000ms', '500ms')">{{estadoLibro}}</button>
                     </div>
                 </div>
                 <div class="rating" id="rating">

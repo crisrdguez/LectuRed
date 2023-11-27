@@ -10,6 +10,9 @@ import {MatMenuModule} from '@angular/material/menu';
 //Iconos
 import {MatIconModule} from '@angular/material/icon';
 
+//Dialog
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -18,14 +21,16 @@ import {MatIconModule} from '@angular/material/icon';
     MatButtonModule,
     MatCardModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
   exports: [
     MatTabsModule,
     MatButtonModule,
     MatCardModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ],
 })
 export class MaterialModule {}

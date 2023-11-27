@@ -10,6 +10,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { LibroCategoriasComponent } from './libro-categorias/libro-categorias.component';
 import { LibroActividadComponent } from './libro-actividad/libro-actividad.component';
 import { LibroMisLibrosComponent } from './libro-mis-libros/libro-mis-libros.component';
+import { LibroRatingComponent } from './libro-rating/libro-rating.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { LibroMisLibrosComponent } from './libro-mis-libros/libro-mis-libros.com
     LibroDetalleComponent,
     LibroCategoriasComponent,
     LibroActividadComponent,
-    LibroMisLibrosComponent
+    LibroMisLibrosComponent,
+    LibroRatingComponent
   ],
   imports: [
     CommonModule,

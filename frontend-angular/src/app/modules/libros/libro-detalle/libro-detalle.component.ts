@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { Libro } from 'src/app/core/models';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
+import { LibroRatingComponent } from '../libro-rating/libro-rating.component';
 
 @Component({
   selector: 'app-libro-detalle',
@@ -13,7 +15,7 @@ export class LibroDetalleComponent implements OnInit{
   libroSeleccionado:Libro | null = null;
   estadoLibro: string = 'Añadir a Favoritos'; // Estado predeterminado
 
-  constructor(private googleBooksService: GoogleBooksService, private route: ActivatedRoute) { }
+  constructor(private googleBooksService: GoogleBooksService, private route: ActivatedRoute, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -40,6 +42,20 @@ export class LibroDetalleComponent implements OnInit{
       });
     });
       
+  }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    
+    //El componente se va a inicializar cuando el dialogo lo abra
+    this.dialog.open(LibroRatingComponent, {
+      width: '900px',
+      height: '500px',
+      data:{
+        enterAnimationDuration,
+        exitAnimationDuration,
+        palabra:"patata"
+      }
+    });
   }
 
   agregarAFavoritos(libro: any): void {
