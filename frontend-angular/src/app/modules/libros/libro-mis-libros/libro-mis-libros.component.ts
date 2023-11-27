@@ -21,15 +21,28 @@ export class LibroMisLibrosComponent implements OnInit{
     this.actividadService.getMisLibros().subscribe(data => {
       console.log(data.misLibros);
       this.listaMisLibros = data.misLibros; // Accede a la propiedad "misLibros" del JSON
+      console.log("Mi lista de libros que guardo en localstorage:");
+      console.log(this.listaMisLibros);
+
+      // Guardar en localStorage
+      this.listaMisLibros.forEach(item => {
+        const libroId = item.idLibro;
+        const estado = item.estado;
+        this.guardarLibroEnLocalStorage(libroId, estado);
+      });
+
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
       data.misLibros.forEach((item:any) => this.getLibroId(item.idLibro));
     });
 
+    
+
+    /*
     this.actividadService.getMisLibrosBBDD().subscribe(data => {
       console.log("dentro del componente ts")
       console.log(data.data);
       this.librosBBDD = data.data;
-    })
+    })*/
   }
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros
@@ -59,6 +72,25 @@ export class LibroMisLibrosComponent implements OnInit{
 
     return libroEncontrado;
 
+  }
+
+  // Función para guardar el libro en localStorage
+  private guardarLibroEnLocalStorage(libroId: string, estado: string): void {
+    const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');
+
+    // Verificar si el libro ya está en localStorage
+    const libroExistente = librosLocalStorage.find((libro: any) => libro.idLibro === libroId);
+
+    if (libroExistente) {
+      // Actualizar el estado si ya existe en localStorage
+      libroExistente.estado = estado;
+    } else {
+      // Agregar el libro si no existe en localStorage
+      librosLocalStorage.push({ idLibro: libroId, estado });
+    }
+
+    // Guardar en localStorage
+    localStorage.setItem('misLibros', JSON.stringify(librosLocalStorage));
   }
 
 }

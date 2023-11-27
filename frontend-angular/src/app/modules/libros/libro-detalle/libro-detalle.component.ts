@@ -10,8 +10,8 @@ import { GoogleBooksService } from 'src/app/services/google-books.service';
 })
 export class LibroDetalleComponent implements OnInit{
   libroId:string="";
-
   libroSeleccionado:Libro | null = null;
+  estadoLibro: string = 'Añadir a Favoritos'; // Estado predeterminado
 
   constructor(private googleBooksService: GoogleBooksService, private route: ActivatedRoute) { }
 
@@ -23,6 +23,13 @@ export class LibroDetalleComponent implements OnInit{
         next: (libro: Libro) => {
           this.libroSeleccionado = libro;
           console.log(this.libroSeleccionado);
+          // Verificar si el libro está en localStorage y actualizar el estado
+          const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');
+          const libroExistente = librosLocalStorage.find((libro: any) => libro.idLibro === this.libroId);
+
+          if (libroExistente) {
+            this.estadoLibro = libroExistente.estado;
+          }
         },
         error: (error) => {
           console.error('Error al obtener los libros', error);

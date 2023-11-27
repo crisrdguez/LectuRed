@@ -1,3 +1,11 @@
+/*--mat-menu-container-color: #122747;*/
+html mat-menu-item {
+  --mat-menu-item-label-text-color: white;
+  --mat-menu-item-icon-color: white;
+  --mat-menu-item-hover-state-layer-color: rgba(214, 111, 111, 0.904);
+  --mat-menu-item-focus-state-layer-color: rgba(218, 156, 156, 0.932);
+  --mat-menu-container-color: #c03a3a;
+}
 .horizontal-navigation {
   position: fixed;
   top:0;
@@ -68,7 +76,7 @@
   }
 
   .item-categoria:hover{
-    background-color: #b2b5b9;
+    background-color: rgb(182, 22, 182);
   }
   .item-categoria a:hover {
     background-color: #122747;
@@ -85,3 +93,4 @@
 p{
   background-color: white;
 }
+
