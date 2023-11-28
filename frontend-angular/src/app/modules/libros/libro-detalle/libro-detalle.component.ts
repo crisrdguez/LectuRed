@@ -33,6 +33,10 @@ export class LibroDetalleComponent implements OnInit{
 
           if (libroExistente) {
             this.estadoLibro = libroExistente.estado;
+            this.puntuacion = libroExistente.puntuacion;
+            this.critica = libroExistente.critica;
+            console.log(`${this.libroId} - ${this.estadoLibro} - ${this.puntuacion} - ${this.critica}`);
+            this.rate(this.puntuacion);
           }
         },
         error: (error) => {
@@ -55,7 +59,10 @@ export class LibroDetalleComponent implements OnInit{
       data:{
         enterAnimationDuration,
         exitAnimationDuration,
-        palabra:"patata"
+        libroSeleccionado: this.libroSeleccionado,  // Paso el libro seleccionado al diálogo
+        estadoLibro: this.estadoLibro,  // Paso el estado del libro al diálogo
+        puntuacion: this.puntuacion,  // Paso la puntuación al diálogo
+        critica: this.critica  // Paso la crítica al diálogo
       }
     });
   }
