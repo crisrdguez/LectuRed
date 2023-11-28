@@ -1,15 +1,35 @@
-<div>
+<div class="container">
     <h3>Detalles del libro seleccionado</h3>
     <ul>
       <li><strong>Título:</strong> {{ data.libroSeleccionado.title }}</li>
       <!-- Agrega más campos según sea necesario -->
     </ul>
     <h2>Datos recibidos</h2>
+    <h3>Estado del libro</h3>
+    <div>
+        <label>
+            <!--<input type="radio" value="leido" [(ngModel)]="estadoActual" (change)="actualizarEstadoLibro('leido')">-->
+            <input type="radio" value="leido" [(ngModel)]="data.estadoLibro">
+            Leído
+        </label>
+        <label>
+            <input type="radio" value="leyendo" [(ngModel)]="data.estadoLibro">
+            Leyendo
+        </label>
+        <label>
+            <input type="radio" value="pendiente" [(ngModel)]="data.estadoLibro">
+            Pendiente
+        </label>
+    </div>
+
     <ul>
       <li><strong>Estado del libro:</strong> {{ data.estadoLibro }}</li>
       <li><strong>Puntuación:</strong> {{ data.puntuacion }}</li>
       <li><strong>Critica:</strong> {{ data.critica }}</li>
+      <textarea name="critica" id="critica" cols="60" rows="10" [(ngModel)]="data.critica"></textarea>
     </ul>
+
+    <button (click)="actualizarLibroLocalStorage(data.libroSeleccionado.id, data.estadoLibro, data.puntuacion, data.critica)">Guardar</button>
   
     <!-- También puedes acceder a propiedades del libro seleccionado -->
     
