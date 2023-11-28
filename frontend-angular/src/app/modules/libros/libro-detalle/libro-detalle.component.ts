@@ -14,6 +14,8 @@ export class LibroDetalleComponent implements OnInit{
   libroId:string="";
   libroSeleccionado:Libro | null = null;
   estadoLibro: string = 'Añadir a Favoritos'; // Estado predeterminado
+  puntuacion: number = 0;
+  critica: string = '';
 
   constructor(private googleBooksService: GoogleBooksService, private route: ActivatedRoute, public dialog: MatDialog) { }
 

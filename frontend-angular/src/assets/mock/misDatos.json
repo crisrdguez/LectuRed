@@ -1,0 +1,65 @@
+{
+    "misLibros":
+[
+    {
+      "idLibro": "LsBkzwEACAAJ",
+      "estado": "leido",
+      "puntuacion": 4,
+      "critica": "Me encantó este libro, muy recomendado."
+    },
+    {
+      "idLibro": "t1slEAAAQBAJ",
+      "estado": "leido",
+      "puntuacion": 2,
+      "critica": "Ni fu ni fa"
+    },
+    {
+      "idLibro": "DDHFEAAAQBAJ",
+      "estado": "leyendo",
+      "puntuacion": 0,
+      "critica": ""
+    },
+    {
+      "idLibro": "YZseCgAAQBAJ",
+      "estado": "deseado",
+      "puntuacion": 0,
+      "critica": ""
+    },
+    {
+      "idLibro": "hWSmEAAAQBAJ",
+      "estado": "deseado",
+      "puntuacion": 0,
+      "critica": ""
+    },
+    {
+       "idLibro": "_NFdEAAAQBAJ",
+       "estado": "deseado",
+       "puntuacion": 0,
+       "critica": ""
+    },
+    {
+       "idLibro": "5iYfAQAAIAAJ",
+       "estado": "leido",
+       "puntuacion": 1,
+      "critica": "Un muermo, muy aburrido. Es un somnífero"
+    },
+    {
+       "idLibro": "sjuVEAAAQBAJ",
+       "estado": "leyendo",
+       "puntuacion": 0,
+       "critica": ""
+    },
+    {
+       "idLibro": "NWXDEAAAQBAJ",
+       "estado": "leido",
+       "puntuacion": 5,
+      "critica": "El mejor libro del mundo"
+    },
+    {
+       "idLibro": "O2BlAAAAMAAJ",
+       "estado": "leido",
+       "puntuacion": 4,
+      "critica": "Me encantó este libro, muy recomendado."
+    }
+  ]
+}

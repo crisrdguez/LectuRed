@@ -28,7 +28,9 @@ export class LibroMisLibrosComponent implements OnInit{
       this.listaMisLibros.forEach(item => {
         const libroId = item.idLibro;
         const estado = item.estado;
-        this.guardarLibroEnLocalStorage(libroId, estado);
+        const puntuacion = item.puntuacion;
+        const critica = item.critica;
+        this.guardarLibroEnLocalStorage(libroId, estado, puntuacion, critica);
       });
 
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
@@ -75,7 +77,7 @@ export class LibroMisLibrosComponent implements OnInit{
   }
 
   // Función para guardar el libro en localStorage
-  private guardarLibroEnLocalStorage(libroId: string, estado: string): void {
+  private guardarLibroEnLocalStorage(libroId: string, estado: string, puntuacion: number, critica:string): void {
     const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');
 
     // Verificar si el libro ya está en localStorage
@@ -84,9 +86,11 @@ export class LibroMisLibrosComponent implements OnInit{
     if (libroExistente) {
       // Actualizar el estado si ya existe en localStorage
       libroExistente.estado = estado;
+      libroExistente.puntuacion = puntuacion;
+      libroExistente.critica = critica;
     } else {
       // Agregar el libro si no existe en localStorage
-      librosLocalStorage.push({ idLibro: libroId, estado });
+      librosLocalStorage.push({ idLibro: libroId, estado, puntuacion, critica });
     }
 
     // Guardar en localStorage

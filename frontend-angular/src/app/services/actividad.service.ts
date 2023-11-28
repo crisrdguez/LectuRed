@@ -11,6 +11,7 @@ export class ActividadService {
   jsonURL = 'assets/mock/actividad.json'; // Ruta al archivo JSON
   json_Recomendados_URL = 'assets/mock/recomendados.json'; // Ruta al archivo JSON
   json_misLibros = 'assets/mock/misLibros.json';
+  json_misDatosLibros = 'assets/mock/misDatos.json';
 
   //url para listado de mis libros bbdd
   urlMisLibrosBBDD = 'http://localhost:3000/api/mybooks'; //Ruta a la api de Express
@@ -40,8 +41,8 @@ export class ActividadService {
    * @returns Observable con los datos de los libros del usuario.
    */
   getMisLibros(): Observable<any> {
-    console.log(this.http.get(this.json_misLibros));
-    return this.http.get(this.json_misLibros);
+    console.log(this.http.get(this.json_misDatosLibros));
+    return this.http.get(this.json_misDatosLibros);
   }
 
   //Libros obtenidos de la bbdd - primera prueba
