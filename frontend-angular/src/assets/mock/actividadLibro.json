@@ -1,0 +1,76 @@
+{
+    "items":
+[ 
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "16/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 4,
+      "critica": "Me encantó este libro, muy recomendado.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "15/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 4,
+      "critica": "",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "14/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "leyendo"
+    },
+    {
+      "idPersona": "222",
+      "imagenPerfil": "",
+      "nombre": "Mabel",
+      "fecha": "13/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 3,
+      "critica": "Fue un libro interesante, aunque podría haber sido mejor.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "333",
+      "imagenPerfil": "",
+      "nombre": "Pepa",
+      "fecha": "13/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 2,
+      "critica": "No me gustó este libro en absoluto, no lo recomiendo.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "222",
+      "imagenPerfil": "",
+      "nombre": "Mabel",
+      "fecha": "11/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "deseado"
+    },
+    {
+      "idPersona": "444",
+      "imagenPerfil": "",
+      "nombre": "Manuela",
+      "fecha": "10/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "deseado"
+    }
+
+  ]
+}

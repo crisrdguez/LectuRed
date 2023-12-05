@@ -23,8 +23,18 @@
             <button mat-button (click)="buscarLibros()">Buscar</button>
         </div>
     </div>   
-    <div class="nav-opcion logo-container nav-login">
+    <div class="nav-opcion logo-container">
+        <ul>
+            <li *ngIf="!estaLogueado()">
+              <a href="#" (click)="login()">Login</a>
+            </li>
+            <li *ngIf="estaLogueado()">
+              <a (click)="logout()">Logout</a>
+            </li>
+        </ul>
+        <!--
         <button mat-button><a routerLink="/auth/login">Login</a></button>
+        -->
     </div>
 </nav>
 <p></p>

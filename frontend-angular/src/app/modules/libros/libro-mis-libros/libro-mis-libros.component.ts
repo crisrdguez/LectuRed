@@ -18,6 +18,7 @@ export class LibroMisLibrosComponent implements OnInit{
   constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    //TODO aqui deberia recuperarlo del localstorage
     this.actividadService.getMisLibros().subscribe(data => {
       console.log(data.misLibros);
       this.listaMisLibros = data.misLibros; // Accede a la propiedad "misLibros" del JSON

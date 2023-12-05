@@ -29,6 +29,16 @@
         </div>
     </div>
     <div class="bookpage_rightcolumn">
+        <div class="container">
+            <div class="libro-container">
+                <!--
+              <div *ngFor="let libro of listaLibros" class="libro-card">    
+                <app-libro [libro] = "libro"></app-libro>  
+              </div>
+              -->
+            </div>  
+        </div>
+
         <!-- Contenido de la columna derecha -->
         <h2>Título: {{ libroSeleccionado.title }}</h2>
         <p>Puntuación Media: {{ obtenerPuntuacionMedia(libroSeleccionado) }} <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon></p>

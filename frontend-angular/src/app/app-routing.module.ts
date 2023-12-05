@@ -4,6 +4,7 @@ import { LibroCategoriasComponent } from './modules/libros/libro-categorias/libr
 import { LibroActividadComponent } from './modules/libros/libro-actividad/libro-actividad.component';
 import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
 import { LibroMisLibrosComponent } from './modules/libros/libro-mis-libros/libro-mis-libros.component';
+import { authGuard } from './core/guards/auth-guard';
 //Componentes
 //import { HomePageComponent } from './modules/home/pages/home-page/home-page.component';
 //import { ResultadoBusquedaComponent } from './modules/libros/resultado-busqueda/resultado-busqueda.component';
@@ -22,8 +23,8 @@ const routes: Routes = [
     loadChildren: () => import('./modules').then(m => m.LibrosModule)
   },
   {path: 'categorias/:url', component:LibroCategoriasComponent},
-  {path: 'actividad', component:LibroActividadComponent},
-  {path: 'mislibros', component:LibroMisLibrosComponent},
+  {path: 'actividad', component:LibroActividadComponent,canActivate:[authGuard]},
+  {path: 'mislibros', component:LibroMisLibrosComponent, canActivate:[authGuard]},
   
 
   {
