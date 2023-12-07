@@ -12,7 +12,8 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./libro-detalle.component.css']
 })
 export class LibroDetalleComponent implements OnInit{
-  libroId:string="";
+  idLibroEnvio:string | undefined;
+  idLibro:string | undefined;
   libroSeleccionado:Libro | null = null;
   estadoLibro: string = 'Añadir a Favoritos'; // Estado predeterminado
   puntuacion: number = 0;
@@ -23,21 +24,21 @@ export class LibroDetalleComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.libroId = params['id']; // Obtengo el ID del libro de los parámetros de la URL
-      console.log(this.libroId);
-      this.googleBooksService.getDetalleLibro(this.libroId).subscribe({
+      this.idLibro = params['id']; // Obtengo el ID del libro de los parámetros de la URL
+      console.log(this.idLibro);
+      this.googleBooksService.getDetalleLibro(this.idLibro).subscribe({
         next: (libro: Libro) => {
           this.libroSeleccionado = libro;
           console.log(this.libroSeleccionado);
           // Verificar si el libro está en localStorage y actualizar el estado
           const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');
-          const libroExistente = librosLocalStorage.find((libro: any) => libro.idLibro === this.libroId);
+          const libroExistente = librosLocalStorage.find((libro: any) => libro.idLibro === this.idLibro);
 
           if (libroExistente) {
             this.estadoLibro = libroExistente.estado;
             this.puntuacion = libroExistente.puntuacion;
             this.critica = libroExistente.critica;
-            console.log(`${this.libroId} - ${this.estadoLibro} - ${this.puntuacion} - ${this.critica}`);
+            console.log(`${this.idLibro} - ${this.estadoLibro} - ${this.puntuacion} - ${this.critica}`);
             this.rate(this.puntuacion);
           }
         },

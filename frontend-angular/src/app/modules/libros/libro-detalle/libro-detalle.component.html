@@ -49,8 +49,7 @@
         <!-- Otros detalles del libro -->
         <h3>ACTIVIDAD COMPONENTE</h3>
         <!--TODO QUIERO QUE SOLO SE VEA SI ESTOY AUTENTICADO-->
-        <app-libro-actividad *ngIf="estaAutenticado"></app-libro-actividad>
-
+        <app-libro-actividad *ngIf="estaAutenticado" [idLibroEnvio]="libroSeleccionado.id ?? ''"></app-libro-actividad>
 
         <h2>Actividad escrita a mano</h2>
         <p><span style="color: blueviolet;">FULANITA</span> LE HA DADO <mat-icon>star</mat-icon> <mat-icon>star</mat-icon> <mat-icon>star</mat-icon> <mat-icon>star</mat-icon> ESTRELLAS</p>

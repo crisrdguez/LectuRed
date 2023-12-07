@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +26,21 @@ export class ActividadService {
     console.log(this.http.get(this.jsonURL));
     return this.http.get(this.jsonURL);
   }
+
+  getCriticasPorLibro(idLibro: string): Observable<any> {
+    return this.http.get(this.jsonURL).pipe(
+      map((data: any) => {
+        const criticasFiltradas = data.items.filter((item: any) => item.idLibro === idLibro);
+        return { items: criticasFiltradas };
+      })
+    );
+  }
+
+  /**para peticion BBDD 
+  getCriticasPorLibro(idLibro: string): Observable<any> {
+    const url = `${this.urlMisLibrosBBDD}?idLibro=${idLibro}`; // Asumiendo que tu servidor acepta un parámetro "idLibro"
+    return this.http.get(url);
+  }*/
 
   /**
    * Obtiene los libros recomendados desde el archivo JSON.

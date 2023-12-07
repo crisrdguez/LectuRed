@@ -71,6 +71,76 @@
       "puntuacion": 0,
       "critica": "",
       "estado": "deseado"
+    },
+    {
+      "idPersona": "555",
+      "imagenPerfil": "",
+      "nombre": "Pepe",
+      "fecha": "09/10/2023",
+      "idLibro": "-LpFBgAAQBAJ",
+      "puntuacion": 4,
+      "critica": "",
+      "estado": "deseado"
+    },
+    {
+      "idPersona": "666",
+      "imagenPerfil": "",
+      "nombre": "Felipe",
+      "fecha": "08/10/2023",
+      "idLibro": "-LpFBgAAQBAJ",
+      "puntuacion": 3,
+      "critica": "",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "666",
+      "imagenPerfil": "",
+      "nombre": "Felipe",
+      "fecha": "08/10/2023",
+      "idLibro": "gdhJEAAAQBAJ",
+      "puntuacion": 3,
+      "critica": "",
+      "estado": "leyendo"
+    },
+    {
+      "idPersona": "1234",
+      "imagenPerfil": "",
+      "nombre": "Zipi",
+      "fecha": "08/11/2023",
+      "idLibro": "YZseCgAAQBAJ",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "leyendo"
+    },
+    {
+      "idPersona": "5678",
+      "imagenPerfil": "",
+      "nombre": "Zape",
+      "fecha": "08/10/2023",
+      "idLibro": "YZseCgAAQBAJ",
+      "puntuacion": 3,
+      "critica": "Se sabe quien es el asesino desde la primera página.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "0987",
+      "imagenPerfil": "",
+      "nombre": "Maria",
+      "fecha": "08/09/2023",
+      "idLibro": "YZseCgAAQBAJ",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "deseado"
+    },
+    {
+      "idPersona": "0454",
+      "imagenPerfil": "",
+      "nombre": "De la O",
+      "fecha": "12/10/2023",
+      "idLibro": "YZseCgAAQBAJ",
+      "puntuacion": 5,
+      "critica": "No adiviné quien es el asesino. Me sorprendió mucho.",
+      "estado": "leido"
     }
 
   ]
