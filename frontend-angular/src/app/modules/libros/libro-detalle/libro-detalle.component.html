@@ -8,7 +8,7 @@
             <div class="rating-container">
                 <div class="bookActions">
                     <div class="bookActions_button">
-                        <button (click)="agregarAFavoritos(libroSeleccionado)" (click)="openDialog('1000ms', '500ms')">{{estadoLibro}}</button>
+                        <button (click)="agregarAFavoritos(libroSeleccionado)" (click)="openDialog('1000ms', '500ms')" [disabled]="!estaAutenticado">{{estadoLibro}}</button>
                     </div>
                 </div>
                 <div class="rating" id="rating">
@@ -47,7 +47,12 @@
         <p>Resumen:</p>
         <div [innerHTML]="libroSeleccionado.description"></div>
         <!-- Otros detalles del libro -->
-        <h3>ACTIVIDAD</h3>
+        <h3>ACTIVIDAD COMPONENTE</h3>
+        <!--TODO QUIERO QUE SOLO SE VEA SI ESTOY AUTENTICADO-->
+        <app-libro-actividad *ngIf="estaAutenticado"></app-libro-actividad>
+
+
+        <h2>Actividad escrita a mano</h2>
         <p><span style="color: blueviolet;">FULANITA</span> LE HA DADO <mat-icon>star</mat-icon> <mat-icon>star</mat-icon> <mat-icon>star</mat-icon> <mat-icon>star</mat-icon> ESTRELLAS</p>
         <p>MENGANITA ha escrito la siguiente reseña: Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam excepturi repellendus cum aliquid non harum laudantium voluptas, iste voluptate alias doloribus eveniet distinctio amet dolor accusamus molestias maxime. Quod, sapiente.</p>
         <p>FULANITA LE HA DADO <mat-icon>star</mat-icon> <mat-icon>star</mat-icon> ESTRELLAS</p>

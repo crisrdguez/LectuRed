@@ -27,6 +27,7 @@ export class AuthService {
   // Método para cerrar sesión
   cerrarSesion(): void {
     localStorage.removeItem('token');
+    localStorage.removeItem('misLibros');
     this.router.navigate(['/home']);
     window.location.reload(); //actualiza la pagina
   }

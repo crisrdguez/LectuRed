@@ -4,7 +4,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { LibroListasComponent } from './libro-listas/libro-listas.component';
 import { LibroDetalleComponent } from './libro-detalle/libro-detalle.component';
 import { ResultadoBusquedaComponent } from './resultado-busqueda/resultado-busqueda.component';
-import { LibroCategoriasComponent } from './libro-categorias/libro-categorias.component';
 
 
 //Rutas secundarias
@@ -14,7 +13,7 @@ const routes: Routes = [
 
       children:[//rutas hijas
           {path: 'libro-listas', component:LibroListasComponent },
-          {path: 'libro-detalle/:id', component:LibroDetalleComponent },
+          {path: 'libro-detalle/:id', component:LibroDetalleComponent},
           {path: 'resultado-busqueda', component:ResultadoBusquedaComponent},
           {path: '**', redirectTo:'libro-listas'}//cualquier otro path va a redirigir al login
       ]

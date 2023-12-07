@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Libro } from 'src/app/core/models';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
 import { LibroRatingComponent } from '../libro-rating/libro-rating.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-libro-detalle',
@@ -16,8 +17,9 @@ export class LibroDetalleComponent implements OnInit{
   estadoLibro: string = 'Añadir a Favoritos'; // Estado predeterminado
   puntuacion: number = 0;
   critica: string = '';
+  estaAutenticado: boolean = false;
 
-  constructor(private googleBooksService: GoogleBooksService, private route: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(private googleBooksService: GoogleBooksService, private route: ActivatedRoute, private authService: AuthService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -47,7 +49,14 @@ export class LibroDetalleComponent implements OnInit{
         }
       });
     });
+
+    this.verificarAutenticacion();
       
+  }
+
+  verificarAutenticacion(): void {
+    // Lógica para verificar si el usuario está autenticado usando tu servicio de autenticación y el token
+    this.estaAutenticado = this.authService.estaAutenticado(); 
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

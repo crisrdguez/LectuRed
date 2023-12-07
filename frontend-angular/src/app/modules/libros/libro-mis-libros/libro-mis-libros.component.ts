@@ -18,35 +18,22 @@ export class LibroMisLibrosComponent implements OnInit{
   constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //TODO aqui deberia recuperarlo del localstorage
-    this.actividadService.getMisLibros().subscribe(data => {
-      console.log(data.misLibros);
-      this.listaMisLibros = data.misLibros; // Accede a la propiedad "misLibros" del JSON
-      console.log("Mi lista de libros que guardo en localstorage:");
+      //TODO aqui deberia recuperarlo del localstorage
+      this.listaMisLibros = JSON.parse(localStorage.getItem('misLibros') || '[]');
       console.log(this.listaMisLibros);
 
-      // Guardar en localStorage
-      this.listaMisLibros.forEach(item => {
-        const libroId = item.idLibro;
-        const estado = item.estado;
-        const puntuacion = item.puntuacion;
-        const critica = item.critica;
-        this.guardarLibroEnLocalStorage(libroId, estado, puntuacion, critica);
-      });
-
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
-      data.misLibros.forEach((item:any) => this.getLibroId(item.idLibro));
-    });
+      this.listaMisLibros.forEach((item:any) => this.getLibroId(item.idLibro));
+    }
 
-    
 
-    /*
+    /* EJEMPLO PETICION A LA BBDD
     this.actividadService.getMisLibrosBBDD().subscribe(data => {
       console.log("dentro del componente ts")
       console.log(data.data);
       this.librosBBDD = data.data;
     })*/
-  }
+  
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros
   getLibroId(idLibro:string){
@@ -75,27 +62,6 @@ export class LibroMisLibrosComponent implements OnInit{
 
     return libroEncontrado;
 
-  }
-
-  // Función para guardar el libro en localStorage
-  private guardarLibroEnLocalStorage(libroId: string, estado: string, puntuacion: number, critica:string): void {
-    const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');
-
-    // Verificar si el libro ya está en localStorage
-    const libroExistente = librosLocalStorage.find((libro: any) => libro.idLibro === libroId);
-
-    if (libroExistente) {
-      // Actualizar el estado si ya existe en localStorage
-      libroExistente.estado = estado;
-      libroExistente.puntuacion = puntuacion;
-      libroExistente.critica = critica;
-    } else {
-      // Agregar el libro si no existe en localStorage
-      librosLocalStorage.push({ idLibro: libroId, estado, puntuacion, critica });
-    }
-
-    // Guardar en localStorage
-    localStorage.setItem('misLibros', JSON.stringify(librosLocalStorage));
   }
 
 }
