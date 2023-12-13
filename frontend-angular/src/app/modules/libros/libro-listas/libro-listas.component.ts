@@ -43,7 +43,7 @@ export class LibroListasComponent implements OnInit, OnDestroy{
       console.log(">>>>>>Entra en opcion 1 en libros-listas")
 
       // Llama al método getAll del servicio para obtener la lista de libros
-      this.googleBooksService.getAll(this.queryparams, 5).subscribe({
+      this.googleBooksService.getAll(this.queryparams, 15).subscribe({
       next: (libros: Libro[]) => {
         this.listaLibros = libros;
         console.log(this.listaLibros);
@@ -62,7 +62,7 @@ export class LibroListasComponent implements OnInit, OnDestroy{
       console.log("Entra en opcion 2 en libros-listas")
 
       // Llama al método getAll del servicio para obtener la lista de libros
-      this.googleBooksService.getAuthor(this.queryparams, 7).subscribe({
+      this.googleBooksService.getAuthor(this.queryparams, 15).subscribe({
         next: (libros: Libro[]) => {
           this.listaLibros = libros;
           console.log(this.listaLibros);
@@ -117,7 +117,7 @@ export class LibroListasComponent implements OnInit, OnDestroy{
     if(this.opcionBusqueda==5){
       console.log("Entra en opcion 5 en libros-listas")
 
-      this.googleBooksService.getNews(this.queryparams, 10, "newest").subscribe({
+      this.googleBooksService.getNews(this.queryparams, 15, "newest").subscribe({
         next: (libros: Libro[]) => {
           this.listaLibros = libros;
           console.log(this.listaLibros);

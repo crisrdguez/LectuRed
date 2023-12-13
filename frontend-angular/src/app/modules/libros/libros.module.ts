@@ -11,6 +11,7 @@ import { LibroCategoriasComponent } from './libro-categorias/libro-categorias.co
 import { LibroActividadComponent } from './libro-actividad/libro-actividad.component';
 import { LibroMisLibrosComponent } from './libro-mis-libros/libro-mis-libros.component';
 import { LibroRatingComponent } from './libro-rating/libro-rating.component';
+import { EstrellasComponent } from './estrellas/estrellas.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { LibroRatingComponent } from './libro-rating/libro-rating.component';
     LibroCategoriasComponent,
     LibroActividadComponent,
     LibroMisLibrosComponent,
-    LibroRatingComponent
+    LibroRatingComponent,
+    EstrellasComponent
   ],
   imports: [
     CommonModule,

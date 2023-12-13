@@ -1,0 +1,49 @@
+
+
+/*Estrellas*/
+.rating-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+}
+.rating {
+    margin:10px;
+    align-items: center;
+    font-size: 3em;
+    display: flex;
+    align-items: center;
+    direction: rtl;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    cursor: pointer;
+}
+
+label:hover {
+    color: #ffcc00;
+}
+
+.star1:hover ~ label {
+    color: #ffcc00;
+}
+
+.star2:hover ~ label {
+    color: #ffcc00;
+}
+
+.star3:hover ~ label {
+    color: #ffcc00;
+}
+
+.star4:hover ~ label {
+    color: #ffcc00;
+}
+
+input[type="radio"]:checked ~ label {
+    color: #ffcc00;
+}

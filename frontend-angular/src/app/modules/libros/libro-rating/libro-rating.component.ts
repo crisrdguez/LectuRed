@@ -35,6 +35,7 @@ export class LibroRatingComponent {
   actualizarLibroLocalStorage(libroId: string, estado: string, puntuacion: number, critica:string): void {
     this.guardarLibroEnLocalStorage(libroId, estado, puntuacion, critica);
     this.dialog.closeAll();
+    window.location.reload(); //recargo la pagina
   }
 
   private guardarLibroEnLocalStorage(libroId: string, estado: string, puntuacion: number, critica:string): void {

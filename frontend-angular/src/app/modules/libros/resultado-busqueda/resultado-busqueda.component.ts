@@ -33,18 +33,23 @@ constructor(private buscadorService : BuscadorService, private route: ActivatedR
 
 }
 
+// Método para reemplazar espacios por &nbsp;
+replaceSpaces(query: string): string {
+  return query.replace(/ /g, '&nbsp;');
+}
+
 ngOnInit():void{
   // Suscribirse a los cambios en los parámetros de consulta
   this.route.queryParams.subscribe((params) => {
     this.queryparams = params['q2'] || ''; // 'q' es el nombre del parámetro de consulta en navbar
-    this.buscadorService.setQueryParams(this.queryparams);
+    this.buscadorService.setQueryParams(this.replaceSpaces(this.queryparams));
     this.buscadorService.setOpcionBusqueda(1);
   });
 }
 
 onTabChange(event: MatTabChangeEvent) {
   const selectedIndex = event.index;
-  this.buscadorService.setQueryParams(this.queryparams);
+  this.buscadorService.setQueryParams(this.replaceSpaces(this.queryparams));
 
   switch (selectedIndex) {
     case 0:
@@ -62,7 +67,7 @@ onTabChange(event: MatTabChangeEvent) {
 }
 
 buscarclick(){
-  this.buscadorService.setQueryParams(this.queryparams);
+  this.buscadorService.setQueryParams(this.replaceSpaces(this.queryparams));
   //this.buscadorService.setOpcionBusqueda(this.opcionBusqueda);
   //todo vuelvo a llamar a la vista de applistas
   this.selectedTabIndex==0;

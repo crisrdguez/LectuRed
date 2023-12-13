@@ -75,6 +75,8 @@ export class LibroDetalleComponent implements OnInit{
         critica: this.critica  // Paso la crítica al diálogo
       }
     });
+    // Recargar la página
+  
   }
 
   agregarAFavoritos(libro: any): void {
