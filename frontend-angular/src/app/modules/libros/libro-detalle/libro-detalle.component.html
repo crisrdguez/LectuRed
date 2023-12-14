@@ -11,7 +11,9 @@
                         <button (click)="agregarAFavoritos(libroSeleccionado)" (click)="openDialog('1000ms', '500ms')" [disabled]="!estaAutenticado">{{estadoLibro}}</button>
                     </div>
                 </div>
-                <app-estrellas></app-estrellas>
+                <!--PARA BBDD<app-puntuacion-media [puntuacionMedia]="obtenerPuntuacionMedia(libroSeleccionado)"></app-puntuacion-media>-->
+                <app-puntuacion-media [puntuacionMedia]="obtenerPuntuacionMedia(libroSeleccionado)"></app-puntuacion-media>
+
             </div>
 
             

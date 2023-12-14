@@ -12,11 +12,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./libro-detalle.component.css']
 })
 export class LibroDetalleComponent implements OnInit{
+  
   idLibroEnvio:string | undefined;
   idLibro:string | undefined;
   libroSeleccionado:Libro | null = null;
   estadoLibro: string = 'Añadir a Favoritos'; // Estado predeterminado
   puntuacion: number = 0;
+  puntuacionMedia: number = 0; //TODO se pide la puntuacion media del libro a la bbdd, en el metodo de mas abajo obtenerPuntuacionMedia
   critica: string = '';
   estaAutenticado: boolean = false;
 
@@ -39,7 +41,7 @@ export class LibroDetalleComponent implements OnInit{
             this.puntuacion = libroExistente.puntuacion;
             this.critica = libroExistente.critica;
             console.log(`${this.idLibro} - ${this.estadoLibro} - ${this.puntuacion} - ${this.critica}`);
-            this.rate(this.puntuacion);
+            //this.rate(this.puntuacion);
           }
         },
         error: (error) => {
@@ -71,7 +73,7 @@ export class LibroDetalleComponent implements OnInit{
         exitAnimationDuration,
         libroSeleccionado: this.libroSeleccionado,  // Paso el libro seleccionado al diálogo
         estadoLibro: this.estadoLibro,  // Paso el estado del libro al diálogo
-        puntuacion: this.puntuacion,  // Paso la puntuación al diálogo
+        puntuacion: this.puntuacion,  // Paso la mi puntuación al diálogo
         critica: this.critica  // Paso la crítica al diálogo
       }
     });
@@ -82,11 +84,12 @@ export class LibroDetalleComponent implements OnInit{
   agregarAFavoritos(libro: any): void {
     console.log('Libro añadido a favoritos:', libro.title);
   }
-
-  obtenerPuntuacionMedia(libro: any):string{
-    return "";
+  //TODO puntuacion media que me llega de la bbdd
+  obtenerPuntuacionMedia(libro: any):number{
+    this.puntuacionMedia = libro.averageRating;
+    return 4.2;
   }
-
+//TODO eliminar este metodo
   rate(stars:any) {
     const resultElement = document.getElementById('result');
     if(!resultElement) {

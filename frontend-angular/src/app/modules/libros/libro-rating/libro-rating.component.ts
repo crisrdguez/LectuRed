@@ -10,6 +10,7 @@ export class LibroRatingComponent {
 
   estadoActual = this.data.estadoLibro;
   miCritica = this.data.critica;
+  puntuacion = this.data.puntuacion;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { 
     console.log("Datos recibidos: ", data);
@@ -37,6 +38,15 @@ export class LibroRatingComponent {
     this.dialog.closeAll();
     window.location.reload(); //recargo la pagina
   }
+
+  rate(stars:any) {
+    const resultElement = document.getElementById('result');
+    if(!resultElement) {
+        return;
+    }
+    resultElement.textContent = `Has puntuado con ${stars} estrellas`;
+}
+
 
   private guardarLibroEnLocalStorage(libroId: string, estado: string, puntuacion: number, critica:string): void {
     const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');

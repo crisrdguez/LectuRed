@@ -19,7 +19,6 @@ const apiKey = "";//Inserta tu propia clave de API de Google Books
  */
 app.get("/api/all", cors(), (req, res) => {
   //Extraigo los parametros de consulta de la solicitud
-  console.log(req.params);
   const queryParams = req.query.q || "a";
   const langRestrict = req.query.langRestrict || "es";
   const maxResults = req.query.maxResults || 10;

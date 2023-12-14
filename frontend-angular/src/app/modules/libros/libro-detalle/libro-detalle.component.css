@@ -36,13 +36,15 @@ mat-icon{
     color: rgb(22, 78, 161);
 }
 
-/*Estrellas*/
+
 .rating-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
 }
+
+/*Estrellas
 .rating {
     margin:10px;
     align-items: center;
@@ -82,4 +84,4 @@ label:hover {
 
 input[type="radio"]:checked ~ label {
     color: #ffcc00;
-}
+}*/
