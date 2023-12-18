@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-estrellas',
@@ -7,8 +7,10 @@ import { Component } from '@angular/core';
 })
 export class EstrellasComponent {
 
-  rate(stars:any) {
-    alert(`Has puntuado con ${stars} estrellas`);
-}
+  @Output() puntuacionSeleccionada = new EventEmitter<number>();
+
+  rate(stars: number) {
+    this.puntuacionSeleccionada.emit(stars);
+  }
 
 }

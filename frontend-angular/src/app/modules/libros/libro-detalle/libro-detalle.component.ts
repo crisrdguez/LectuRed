@@ -73,7 +73,7 @@ export class LibroDetalleComponent implements OnInit{
         exitAnimationDuration,
         libroSeleccionado: this.libroSeleccionado,  // Paso el libro seleccionado al diálogo
         estadoLibro: this.estadoLibro,  // Paso el estado del libro al diálogo
-        puntuacion: this.puntuacion,  // Paso la mi puntuación al diálogo
+        puntuacion: this.puntuacion,  // Paso mi puntuación al diálogo
         critica: this.critica  // Paso la crítica al diálogo
       }
     });

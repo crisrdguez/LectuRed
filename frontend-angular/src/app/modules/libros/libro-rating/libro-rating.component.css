@@ -35,3 +35,12 @@
   button:hover {
     background-color: #E47171; /* Cambia el color de fondo al pasar el ratón */
   }
+
+  .radio-label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.estado{
+  padding:20px;
+}

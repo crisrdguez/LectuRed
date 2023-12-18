@@ -11,12 +11,22 @@ export class LibroRatingComponent {
   estadoActual = this.data.estadoLibro;
   miCritica = this.data.critica;
   puntuacion = this.data.puntuacion;
+  mostrarModificarPuntuacion: boolean = false;
+
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog) { 
     console.log("Datos recibidos: ", data);
   }
 
-  actualizarEstadoLibro(estado: string): void {
+  actualizarPuntuacion(puntuacion: number) {
+    alert("Puntuacion anterior:" + this.puntuacion);
+    this.puntuacion = puntuacion;
+
+    alert("Puntuacion cambiada a: " + this.puntuacion);
+    
+  }
+
+  /*actualizarEstadoLibro(estado: string): void {
     this.data.estadoLibro = estado;
     this.estadoActual= estado;
     console.log("Estado actualizado: ", this.data.estadoLibro);
@@ -25,28 +35,19 @@ export class LibroRatingComponent {
       const libroId = this.data.libroSeleccionado.id;
       console.log("componente rating, el idLibro es: ", libroId);
       const libroEstado = this.data.estadoLibro;
-      const libroPuntuacion = this.data.puntuacion;
+      const libroPuntuacion = this.puntuacion;
       const libroCritica = this.data.critica;
       this.guardarLibroEnLocalStorage(libroId, libroEstado, libroPuntuacion, libroCritica);
     
     //TODO guardar en bbdd
     //TODO ahora se pierden los datos cuando vuelvo al componente de mis libros, ya que obtiene los datos de un json y no de la bbdd. aqui se actualiza el localstorage con los datos de json, TIENE QUE ACTUALIZARSE CON LOS DE LA BBDD
-  }
+  }*/
 
-  actualizarLibroLocalStorage(libroId: string, estado: string, puntuacion: number, critica:string): void {
-    this.guardarLibroEnLocalStorage(libroId, estado, puntuacion, critica);
+  actualizarLibroLocalStorage(libroId: string, estado: string, critica:string): void {
+    this.guardarLibroEnLocalStorage(libroId, estado, this.puntuacion, critica);
     this.dialog.closeAll();
     window.location.reload(); //recargo la pagina
   }
-
-  rate(stars:any) {
-    const resultElement = document.getElementById('result');
-    if(!resultElement) {
-        return;
-    }
-    resultElement.textContent = `Has puntuado con ${stars} estrellas`;
-}
-
 
   private guardarLibroEnLocalStorage(libroId: string, estado: string, puntuacion: number, critica:string): void {
     const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');
@@ -55,9 +56,13 @@ export class LibroRatingComponent {
     const libroExistente = librosLocalStorage.find((libro: any) => libro.idLibro === libroId);
 
     if (libroExistente) {
+
+      // Actualizar la puntuación solo si ha cambiado
+      if (libroExistente.puntuacion !== puntuacion) {
+        libroExistente.puntuacion = this.puntuacion;
+      }
       // Actualizar el estado si ya existe en localStorage
-      libroExistente.estado = estado;
-      libroExistente.puntuacion = puntuacion;
+      libroExistente.estado = estado; 
       libroExistente.critica = critica;
     } else {
       // Agregar el libro si no existe en localStorage
@@ -66,6 +71,7 @@ export class LibroRatingComponent {
 
     // Guardar en localStorage
     localStorage.setItem('misLibros', JSON.stringify(librosLocalStorage));
+    //TODO GUARDAR EN LA BBDD
   }
 
 }
