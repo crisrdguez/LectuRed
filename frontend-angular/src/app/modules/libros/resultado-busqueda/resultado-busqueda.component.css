@@ -3,9 +3,9 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  max-width: 90vw; 
+  max-width: 100%; 
   padding: 20px; 
-  background-color:#b4d1ff;
+  background-color:#EFE8E8;
 }
 
 .container-form{
@@ -44,7 +44,7 @@ mat-tab-group {
   
   /* Estilo para mat-tab */
   .mat-mdc-tab-group, .mat-mdc-tab-nav-bar {
-    --mdc-tab-indicator-active-indicator-color: #c2185b;
+    --mdc-tab-indicator-active-indicator-color: #850a3b;
     --mat-tab-header-inactive-label-text-color: #744931;
     --mat-tab-header-active-label-text-color: #c2185b;
     --mat-tab-header-active-ripple-color: #c2185b;

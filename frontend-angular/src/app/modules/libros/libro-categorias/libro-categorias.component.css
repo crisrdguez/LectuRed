@@ -1,27 +1,86 @@
 .contenedor-categoria{
-    max-width: 90%;
-    padding: 0 15px;
-    margin: 0 auto;
-}
-
-.categoria {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
+    background-color: #EFE8E8;
     text-align: center;
-    margin: 20px; 
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    align-items: center; /* Centra verticalmente */
 }
 
-.categoria img {
-    max-width: 100%; 
-}
-
-.categoria h2 {
-    margin: 10px 0; 
-}
 
 .categoria-texto{
-    margin: 10px 0;
-    max-width: 50%;
-    font-size: 1.1em;
+    max-width: 65%;
+    margin-top:30px;
+    padding: 20px;
+    margin-left: 100px;
+    font-size: 1.8em;
+    line-height: normal;
+    text-align: center;
+    background-color: #E4C57F;
+    border-radius:10px;
+    box-shadow: 0px 1px 4px 1px rgb(4, 6, 143);
+}
+
+/* Estilos para el contenedor de categoría */
+  .contenedor-categoria h2 {
+    padding: 30px;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    font-size: 2.9rem;
+    color: #302B2D; /* Cambia el color del texto según tus preferencias */
+  }
+  
+  .contenedor-categoria img {
+    width: 85%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+    border-radius: 8px; /* Agrega bordes redondeados */
+    box-shadow: 0 4px 4px rgba(4, 15, 65, 0.61); /* Agrega una sombra suave */
+  }
+  
+  /* Estilos para el listado de recomendados */
+  .listado-recomendados {
+    padding: 40px 0; /* Ajusta el relleno según tus preferencias */
+  }
+  
+  .listado-recomendados .container {
+    text-align: center;
+  }
+  
+  .rectangulo2 {
+    background-color: #fff; /* Cambia el color de fondo según tus preferencias */
+    padding: 20px; /* Ajusta el relleno según tus preferencias */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+  }
+  
+
+/*listado de libros*/
+
+.listado-recomendados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listado-recomendados .container{
+    max-width: 1400px;
+    width: 100%;
+    min-height: 500px;
+    padding:10px;
+}
+
+.rectangulo, .rectangulo2{
+    width: 100%;
+    background-color:#00426C;
+    border-radius:10px;
+    box-shadow: 0px 1px 4px 1px rgb(8, 8, 7);
+}
+
+.tituloCat{
+
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin-top:40px;
+    color:beige;
+    font-size: 2.9rem;
+    padding-bottom: 20px;
+
 }

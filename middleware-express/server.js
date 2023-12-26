@@ -21,7 +21,7 @@ app.get("/api/all", cors(), (req, res) => {
   //Extraigo los parametros de consulta de la solicitud
   const queryParams = req.query.q || "a";
   const langRestrict = req.query.langRestrict || "es";
-  const maxResults = req.query.maxResults || 10;
+  const maxResults = req.query.maxResults || 15;
 
   //Construye la URL de la API de Google Books utilizando estos parámetros
   const apiUrl = `https://www.googleapis.com/books/v1/volumes?q=${queryParams}&key=${apiKey}&langRestrict=${langRestrict}&maxResults=${maxResults}`;
