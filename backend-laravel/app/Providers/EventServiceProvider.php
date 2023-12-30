@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\Events\ReviewUpdated;
 use App\Listeners\UpdateReviewLog;
+use App\Models\MyBook;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -23,6 +25,9 @@ class EventServiceProvider extends ServiceProvider
         ReviewUpdated::class => [
             UpdateReviewLog::class,
         ],
+        RatingUpdated::class => [
+            UpdateRatingLog::class,
+        ]
     ];
 
     /**
