@@ -2,8 +2,15 @@
     background-color:#EFE8E8;
     padding: 20px;
     min-height: 460px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
+
+  .modificarPuntuacion{
+    background-color: aquamarine;
+  }
+
   h3 {
     color: #302B2D; /* Cambiado a un color más oscuro */
   }
@@ -30,6 +37,10 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+  }
+
+  .botonEliminar{
+
   }
   
   button:hover {
