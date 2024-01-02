@@ -5,11 +5,11 @@ import { ActividadService } from 'src/app/services/actividad.service';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 @Component({
-  selector: 'app-libro-actividad',
-  templateUrl: './libro-actividad.component.html',
-  styleUrls: ['./libro-actividad.component.css']
+  selector: 'app-mi-actividad',
+  templateUrl: './mi-actividad.component.html',
+  styleUrls: ['./mi-actividad.component.css']
 })
-export class LibroActividadComponent implements OnInit{
+export class MiActividadComponent implements OnInit{
 
   @Input() idLibroEnvio: string=""; //Recibo el id del libro
 
@@ -20,8 +20,8 @@ export class LibroActividadComponent implements OnInit{
 
   ngOnInit(): void {
     //Si no se recibe el id del libro, obtengo toda la informacion
-    if(!this.idLibroEnvio){
-      this.actividadService.getActividadGeneralBBDD().subscribe(data => {
+    /*if(!this.idLibroEnvio){
+      this.actividadService.getMiActividad().subscribe(data => {
         this.listaActividad = data.items;
         data.items.forEach((item:any) => this.getLibroId(item.idLibro));
       });
@@ -31,14 +31,14 @@ export class LibroActividadComponent implements OnInit{
         this.listaActividad = data.items;
         data.items.forEach((item: any) => this.getLibroId(item.idLibro));
       });
-    }
-    /*
-    this.actividadService.getCriticas().subscribe(data => {
+    }*/
+    
+    this.actividadService.getMiActividad().subscribe(data => {
       console.log(data.items);
       this.listaActividad = data.items; // Accede a la propiedad "items" del JSON
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
       data.items.forEach((item:any) => this.getLibroId(item.idLibro));
-    });*/
+    });
   }
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros
@@ -71,4 +71,4 @@ export class LibroActividadComponent implements OnInit{
 
   }
 
-  }
+}

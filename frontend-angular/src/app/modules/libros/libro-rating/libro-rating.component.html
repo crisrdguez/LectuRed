@@ -1,44 +1,50 @@
 <div class="container">
     <h2><strong> {{ data.libroSeleccionado.title }}</strong></h2>
+    <div class="boton" *ngIf="data.estadoLibro !== 'Añadir a Favoritos'">
+      <button (click)="eliminarLibroLocalStorage(data.libroSeleccionado.id)"><strong>Eliminar de Mis Libros</strong></button>   
+    </div>
+
     <div class="accion-libro">
-      <div class="botonEliminar" *ngIf="data.estadoLibro !== 'Añadir a Favoritos'">
-        <button (click)="eliminarLibroLocalStorage(data.libroSeleccionado.id)">Eliminar de Mis Libros</button>   
-      </div>
+      
       <div class="estado">
         <h3>Estado del libro</h3>
-          <label class="radio-label">
-              <!--<input type="radio" value="leido" [(ngModel)]="estadoActual" (change)="actualizarEstadoLibro('leido')">-->
-              <input type="radio" value="leido" [(ngModel)]="data.estadoLibro">
-              Leído
-          </label>
-          <label class="radio-label">
-              <input type="radio" value="leyendo" [(ngModel)]="data.estadoLibro">
-              Leyendo
-          </label>
-          <label class="radio-label">
-              <input type="radio" value="deseado" [(ngModel)]="data.estadoLibro">
-              Deseado
-          </label>
+        <section id="pattern4" class="radio-group">
+          <input type="radio" name="g4" id="g4_1" value="leido"  [(ngModel)]="data.estadoLibro">
+          <label class="radio-label" for="g4_1">Leído</label>
+          <input type="radio" name="g4" id="g4_2" value="leyendo" [(ngModel)]="data.estadoLibro">
+          <label class="radio-label" for="g4_2">Leyendo</label>
+          <input type="radio" name="g4" id="g4_3" value="deseado" [(ngModel)]="data.estadoLibro">
+          <label class="radio-label" for="g4_3">Deseado</label>
+        </section>
+        
+          
       </div>
       <div class="datosCritica" *ngIf="data.estadoLibro === 'leido'">
 
-          <div *ngIf="data.puntuacion !== 0">
-            <p><strong>Mi puntuación:</strong> 
-            <app-puntuacion-media [puntuacionMedia]="data.puntuacion"></app-puntuacion-media></p>
-          </div>
-          <div *ngIf="data.critica !== ''">
-            <p><strong>Critica:</strong> {{ data.critica }}</p>
-          </div>
-          
-          <p class="modificarPuntuacion" (click)="mostrarModificarPuntuacion = !mostrarModificarPuntuacion">Modificar o añadir mi reseña/puntuación</p>
-          <div *ngIf="mostrarModificarPuntuacion">
-            <app-estrellas (puntuacionSeleccionada)="actualizarPuntuacion($event)"></app-estrellas>
-            <textarea name="critica" id="critica" cols="60" rows="10" [(ngModel)]="data.critica"></textarea>
-          </div>
+        <div *ngIf="data.puntuacion !== 0">
+          <p><strong>Mi puntuación:</strong> 
+          <app-puntuacion-media [puntuacionMedia]="data.puntuacion"></app-puntuacion-media></p>
+        </div>
+        <div *ngIf="data.critica !== ''">
+          <p><strong>Critica:</strong> {{ data.critica }}</p>
+        </div>
+        
+        <p class="modificarPuntuacion" (click)="mostrarModificarPuntuacion = !mostrarModificarPuntuacion">Modificar o añadir mi reseña/puntuación</p>
+        <div *ngIf="mostrarModificarPuntuacion">
+          <app-estrellas (puntuacionSeleccionada)="actualizarPuntuacion($event)"></app-estrellas>
+          <textarea name="critica" id="critica" cols="60" rows="10" [(ngModel)]="data.critica"></textarea>
+        </div>
       </div>
     </div>
-    <button (click)="actualizarLibroLocalStorage(data.libroSeleccionado.id, data.estadoLibro, data.critica)">Guardar</button>
+      
+    
+    <button class="boton" (click)="actualizarLibroLocalStorage(data.libroSeleccionado.id, data.estadoLibro, data.critica)">Guardar</button>
+
+    <!--PROBANDO RADIOBUTTTTTONS-->
+
+
   
+
     <!-- También puedes acceder a propiedades del libro seleccionado -->
     
   </div>

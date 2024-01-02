@@ -1,15 +1,18 @@
 <div class="contenedor-categoria">
- 
-  <h2>{{ categoria.titulo }}</h2>
+  
   <img [src]="categoria.imagen" alt="{{ categoria.titulo }}"/>
-  <p class="categoria-texto">{{ categoria.descripcion }}</p>
+  <div class="categoria-overlay">
+    <h2>{{ categoria.titulo }}</h2>
+    <p class="categoria-texto"><strong>{{ categoria.descripcion }}</strong></p>
+  </div>
   <section class="listado-recomendados">
-    <div class="container">
-        <div class="container text-center rectangulo2">
+    <div class="rectangulo">
+        <div class="container text-center">
             <app-libro-listas></app-libro-listas>          
         </div>
     </div>
   </section>
+  
 </div>
 
 

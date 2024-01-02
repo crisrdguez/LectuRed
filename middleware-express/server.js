@@ -58,8 +58,6 @@ app.get("/detalle", cors(), (req, res) => {
     });
 });
 
-//TODO Metodo que accede a la informacion de un unico autor, para contruir DetalleAutor
-
 app.get("/test", (req, res) => {
   console.log("Hola /test");
   res.send("¡Hola!! Esto es una respuesta desde el servidor Express en /test");
@@ -78,9 +76,9 @@ app.listen(port, () => {
   console.log(`Servidor corriendo en el puerto ${port}`); //Imprime un mensaje en la consola para indicar que el servidor está en funcionamiento
 });
 
-//TODO Peticiones a la BBDD
+//TODO Peticiones a la BBDD*********************************************************************************************
 
-//Obtiene información mis libros
+//Obtiene información de mis libros
 app.get("/api/mybooks", cors(), (req, res) => {
   console.log("Entra en api/mybooks");
 
@@ -97,6 +95,85 @@ app.get("/api/mybooks", cors(), (req, res) => {
       res.status(500).json({ error: "Error en la solicitud" });
     });
 });
+
+//Obtiene informacion de la actividad general
+const fs = require('fs'); //todo borrar
+const path = require('path');//todo borrar
+app.get("/api/actividad", cors(), (req, res) => {
+  console.log("Entra en api/actividad");
+
+  //TODO DESCOMENTAR - URL de la API de Google Books utilizando estos parámetros
+  /*const apiUrl = `http://127.0.0.1:8000/api/actividad`;
+  console.log(apiUrl);
+
+  axios
+    .get(apiUrl)
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((error) => {
+      res.status(500).json({ error: "Error en la solicitud" });
+    });*/
+
+    const jsonFilePath = path.join(__dirname, 'mocks', 'actividad.json'); // Ruta completa al archivo JSON
+    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error al leer el archivo JSON');
+        return;
+      }
+  
+      const jsonData = JSON.parse(data);
+      res.json(jsonData);
+    });
+
+
+});
+
+//Obtiene informacion de la actividad de un libro
+app.get("/api/actividadLibro", cors(), (req, res) => {
+  console.log("Entra en api/actividadLibro");
+  const idLibro = req.query.idLibro || "8w-YCgAAQBAJ";
+
+  //TODO DESCOMENTAR - URL de la API de Google Books utilizando estos parámetros
+  /*const apiUrl = `http://127.0.0.1:8000/api/actividadLibro/${idLibro}`;
+  console.log(apiUrl);
+
+  axios
+    .get(apiUrl)
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((error) => {
+      res.status(500).json({ error: "Error en la solicitud" });
+    });*/
+
+    const jsonFilePath = path.join(__dirname, 'mocks', 'actividad.json'); // Ruta completa al archivo JSON
+    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error al leer el archivo JSON');
+        return;
+      }
+  
+      const jsonData = JSON.parse(data);
+      // Filtrar los elementos por el idLibro específico
+      const filteredData = jsonData.items.filter(item => item.idLibro === idLibro);
+
+      res.json({ items: filteredData });
+    });
+
+
+});
+
+//Obtiene informacion de mi actividad
+
+
+//Obtiene puntuacion media de un libro
+
+
+//TODO MANDO INFORMACION A LA BBDD
+//Cambio de estado, critica o puntuacion
 
 
 

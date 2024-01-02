@@ -13,6 +13,7 @@ import { LibroMisLibrosComponent } from './libro-mis-libros/libro-mis-libros.com
 import { LibroRatingComponent } from './libro-rating/libro-rating.component';
 import { EstrellasComponent } from './estrellas/estrellas.component';
 import { PuntuacionMediaComponent } from './puntuacion-media/puntuacion-media.component';
+import { MiActividadComponent } from './mi-actividad/mi-actividad.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { PuntuacionMediaComponent } from './puntuacion-media/puntuacion-media.co
     LibroMisLibrosComponent,
     LibroRatingComponent,
     EstrellasComponent,
-    PuntuacionMediaComponent
+    PuntuacionMediaComponent,
+    MiActividadComponent
   ],
   imports: [
     CommonModule,
