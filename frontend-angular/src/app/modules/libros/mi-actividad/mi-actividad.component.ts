@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Libro } from 'src/app/core/models';
 import { ActividadService } from 'src/app/services/actividad.service';
@@ -11,8 +11,8 @@ import { GoogleBooksService } from 'src/app/services/google-books.service';
 })
 export class MiActividadComponent implements OnInit{
 
-  @Input() idLibroEnvio: string=""; //Recibo el id del libro
-
+  
+  idPersona: string = ''; //Lo cojo de mis datos al logarme
   listaActividad: any[] = []; // Definir una variable para almacenar los datos
   librosActividad : Libro[] = [];
 
@@ -32,8 +32,12 @@ export class MiActividadComponent implements OnInit{
         data.items.forEach((item: any) => this.getLibroId(item.idLibro));
       });
     }*/
-    
-    this.actividadService.getMiActividad().subscribe(data => {
+    //Si se proporciona id de libro
+
+    //idPersona lo cojo del localStorage
+    this.idPersona = localStorage.getItem('idPersona') || '';
+
+    this.actividadService.getMiActividad(this.idPersona).subscribe(data => {
       console.log(data.items);
       this.listaActividad = data.items; // Accede a la propiedad "items" del JSON
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId

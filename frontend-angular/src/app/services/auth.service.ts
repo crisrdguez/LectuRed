@@ -9,6 +9,7 @@ import { ActividadService } from './actividad.service';
 export class AuthService {
 
   listaMisLibros: any[] = [];
+  idPersona:string = '';
 
   constructor(private router: Router, private actividadService: ActividadService) { }
 
@@ -18,8 +19,10 @@ export class AuthService {
     if(this.estaAutenticado()){
       //TODO Accedo a los libros que vienen de la bbdd y los guardo en localstorage
     this.actividadService.getMisLibros().subscribe(data => {
+      console.log(data.idUser)
       console.log(data.misLibros);
       this.listaMisLibros = data.misLibros; // Accede a la propiedad "misLibros" del JSON
+      this.idPersona = data.idUser;
       console.log("Mi lista de libros que guardo en localstorage:");
       console.log(this.listaMisLibros);
 
@@ -31,6 +34,8 @@ export class AuthService {
         const critica = item.critica;
         this.guardarLibroEnLocalStorage(libroId, estado, puntuacion, critica);
       });
+
+      localStorage.setItem('idPersona', this.idPersona);
     });
     }
   }
@@ -49,6 +54,7 @@ export class AuthService {
   cerrarSesion(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('misLibros');
+    localStorage.removeItem('idPersona');
     this.router.navigate(['/home']);
     window.location.reload(); //actualiza la pagina
   }

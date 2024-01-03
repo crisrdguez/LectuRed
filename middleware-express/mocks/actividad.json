@@ -83,9 +83,9 @@
       "estado": "deseado"
     },
     {
-      "idPersona": "666",
+      "idPersona": "111",
       "imagenPerfil": "",
-      "nombre": "Felipe",
+      "nombre": "Cris",
       "fecha": "08/10/2023",
       "idLibro": "-LpFBgAAQBAJ",
       "puntuacion": 3,
@@ -93,7 +93,7 @@
       "estado": "leido"
     },
     {
-      "idPersona": "666",
+      "idPersona": "000",
       "imagenPerfil": "",
       "nombre": "Felipe",
       "fecha": "08/10/2023",
@@ -103,9 +103,9 @@
       "estado": "leyendo"
     },
     {
-      "idPersona": "1234",
+      "idPersona": "222",
       "imagenPerfil": "",
-      "nombre": "Zipi",
+      "nombre": "Mabel",
       "fecha": "08/11/2023",
       "idLibro": "YZseCgAAQBAJ",
       "puntuacion": 0,
@@ -133,9 +133,9 @@
       "estado": "deseado"
     },
     {
-      "idPersona": "0454",
+      "idPersona": "111",
       "imagenPerfil": "",
-      "nombre": "De la O",
+      "nombre": "Cris",
       "fecha": "12/10/2023",
       "idLibro": "YZseCgAAQBAJ",
       "puntuacion": 5,

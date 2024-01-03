@@ -60,9 +60,10 @@ export class ActividadService {
     return this.http.get(url);
   }
 
-  getMiActividad(): Observable<any> {
-    console.log(this.http.get(this.jsonURLMiActividad));
-    return this.http.get(this.jsonURLMiActividad);
+  getMiActividad(idPersona: string): Observable<any> {
+    console.log("entrando a getMiActividad, idPersona:" + idPersona);
+    let url = `${this.urlMiActividad}?idPersona=${idPersona}`;
+    return this.http.get(url);
   }
 
   /**para peticion BBDD 

@@ -19,7 +19,7 @@ export const categorias = {
         "titulo": "Suspense",
         "subject": "religion",
         "url":"suspense",
-        "descripcion": "El suspense literario te sumerge en un mundo de intrigas, secretos y giros inesperados. Atrévete a desentrañar misterios y sentir la adrenalina mientras cada página te atrapa más en su red. ¡Ven y sumérgete en un emocionante juego de suspense que te mantendrá al borde de tu asiento!",
+        "descripcion": "El suspense literario te sumerge en un mundo de intrigas, secretos y giros inesperados. \nAtrévete a desentrañar misterios y sentir la adrenalina mientras cada página te atrapa más en su red. ¡Ven y sumérgete en un emocionante juego de suspense que te mantendrá al borde de tu asiento!",
         "imagen": "../assets/categorias/misterio.jpeg"
       },
       {

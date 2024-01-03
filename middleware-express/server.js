@@ -99,6 +99,7 @@ app.get("/api/mybooks", cors(), (req, res) => {
 //Obtiene informacion de la actividad general
 const fs = require('fs'); //todo borrar
 const path = require('path');//todo borrar
+
 app.get("/api/actividad", cors(), (req, res) => {
   console.log("Entra en api/actividad");
 
@@ -167,6 +168,41 @@ app.get("/api/actividadLibro", cors(), (req, res) => {
 });
 
 //Obtiene informacion de mi actividad
+
+app.get("/api/miActividad", cors(), (req, res) => {
+  console.log("Entra en /api/miActividad");
+  const idPersona = req.query.idPersona || "000";
+
+  //TODO DESCOMENTAR - URL de la API de Google Books utilizando estos parámetros
+  /*const apiUrl = `http://127.0.0.1:8000/api/actividadLibro/${idLibro}`;
+  console.log(apiUrl);
+
+  axios
+    .get(apiUrl)
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((error) => {
+      res.status(500).json({ error: "Error en la solicitud" });
+    });*/
+
+    const jsonFilePath = path.join(__dirname, 'mocks', 'actividad.json'); // Ruta completa al archivo JSON
+    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
+      if (err) {
+        console.error(err);
+        res.status(500).send('Error al leer el archivo JSON');
+        return;
+      }
+  
+      const jsonData = JSON.parse(data);
+      // Filtrar los elementos por el idLibro específico
+      const filteredData = jsonData.items.filter(item => item.idPersona === idPersona);
+
+      res.json({ items: filteredData });
+    });
+
+
+});
 
 
 //Obtiene puntuacion media de un libro

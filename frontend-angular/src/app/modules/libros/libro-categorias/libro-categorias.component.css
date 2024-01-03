@@ -18,7 +18,7 @@
   text-align: center;
   max-width: 25%; /* Ajusta el ancho según tus preferencias */
   height: 460px; /* Ajusta la altura aquí */
-  background: linear-gradient(to left, rgb(179, 174, 174), rgba(95, 255, 89, 0));
+  background: linear-gradient(to left, rgba(219, 216, 215, 0.5), rgba(219, 216, 215, 0.5),  rgb(219, 216, 215, 0.5), rgb(219, 216, 215, 0.5), rgba(219, 216, 215, 0.5), rgba(15, 15, 15, 0));
 
   /*background: rgba(219, 216, 215, 0.5);*/
 }
@@ -48,11 +48,11 @@
 }
 .contenedor-categoria .categoria-texto{
   margin-top: 10px;
-  font-size: 1.5rem; /* Ajusta el tamaño según tus preferencias */
-  line-height: normal;
-
-  color: #221f1f; /* Cambia el color del texto según tus preferencias * 
-
+  font-size: 1.5rem; 
+  line-height: 35px;
+  color: #221f1f; 
+  text-align: right;
+  padding-left:20px;
     /*max-width: 65%;
     margin-top:30px;
     padding: 20px;
