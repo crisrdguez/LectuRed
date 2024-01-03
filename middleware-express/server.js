@@ -11,7 +11,7 @@ const cors = require("cors"); //Importa el módulo CORS, que se utiliza para man
 const axios = require("axios"); //  Importa el módulo Axios, que se utiliza para hacer solicitudes HTTP a la API de Google Books
 const app = express(); //Creo una instancia de Express
 const port = process.env.PORT || 3000;
-const apiKey = "";//Inserta tu propia clave de API de Google Books
+const apiKey = "AIzaSyDLfxm2NrmcuUzdC10qj-q6fdmEfy7b1x8";//Inserta tu propia clave de API de Google Books
 
 /**
  * Maneja solicitudes para obtener una lista de libros desde la API de Google Books.

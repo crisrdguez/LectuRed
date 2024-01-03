@@ -1,40 +1,44 @@
-<h3>Actividad</h3>
+<div class="container">
+  <div class="contenedor-actividad" *ngFor="let entrada of listaActividad">
 
-<div class="contenedor-actividad" *ngFor="let entrada of listaActividad">
-    
     <ng-container *ngIf="entrada.puntuacion === 0">
       <!-- Si la puntuación es 0, el usuario no ha leído el libro -->
-      <p>{{entrada.fecha}}</p>
+
       <ng-container *ngIf="entrada.estado === 'leyendo'">
-        <div class="activity-item">
-            <p>{{ entrada.nombre }} ha comenzado a leer el libro</p>
-            <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+        <div class="entry-container">
+          <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+          <div class="activity-item">
+            <p class="fecha">{{entrada.fecha}}</p>
+            <p class="infoEstado">{{ entrada.nombre }} ha comenzado a leer este libro</p>
+          </div>
         </div>
       </ng-container>
+
       <ng-container *ngIf="entrada.estado === 'deseado'">
-        <div class="activity-item">
-            <p>{{ entrada.nombre }} ha añadido el libro</p>
-            <div class="libroMenor">
-                <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-            </div>
-            <p> a su lista de deseos</p>
+        <div class="entry-container">
+          <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+          <div class="activity-item">
+            <p class="fecha">{{entrada.fecha}}</p>
+            <p class="infoEstado">{{ entrada.nombre }} ha añadido este libro a su lista de deseos</p>
+          </div>
         </div>
       </ng-container>
-    </ng-container>
-  
-    <ng-container *ngIf="entrada.puntuacion !== 0">
-      <!-- Si la puntuación es distinta de 0, el usuario ha leído el libro -->
-      <div class="activity-item">
-        <p>{{entrada.fecha}}</p>
-        <p>{{ entrada.nombre }} ha leído el libro</p>
-        <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-        <p>Puntuación: {{ entrada.puntuacion }} estrellas</p>    
-            <ng-container *ngIf="entrada.critica !== '' ">
-                <p>Reseña: "{{ entrada.critica }}"</p>
-            </ng-container>
-     </div>
     </ng-container>
 
-    
+    <ng-container *ngIf="entrada.puntuacion !== 0">
+      <!-- Si la puntuación es distinta de 0, el usuario ha leído el libro -->
+      <div class="entry-container">
+        <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+        <div class="activity-item">
+          <p class="fecha">{{entrada.fecha}}</p>
+          <p class="infoEstado">{{ entrada.nombre }} ha leído este libro</p>
+          <p class="infoEstado">Puntuación: {{ entrada.puntuacion }} estrellas</p>
+          <ng-container *ngIf="entrada.critica !== '' ">
+            <p class="infoEstado">Reseña: </p>
+            <textarea class="infoRes" disabled>"{{ entrada.critica }}"</textarea>
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
   </div>
-  
+</div>

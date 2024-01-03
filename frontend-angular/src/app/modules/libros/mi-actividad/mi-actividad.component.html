@@ -8,17 +8,16 @@
       <p>{{entrada.fecha}}</p>
       <ng-container *ngIf="entrada.estado === 'leyendo'">
         <div class="activity-item">
-            <p>{{ entrada.nombre }} ha comenzado a leer el libro</p>
+            <p>{{ entrada.nombre }} ha comenzado a leer este libro</p>
             <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
         </div>
       </ng-container>
       <ng-container *ngIf="entrada.estado === 'deseado'">
         <div class="activity-item">
-            <p>{{ entrada.nombre }} ha añadido el libro</p>
+            <p>{{ entrada.nombre }} ha añadido este libro a su lista de deseos</p>
             <div class="libroMenor">
                 <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
             </div>
-            <p> a su lista de deseos</p>
         </div>
       </ng-container>
     </ng-container>
