@@ -85,8 +85,8 @@ class UserController extends Controller
 
         ]);
         Auth::login($user); 
-        return redirect()->route('dashboard');
-        
+        $usuario= Auth()->user();
+        return redirect()->intended('http://localhost:4200/home?id=' . $usuario->id);
     }
 
 }

@@ -9,6 +9,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\User;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Session;
+use App\Models\MiLista;
+use App\Models\Actividad;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -17,19 +22,26 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
-    }
+    
+    return view('auth.login');
 
+    }
+    
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
     {
-        $request->authenticate();
 
+    // Realiza la autenticación utilizando la solicitud actual
+        $request->authenticate();
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        // Obten el usuario autenticado
+        $user = Auth::user();
+
+        // Redeirecciona a la ruta del front http://localhost:4200/home con el id del usuario
+        return redirect()->intended('http://localhost:4200/home?id=' . $user->id);
     }
 
     /**
@@ -37,6 +49,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
+        auth()->user()->tokens()->delete();
+
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();
@@ -45,4 +59,70 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+
+    public function generarToken(Request $request)
+    {
+         $user = User::where('id', $request->id)->first();
+
+        if ($user == null) {
+            return response(['message' => 'Usuario no encontrado'], 404);
+        }else{
+            $token = $user->createToken('authToken')->plainTextToken;
+            $usuario= User::find($request->id);
+            $listasDelUsuario = MiLista::where('user_id', $request->id)->get();
+            $actividaadesDelUsuario = Actividad::where('user_id', $request->id)->get();
+
+
+        return response(['user' => $user, 'token' => $token, 'Mislibros' => $listasDelUsuario, 'Actividad del usuario' => $actividaadesDelUsuario]); 
+        }
+    } 
+
+    public function logout()
+    {
+        //cerrar sesion
+        Auth::guard('web')->logout();
+
+        auth()->user()->tokens()->delete();
+        return response(['message' => 'Session cerrada']);
+    }
+
+    public function actividad()
+    {
+        $actividad = Actividad::all();
+        // si la lista esta vacia
+        if ($actividad->isEmpty()) {
+
+            return response()->json([
+                'success' => false,
+                'message' => 'No se encontro actividad'
+            ], 404);
+        }else{
+
+            return response()->json([
+                'success' => true,
+                'data' => $actividad
+            ], 201);
+        }
+        
+    }
+
+    public function actividadporlibro($idlibro)
+    {
+        $actividad = Milista::where('idlibro', $idlibro)->get();
+        // si la lista esta vacia
+        if ($actividad->isEmpty()) {
+
+            return response()->json([
+                'success' => false,
+                'message' => 'No se encontro actividad para este libro'
+            ], 404);
+        }else {
+            
+        return response()->json([
+            'success' => true,
+            'data' => $actividad
+        ], 201);
+        }
+    }              
 }
