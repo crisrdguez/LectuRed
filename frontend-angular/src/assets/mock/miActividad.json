@@ -1,0 +1,96 @@
+{
+    "items":
+[ 
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "16/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 4,
+      "critica": "Me encantó este libro, muy recomendado.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "15/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 3,
+      "critica": "Divertido, ameno y blabla",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "14/10/2023",
+      "idLibro": "qPFFSUgJlLwC",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "leyendo"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "16/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 4,
+      "critica": "Me encantó este libro, muy recomendado.",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "15/10/2023",
+      "idLibro": "4iQN0AEACAAJ",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "deseado"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "14/10/2023",
+      "idLibro": "qPFFSUgJlLwC",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "leyendo"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "16/10/2023",
+      "idLibro": "JubhDwAAQBAJ",
+      "puntuacion": 2,
+      "critica": "Un poco petardo",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "15/10/2023",
+      "idLibro": "XPBQDnsa8DYC",
+      "puntuacion": 5,
+      "critica": "El mejor libro del mundo",
+      "estado": "leido"
+    },
+    {
+      "idPersona": "111",
+      "imagenPerfil": "",
+      "nombre": "Cris",
+      "fecha": "14/10/2023",
+      "idLibro": "whhXAAAAMAAJ",
+      "puntuacion": 0,
+      "critica": "",
+      "estado": "leyendo"
+    }
+
+  ]
+}

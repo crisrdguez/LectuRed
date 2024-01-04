@@ -1,18 +1,18 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Libro } from 'src/app/core/models';
 import { ActividadService } from 'src/app/services/actividad.service';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 @Component({
-  selector: 'app-libro-actividad',
-  templateUrl: './libro-actividad.component.html',
-  styleUrls: ['./libro-actividad.component.css']
+  selector: 'app-mi-actividad',
+  templateUrl: './mi-actividad.component.html',
+  styleUrls: ['./mi-actividad.component.css']
 })
-export class LibroActividadComponent implements OnInit{
+export class MiActividadComponent implements OnInit{
 
-  @Input() idLibroEnvio: string=""; //Recibo el id del libro
-
+  
+  idPersona: string = ''; //Lo cojo de mis datos al logarme
   listaActividad: any[] = []; // Definir una variable para almacenar los datos
   librosActividad : Libro[] = [];
 
@@ -20,8 +20,8 @@ export class LibroActividadComponent implements OnInit{
 
   ngOnInit(): void {
     //Si no se recibe el id del libro, obtengo toda la informacion
-    if(!this.idLibroEnvio){
-      this.actividadService.getActividadGeneralBBDD().subscribe(data => {
+    /*if(!this.idLibroEnvio){
+      this.actividadService.getMiActividad().subscribe(data => {
         this.listaActividad = data.items;
         data.items.forEach((item:any) => this.getLibroId(item.idLibro));
       });
@@ -31,14 +31,18 @@ export class LibroActividadComponent implements OnInit{
         this.listaActividad = data.items;
         data.items.forEach((item: any) => this.getLibroId(item.idLibro));
       });
-    }
-    /*
-    this.actividadService.getCriticas().subscribe(data => {
+    }*/
+    //Si se proporciona id de libro
+
+    //idPersona lo cojo del localStorage
+    this.idPersona = localStorage.getItem('idPersona') || '';
+
+    this.actividadService.getMiActividad(this.idPersona).subscribe(data => {
       console.log(data.items);
       this.listaActividad = data.items; // Accede a la propiedad "items" del JSON
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
       data.items.forEach((item:any) => this.getLibroId(item.idLibro));
-    });*/
+    });
   }
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros
@@ -71,4 +75,4 @@ export class LibroActividadComponent implements OnInit{
 
   }
 
-  }
+}

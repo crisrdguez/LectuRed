@@ -4,9 +4,13 @@
         <div class="container">
             <div class="container text-center rectangulo">
                 <p>Recomendados</p>
-                <div class="elemento-superpuesto" *ngFor="let entrada of listaRecomendados">
-                    <app-libro class="superpuesto" [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-                </div>           
+                <div class="container-reco">
+                    <div class="row libro-container-reco">
+                        <div class="col-sm-6 col-md-4 col-lg-3 libro-card" *ngFor="let entrada of listaRecomendados">
+                            <app-libro class="superpuesto" [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+                        </div>     
+                    </div>  
+                </div>
             </div>
         </div>
     </section>

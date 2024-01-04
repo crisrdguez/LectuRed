@@ -19,11 +19,7 @@ export class LibroRatingComponent {
   }
 
   actualizarPuntuacion(puntuacion: number) {
-    alert("Puntuacion anterior:" + this.puntuacion);
     this.puntuacion = puntuacion;
-
-    alert("Puntuacion cambiada a: " + this.puntuacion);
-    
   }
 
   /*actualizarEstadoLibro(estado: string): void {
@@ -45,6 +41,7 @@ export class LibroRatingComponent {
 
   actualizarLibroLocalStorage(libroId: string, estado: string, critica:string): void {
     this.guardarLibroEnLocalStorage(libroId, estado, this.puntuacion, critica);
+    //TODO GUARDAR EN LA BBDD
     this.dialog.closeAll();
     window.location.reload(); //recargo la pagina
   }
@@ -71,7 +68,20 @@ export class LibroRatingComponent {
 
     // Guardar en localStorage
     localStorage.setItem('misLibros', JSON.stringify(librosLocalStorage));
-    //TODO GUARDAR EN LA BBDD
+    
+  }
+
+  eliminarLibroLocalStorage(libroId: string): void {
+    alert("Se va a eliminar el libro de tus estanterias");
+    const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');
+    const index = librosLocalStorage.findIndex((libro: any) => libro.idLibro === libroId);
+    if (index !== -1) {
+      librosLocalStorage.splice(index, 1);
+      localStorage.setItem('misLibros', JSON.stringify(librosLocalStorage));
+    }
+    this.dialog.closeAll();
+    window.location.reload();
+    ////TODO ELIMINAR EN LA BBDD
   }
 
 }

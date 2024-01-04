@@ -19,7 +19,7 @@ export const categorias = {
         "titulo": "Suspense",
         "subject": "religion",
         "url":"suspense",
-        "descripcion": "El suspense literario te sumerge en un mundo de intrigas, secretos y giros inesperados. Atrévete a desentrañar misterios y sentir la adrenalina mientras cada página te atrapa más en su red. ¡Ven y sumérgete en un emocionante juego de suspense que te mantendrá al borde de tu asiento!",
+        "descripcion": "El suspense literario te sumerge en un mundo de intrigas, secretos y giros inesperados. \nAtrévete a desentrañar misterios y sentir la adrenalina mientras cada página te atrapa más en su red. ¡Ven y sumérgete en un emocionante juego de suspense que te mantendrá al borde de tu asiento!",
         "imagen": "../assets/categorias/misterio.jpeg"
       },
       {
@@ -27,14 +27,14 @@ export const categorias = {
         "subject": "love",
         "url":"romantica",
         "descripcion": "La novela romántica te sumerge en un mundo de pasión, emociones intensas y amores apasionados. Descubre historias de corazones entrelazados y suspiros compartidos mientras exploras el poder del amor en todas sus formas. ¡Ven y déjate llevar por un viaje lleno de romance que te hará palpitar el corazón!",
-        "imagen": "../assets/categorias/romantica.jpeg"
+        "imagen": "../assets/categorias/romantica.png"
       },
       {
         "titulo": "Terror",
         "subject": "Horror",
         "url":"terror",
         "descripcion": "El género del terror te adentra en un oscuro y escalofriante universo donde los miedos más profundos cobran vida. Prepárate para sentir el escalofrío en tu espina dorsal, enfrentarte a lo desconocido y experimentar la emoción de lo macabro. ¡Atrévete a explorar el lado más aterrador de la literatura y sumérgete en un mundo de horror que te mantendrá en vilo!",
-        "imagen": "../assets/categorias/terror.jpeg"
+        "imagen": "../assets/categorias/terror.jpg"
       },
       {
         "titulo": "Infantil",

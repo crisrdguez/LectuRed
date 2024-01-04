@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="libro-container">
-    <div *ngFor="let libro of listaLibros" class="libro-card">    
+  <div class="row libro-container">
+    <div *ngFor="let libro of listaLibros" class="col-sm-6 col-md-4 col-lg-3 libro-card">    
       <app-libro [libro] = "libro"></app-libro>  
     </div>
   </div>  

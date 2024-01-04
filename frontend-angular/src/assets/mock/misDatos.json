@@ -1,9 +1,9 @@
 {
-    "misLibros":
+  "idUser": "111",
+  "nombreUser": "Cris",
+  "misLibros":
 [
     { 
-      "idUser": "111",
-      "nombreUser": "Cris",
       "idLibro": "LsBkzwEACAAJ",
       "estado": "leido",
       "puntuacion": 4,
