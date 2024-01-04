@@ -1,19 +1,21 @@
-.container{
-    background-color: #EFE8E8;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.container{   
+  background-color: rgba(198,180,180,1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .contenedor-actividad {
     width: 80%;
-    background-color: #e0d8d8;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: rgb(198,180,180);
+    background: linear-gradient(90deg, rgba(198,180,180,1) 0%, rgba(255,255,255,1) 50%, rgba(198,180,180,1) 100%);
   }
+
 
 .entry-container {
     display: flex;
@@ -46,14 +48,16 @@
   }
 
   .infoRes{
+    color:#302B2D;
     background-color: #EFE8E8;
     font-family: cursive;
     font-size: 1.5rem;
     line-height: 30px;
     padding: 10px;
-    width: 746px;
-    height: 95px;
-    resize: none;
+    white-space: pre-line; /* Para respetar los saltos de línea */
+    border: 1px solid #ccc; /* Añadir un borde opcional */
+    border-radius: 4px; /* Añadir esquinas redondeadas opcional */
+    margin-top: 5px; /* Añadir margen superior opcional */
   }
 
   .puntuacion-container {

@@ -1,6 +1,83 @@
-.contenedor-actividad{
-    background-color: rgb(236, 205, 227);
-    margin: 20px;
-    padding: 20px;
-    font-size: 1.5em;
-}
+.container{   
+    background-color: rgba(198,180,180,1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .contenedor-actividad {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgb(198,180,180);
+      background: linear-gradient(90deg, rgba(198,180,180,1) 0%, rgba(255,255,255,1) 50%, rgba(198,180,180,1) 100%);
+    }
+  
+  
+  .entry-container {
+      display: flex;
+      align-items: flex-start;;
+      background-color: #00426C;
+      border-radius: 4px;
+      box-shadow: 0px 1px 4px 1px #e4c57f;
+      padding: 10px;
+      margin: 30px; /* Puedes ajustar el margen según tus preferencias */
+      width: 70%;
+    }
+  
+    
+    .activity-item {
+      color:#EFE8E8;
+      margin-left: 20px;
+      align-self: flex-start;
+    }
+  
+    .fecha{
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  
+    .infoEstado{
+      font-family: serif;
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  
+    .infoRes{
+      color:#302B2D;
+      background-color: #EFE8E8;
+      font-family: cursive;
+      font-size: 1.5rem;
+      line-height: 30px;
+      padding: 10px;
+      white-space: pre-line; /* Para respetar los saltos de línea */
+      border: 1px solid #ccc; /* Añadir un borde opcional */
+      border-radius: 4px; /* Añadir esquinas redondeadas opcional */
+      margin-top: 5px; /* Añadir margen superior opcional */
+    }
+  
+    .puntuacion-container {
+      display: flex;
+      align-items: center; /* Alinea verticalmente los elementos dentro del contenedor */
+    }
+  
+    .estrellas{
+      padding: 5px;
+    }
+    
+    .estrellas-container {
+      display: flex;
+      margin-right: 3px;
+    }
+  
+    .estrella-amarilla{
+      color: #ebba47
+    }
+  
+    .estrella-gris{
+      color: #8792a8;
+    }
