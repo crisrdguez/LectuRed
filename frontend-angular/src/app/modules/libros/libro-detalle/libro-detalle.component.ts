@@ -5,6 +5,7 @@ import { Libro } from 'src/app/core/models';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
 import { LibroRatingComponent } from '../libro-rating/libro-rating.component';
 import { AuthService } from 'src/app/services/auth.service';
+import { ActividadService } from 'src/app/services/actividad.service';
 
 @Component({
   selector: 'app-libro-detalle',
@@ -15,6 +16,10 @@ export class LibroDetalleComponent implements OnInit{
   
   idLibroEnvio:string | undefined;
   idLibro:string | undefined;
+  
+  listaActividad: any[] = []; // Definir una variable para almacenar los datos
+  librosActividad : Libro[] = [];
+
   libroSeleccionado:Libro | null = null;
   estadoLibro: string = 'Añadir a Favoritos'; // Estado predeterminado
   puntuacion: number = 0;
@@ -22,7 +27,7 @@ export class LibroDetalleComponent implements OnInit{
   critica: string = '';
   estaAutenticado: boolean = false;
 
-  constructor(private googleBooksService: GoogleBooksService, private route: ActivatedRoute, private authService: AuthService, public dialog: MatDialog) { }
+  constructor(private googleBooksService: GoogleBooksService, private route: ActivatedRoute, private authService: AuthService, private actividadService: ActividadService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -54,6 +59,13 @@ export class LibroDetalleComponent implements OnInit{
     });
 
     this.verificarAutenticacion();
+
+    if (this.idLibro !== undefined) {
+      this.actividadService.getCriticasPorLibro(this.idLibro).subscribe((data) => {
+        this.listaActividad = data.items;
+        data.items.forEach((item: any) => this.getLibroId(item.idLibro));
+      });
+    }
       
   }
 
@@ -79,6 +91,27 @@ export class LibroDetalleComponent implements OnInit{
     });
     // Recargar la página
   
+  }
+
+  //Metodo que busca un libro por id y lo guarda en mi array de libros
+  getLibroId(idLibro:string){
+
+    this.route.params.subscribe(params => {
+      console.log(idLibro + "getIdLibro en actividad");
+      this.googleBooksService.getDetalleLibro(idLibro).subscribe({
+        next: (libro: Libro) => {
+          this.librosActividad?.push(libro);
+          console.log(this.librosActividad);
+        },
+        error: (error) => {
+          console.error('Error al obtener los libros', error);
+        },
+        complete: () => {
+          console.info("Peticion completada");
+        }
+      });
+    });
+      
   }
 
   agregarAFavoritos(libro: any): void {

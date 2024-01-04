@@ -1,5 +1,14 @@
+.container{   
+    background-color: #EFE8E8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
 .bookpage_gridcontainer {
-    width: 80%;
+    width: 90%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
@@ -18,7 +27,7 @@
 }
 
 .bookpage_rightcolumn {
-    width: 70%;
+    width: 100%;
     margin-top: 30px;
     margin-left: 50%; 
 }
@@ -43,6 +52,114 @@ mat-icon{
     align-items: center;
     padding-top: 10px;
 }
+
+/*datos del libro*/
+h2{
+    font-size: 32px;
+  color: #302B2D;
+  margin-bottom: 20px;
+
+}
+
+
+.autor{
+    font-size: 16px;
+    color: #302B2D;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.editorial{
+    font-size: 16px;
+    color: #302B2D;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.resumen{
+    font-size: 16px;
+    color: #302B2D;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+/*probando actividad detalle*/
+
+  .contenedor-actividad {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  
+    }
+  
+  
+  .entry-container {
+      display: flex;
+      align-items: flex-start;;
+      background-color: #00426C;
+      border-radius: 4px;
+      box-shadow: 0px 1px 4px 1px #e4c57f;
+      padding: 10px;
+      margin: 30px; /* Puedes ajustar el margen según tus preferencias */
+      width: 80%;
+    }
+  
+    
+    .activity-item {
+      color:#EFE8E8;
+      margin-left: 20px;
+      align-self: flex-start;
+    }
+  
+    .fecha{
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  
+    .infoEstado{
+      font-family: serif;
+      font-size: 1.5rem;
+      padding: 10px;
+    }
+  
+    .infoRes{
+      color:#302B2D;
+      background-color: #EFE8E8;
+      font-family: cursive;
+      font-size: 1.3rem;
+      line-height: 30px;
+      padding: 10px;
+      width: 90%;
+      white-space: pre-line; /* Para respetar los saltos de línea */
+      border-radius: 4px; /* Añadir esquinas redondeadas opcional */
+      margin-top: 5px; /* Añadir margen superior opcional */
+    }
+  
+    .puntuacion-container {
+      display: flex;
+      align-items: center; /* Alinea verticalmente los elementos dentro del contenedor */
+    }
+  
+    .estrellas{
+      padding: 5px;
+    }
+    
+    .estrellas-container {
+      display: flex;
+      margin-right: 3px;
+    }
+  
+    .estrella-amarilla{
+      color: #ebba47
+    }
+  
+    .estrella-gris{
+      color: #8792a8;
+    }
 
 /*Estrellas
 .rating {

@@ -25,12 +25,6 @@ export class LibroActividadComponent implements OnInit{
         this.listaActividad = data.items;
         data.items.forEach((item:any) => this.getLibroId(item.idLibro));
       });
-    }else{
-      //Si se proporciona id de libro
-      this.actividadService.getCriticasPorLibro(this.idLibroEnvio).subscribe((data) => {
-        this.listaActividad = data.items;
-        data.items.forEach((item: any) => this.getLibroId(item.idLibro));
-      });
     }
     /*
     this.actividadService.getCriticas().subscribe(data => {
