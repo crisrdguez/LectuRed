@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('authentication_provider')->nullable();
             $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
 
             // Puedes añadir más campos si es necesario
         });

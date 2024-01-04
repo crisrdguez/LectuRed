@@ -43,12 +43,16 @@ class UpdateReviewLog
      */
     private function logAction(Review $review, string $action, array $changedFields=[]): void
     {
+        if (empty($changedFields)) {
+            $changedFields[0]= null;
+        }
+
         ReviewLog::create([
             'review_id' => $review->id,
             'content' => $review->content,
             'previous_book_status' => $review->previous_book_status,
             'change_type' => $action,
-            'updated_field' => $changedFields ?:null,
+            'update_field' => $changedFields[0],
         ]);
     }
 }
