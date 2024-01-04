@@ -15,6 +15,7 @@ export class LibroActividadComponent implements OnInit{
 
   listaActividad: any[] = []; // Definir una variable para almacenar los datos
   librosActividad : Libro[] = [];
+  numEstrellas : number = 5;
 
   constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
 

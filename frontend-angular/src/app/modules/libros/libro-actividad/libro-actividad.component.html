@@ -32,7 +32,16 @@
         <div class="activity-item">
           <p class="fecha">{{entrada.fecha}}</p>
           <p class="infoEstado">{{ entrada.nombre }} ha leído este libro</p>
-          <p class="infoEstado">Puntuación: {{ entrada.puntuacion }} estrellas</p>
+
+          <div class="puntuacion-container">
+            <p class="infoEstado">Puntuación:</p>
+            <div class="estrellas-container">
+              <p class="estrellas" *ngFor="let estrella of [0,1,2,3,4]">
+                <mat-icon [ngClass]="{'estrella-amarilla': estrella < entrada.puntuacion, 'estrella-gris': estrella >= entrada.puntuacion}">star</mat-icon>
+              </p>
+            </div>
+          </div>
+          
           <ng-container *ngIf="entrada.critica !== '' ">
             <p class="infoEstado">Reseña: </p>
             <textarea class="infoRes" disabled>"{{ entrada.critica }}"</textarea>
