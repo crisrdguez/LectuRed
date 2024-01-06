@@ -29,9 +29,9 @@ Route::get('/actividad/libro/{idlibro}', [AuthenticatedSessionController::class,
 Route::get('/actividad', [AuthenticatedSessionController::class, 'actividad']);
 
 
-//creamos un grupo para proteger las rutas
+//creamos un grupo para proteger las rutas con auth:sanctum
 Route::group(['middleware' => ['auth:sanctum']], function () {
-// si no lleva el token no puede acceder a las rutas y mandaremos un mensaje indicando falta token
+
     Route::apiResources([
         'users'=>UserController::class,
         'books' => BookController::class,
@@ -41,5 +41,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         'misLibros'=> MiListaController::class,
 
     ]);
-    Route::get('/logout', [AuthenticatedSessionController::class, 'logout']);
+    Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
 });

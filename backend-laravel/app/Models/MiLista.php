@@ -45,20 +45,22 @@ class MiLista extends Model
             ]);
         });
         static::updating(function ($miLista) {
-
-
-            $dirtyKeys = array_keys($miLista->getDirty());
+            $dirtyFields = $miLista->getDirty();
+            foreach ($dirtyFields as $fieldName => $newValue) {
+                $originalValue = $miLista->getOriginal($fieldName);
         
-            Actividad::create([
-                'user_id' => auth()->user()->id,
-                'idlibro' => $miLista->idlibro,
-                'nombre' => auth()->user()->name,
-                'tipo' => 'Ha modificado',
-                'campo_actualizado' => $dirtyKeys[0], // Obtener el primer atributo modificado
-                'valor_anterior' => $miLista->getOriginal($dirtyKeys[0]),
-                'valor_nuevo' => $miLista->getDirty()[$dirtyKeys[0]],
-            ]);
+                Actividad::create([
+                    'user_id' => auth()->user()->id,
+                    'idlibro' => $miLista->idlibro,
+                    'nombre' => auth()->user()->name,
+                    'tipo' => 'Ha modificado',
+                    'campo_actualizado' => $fieldName,
+                    'valor_anterior' => $originalValue,
+                    'valor_nuevo' => $newValue,
+                ]);
+            }
         });
+        
 
         static::deleting(function ($miLista) {
             Actividad::create([
