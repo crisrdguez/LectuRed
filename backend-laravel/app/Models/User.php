@@ -64,6 +64,11 @@ class User extends Authenticatable
         return $this->hasMany(PasswordResetToken::class);
     }
 
+    public function miLista()
+    {
+        return $this->hasMany(MiLista::class, 'user_id');
+    }
+
 }
 
 

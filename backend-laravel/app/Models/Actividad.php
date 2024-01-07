@@ -19,5 +19,7 @@ class Actividad extends Model
         'campo_actualizado',
         'valor_anterior',
         'valor_nuevo',
+        'created_at',
+        'updated_at',
     ];
 }
