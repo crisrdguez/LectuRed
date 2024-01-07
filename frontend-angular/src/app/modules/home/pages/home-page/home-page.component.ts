@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Libro } from 'src/app/core/models';
 import { ActividadService } from 'src/app/services/actividad.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { BuscadorService } from 'src/app/services/buscador.service';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -15,12 +17,13 @@ export class HomePageComponent implements OnInit{
 
   listaRecomendados: any[] = []; // Definir una variable para almacenar los datos
   librosRecomendados : Libro[] = [];
+  idUsuario: string | null = '';
 
   //array de autores
   autores: string[] = ["King", "Sanderson", "agatha christie", "Jane Austen", "Megan Maxwell", "Javier Castillo"];
   autorElegido : string = "";
 
-  constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute, private buscadorService : BuscadorService) { }
+  constructor(private http: HttpClient, private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute, private buscadorService : BuscadorService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.actividadService.getRecomendados().subscribe(data => {
@@ -34,7 +37,34 @@ export class HomePageComponent implements OnInit{
     this.seleccionarAutorAlAzar();
     this.buscadorService.setQueryParams(this.autorElegido);
     this.buscadorService.setOpcionBusqueda(5); //opcion de busqueda 5 - novedades
-    
+
+    this.idUsuario = this.route.snapshot.queryParamMap.get('id');
+    console.log(this.idUsuario);
+    //this.authService.peticionToken();
+    this.obtenerToken();
+  }
+
+  //Prueba para pedir el token al hacer peticion a la bbdd
+  obtenerToken(): void {
+    console.log("Entra en el metodo obtener token, dentro del componente home, obteniendo token");
+    const url = 'http://127.0.0.1:8000/api/login';
+
+    // Define el cuerpo de la solicitud (body)
+    const body = {
+      id: this.idUsuario
+    };
+
+    // Realiza la petición POST
+    this.http.post(url, body).subscribe(
+      (data: any) => {
+        // Maneja la respuesta del servidor (puedes almacenar el token, etc.)
+        console.log('Token recibido:', data.token);
+        console.log(data);
+      },
+      error => {
+        console.error('Error al obtener el token:', error);
+      }
+    );
   }
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros

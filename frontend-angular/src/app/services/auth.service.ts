@@ -40,6 +40,11 @@ export class AuthService {
     }
   }
 
+  //Metodo para pedir el token haciendo peticion a la bbdd con el id del usuario
+  peticionToken(){
+    
+  }
+
   // Método para obtener el token almacenado en el localStorage
   obtenerToken(): string | null {
     return localStorage.getItem('token');
