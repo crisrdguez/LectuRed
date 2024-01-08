@@ -39,7 +39,8 @@ class AuthenticatedSessionController extends Controller
 
         // Obten el usuario autenticado
         $user = Auth::user();
-
+        // cerrar sesion
+        Auth::guard('web')->logout();
         // Redeirecciona a la ruta del front http://localhost:4200/home con el id del usuario
         return redirect()->intended('http://localhost:4200/home?id=' . $user->id);
     }
@@ -86,43 +87,5 @@ class AuthenticatedSessionController extends Controller
         auth()->user()->tokens()->delete();
         return response(['message' => 'Session cerrada']);
     }
-
-    public function actividad()
-    {
-        $actividad = Actividad::all();
-        // si la lista esta vacia
-        if ($actividad->isEmpty()) {
-
-            return response()->json([
-                'success' => false,
-                'message' => 'No se encontro actividad'
-            ], 404);
-        }else{
-
-            return response()->json([
-                'success' => true,
-                'data' => $actividad
-            ], 201);
-        }
-        
-    }
-
-    public function actividadporlibro($idlibro)
-    {
-        $actividad = Milista::where('idlibro', $idlibro)->get();
-        // si la lista esta vacia
-        if ($actividad->isEmpty()) {
-
-            return response()->json([
-                'success' => false,
-                'message' => 'No se encontro actividad para este libro'
-            ], 404);
-        }else {
-            
-        return response()->json([
-            'success' => true,
-            'data' => $actividad
-        ], 201);
-        }
-    }              
+              
 }

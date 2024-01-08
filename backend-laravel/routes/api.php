@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\MiListaController;
+use App\Http\Controllers\ActividadController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -25,8 +27,8 @@ use App\Http\Controllers\MiListaController;
 }); */
 
 Route::post('/login', [AuthenticatedSessionController::class, 'generarToken']);
-Route::get('/actividad/libro/{idlibro}', [AuthenticatedSessionController::class, 'actividadporlibro']);
-Route::get('/actividad', [AuthenticatedSessionController::class, 'actividad']);
+Route::get('/actividad/{idlibro}', [ActividadController::class, 'actividadporlibro']);
+Route::get('/actividad', [ActividadController::class, 'actividad']);
 
 
 //creamos un grupo para proteger las rutas con auth:sanctum
