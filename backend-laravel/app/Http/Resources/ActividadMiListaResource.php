@@ -7,12 +7,10 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use Carbon\Carbon;
 use App\Models\User;
 
-class MiListaResource extends JsonResource
+class ActividadMiListaResource extends JsonResource
 {
 
-
-    public static $model = 'App\Models\MiLista';
-
+    public static $model = 'App\Models\ActividadMiLista';
     /**
      * Transform the resource into an array.
      *
@@ -22,14 +20,12 @@ class MiListaResource extends JsonResource
     {
         return
             [
-                'idPersona' => $this->user_id,
                 'nombre' => User::find($this->user_id)->name,
-                'fecha' => Carbon::parse($this->updated_at)->format('d/m/Y'),
+                'fecha' => Carbon::parse($this->created_at)->format('d/m/Y'),
                 'idLibro'=>$this->idlibro,
                 'puntuacion' => $this->puntuacion,
                 'critica' => $this->critica,
                 'estado' => $this->estado,
-                'media' => $this->media_puntuacion,
             ];
     }
 }

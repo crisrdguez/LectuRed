@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Actividad;
+use App\Models\ActividadMiLista;
 
 class MiLista extends Model
 {
@@ -34,43 +35,40 @@ class MiLista extends Model
         });
         
         static::creating(function ($miLista) {
-           Actividad::create([
+            ActividadMiLista::create([
                 'user_id' => auth()->user()->id,
-                'idlibro' => $miLista->idlibro,
                 'nombre' => auth()->user()->name,
-                'tipo' => 'Ha añadido',
-                'campo_actualizado' =>'libro' ,
-                'valor_anterior' =>null,
-                'valor_nuevo' =>'libro',
+                'idlibro' => $miLista->idlibro,
+                'puntuacion'=> $miLista->puntuacion,
+                'critica'=> $miLista->critica,
+                'estado'=> $miLista->estado,
             ]);
         });
         static::updating(function ($miLista) {
-            $dirtyFields = $miLista->getDirty();
+           /*  $dirtyFields = $miLista->getDirty();
             foreach ($dirtyFields as $fieldName => $newValue) {
                 $originalValue = $miLista->getOriginal($fieldName);
-        
-                Actividad::create([
+ */
+                ActividadMiLista::create([
                     'user_id' => auth()->user()->id,
-                    'idlibro' => $miLista->idlibro,
                     'nombre' => auth()->user()->name,
-                    'tipo' => 'Ha modificado',
-                    'campo_actualizado' => $fieldName,
-                    'valor_anterior' => $originalValue,
-                    'valor_nuevo' => $newValue,
+                    'idlibro' => $miLista->idlibro,
+                    'puntuacion'=> $miLista->puntuacion,
+                    'critica'=> $miLista->critica,
+                    'estado'=> $miLista->estado,
                 ]);
-            }
+            //
         });
         
 
         static::deleting(function ($miLista) {
-            Actividad::create([
+            ActividadMiLista::create([
                 'user_id' => auth()->user()->id,
-                'idlibro' => $miLista->idlibro,
                 'nombre' => auth()->user()->name,
-                'tipo' => 'Ha eliminado',
-                'campo_actualizado' =>'libro' ,
-                'valor_anterior' =>'libro',
-                'valor_nuevo' =>null,
+                'idLibro' => $miLista->idlibro,
+                'puntuacion'=> $miLista->puntuacion,
+                'critica'=> $miLista->critica,
+                'estado'=> $miLista->estado,
             ]);
         });
         
@@ -81,3 +79,14 @@ class MiLista extends Model
     }
 
 }
+
+
+/* Actividad::create([
+    'user_id' => auth()->user()->id,
+    'idlibro' => $miLista->idlibro,
+    'nombre' => auth()->user()->name,
+    'tipo' => 'Ha modificado',
+    'campo_actualizado' => $fieldName,
+    'valor_anterior' => $originalValue,
+    'valor_nuevo' => $newValue,
+]); */
