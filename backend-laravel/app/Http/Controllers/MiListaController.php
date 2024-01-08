@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\MiLista;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use App\Http\Resources\MiListaResource;
 
 class MiListaController extends Controller
 {
@@ -13,20 +14,12 @@ class MiListaController extends Controller
      */
     public function index(): JsonResponse
     {
-        $miListas = MiLista::all();
+        $miLista = MiLista::all();
 
-        // Si no hay datos en la tabla
-        if ($miListas->isEmpty()) {
-            return response()->json([
-                'success' => false,
-                'message' => 'No hay libros'
-            ], 200);
-        } else {
-            return response()->json([
-                'success' => true,
-                'data' => $miListas
-            ], 200);
-        }
+        return response()->json([
+            'success' => true,
+            'items' => MiListaResource::collection($miLista)
+        ], 200);
     }
 
     /**
@@ -37,22 +30,39 @@ class MiListaController extends Controller
         // Obtenemos el id del usuario logueado
         $user_id = auth()->user()->id;
 
+        if ($request->idPersona) {
+            $request->merge(['user_id' => $request->idPersona]);
+            $request->request->remove('idPersona');
+        }   
+
+        // lo mismo con idLibro
+        if ($request->idLibro) {
+            $request->merge(['idlibro' => $request->idLibro]);
+            $request->request->remove('idLibro');
+        }
+        
         // Si no se ha enviado el user_id o el user_id no es el del usuario logueado
         if (!$request->user_id || $request->user_id != $user_id) {
             $request->merge(['user_id' => auth()->user()->id]);
         }
 
-        // Comprobamos que en la request viene como mínimo el idlibro y el user_id
-        // y si no, mostramos un mensaje que indique que son necesarios esos campos
-        if (!$request->idlibro || !$request->user_id) {
+        // el estado es obligatorio y el idlibro tambien
+        if (!$request->estado || !$request->idlibro) {
             return response()->json([
                 'success' => false,
-                'message' => 'Los campos idlibro y user_id son necesarios para realizar un registro'
+                'message' => 'El estado y el idLibro son obligatorios'
             ], 200);
         }
 
         // Evaluamos si hay algún registro en la tabla MiLista con los mismos idlibro y el user_id
         $existe = MiLista::where('idlibro', $request->idlibro)->where('user_id', $request->user_id)->first();
+
+        if($existe){
+            return response()->json([
+                'success' => false,
+                'message' => 'El libro ya está en tu lista'
+            ], 200);
+        }
 
         // Comprobamos que en la request no vengan más campos de los siguientes:
         // user_id, idlibro, puntuacion, critica
@@ -84,13 +94,6 @@ class MiListaController extends Controller
             ], 200);
         }
 
-        if ($existe) {
-            return response()->json([
-                'success' => false,
-                'message' => 'El libro ya está en tu lista'
-            ], 200);
-        }
-
         // Si el estado del libro es distinto a leido no se puede poner una puntuacion ni una critica en caso de que venieran en la request
         if ($request->estado != 'leido' && ($request->puntuacion || $request->critica)) {
             return response()->json([
@@ -101,10 +104,11 @@ class MiListaController extends Controller
 
         $miLista = MiLista::create($request->all());
 
+        // Devolvemos el resoure MiListaResource con el registro que acabamos de crear
         return response()->json([
             'success' => true,
-            'data' => $miLista
-        ], 201);
+            'items' => new MiListaResource($miLista)
+        ], 200);
     }
 
     /**
@@ -116,7 +120,7 @@ class MiListaController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $miLista
+            'items' => MiListaResource::collection($miLista)
         ], 200);
     }
 
@@ -125,22 +129,21 @@ class MiListaController extends Controller
      */
     public function update(Request $request, string $idlibro): JsonResponse
     {
+
+       // en la request nos llega el user_id como idPersona, tenemos que cambiarlo a user_id
+           if ($request->idPersona) {
+                $request->merge(['user_id' => $request->idPersona]);
+                $request->request->remove('idPersona');
+            }   
+
+            // lo mismo con idLibro
+            if ($request->idLibro) {
+                $request->merge(['idlibro' => $request->idLibro]);
+                $request->request->remove('idLibro');
+            }
         // Si no se ha enviado el user_id o el user_id no es el del usuario logueado
         // Obtenemos el id del usuario logueado
         $user_id = auth()->user()->id;
-
-        // Si el estado de la request es distinto a leido valoraremos si se ha enviado una puntuacion o una critica de así las modificaremos a null y si no vienen las añadiremos a la request con valor null
-        if ($request->estado !== 'leido') {
-            // Verificar si puntuacion está presente y establecer a null
-            if ($request->has('puntuacion')) {
-                $request->merge(['puntuacion' => null]);
-            }
-
-            // Verificar si critica está presente y establecer a null
-            if ($request->has('critica')) {
-                $request->merge(['critica' => null]);
-            }
-        }
 
         if (!$request->user_id || $request->user_id != $user_id) {
             $request->merge(['user_id' => auth()->user()->id]);
@@ -153,7 +156,7 @@ class MiListaController extends Controller
 
             return response()->json([
                 'success' => false,
-                'message' => 'Hay campos que no son susceptibles de actualizar: ' . $camposSeparadosPorComas
+                'message' => 'Hay campos que no son susceptibles de actualizar'
             ], 200);
         }
 
@@ -166,13 +169,51 @@ class MiListaController extends Controller
             ], 200);
         }
 
+        // Si el estado que nos llega en la request es distinto a leido los valores de los campos puntuacion y critica deben ser null si vienen en la request
+        if ($request->estado != 'leido' && ($request->puntuacion || $request->critica)) {
+            return response()->json([
+                'success' => false,
+                'message' => 'No se puede poner una puntuación ni una crítica a un libro que no se ha leído'
+            ], 200);
+        }
+
+        // si el estado es distinto a leido, pero los campos puntuacion y critica no vienen en la request, los ponemos a null.
+
+        if ($request->estado != 'leido' && !$request->puntuacion && !$request->critica) {
+            $request->merge(['puntuacion' => null]);
+            $request->merge(['critica' => null]);
+        }
+
+        // si en la request llegua el campo de puntuacion o el de critica comprobaremos si viene tambien el de estado y si es distinto a leido devolveremos un mensaje de que no se puede poner una puntuacion o una critica a un libro que no se ha leido. En caso de que el campo estado no venga en la request debemos consultar el estado que tiene el libro en la tabla MiLista y si es distinto a leido devolveremos un mensaje de que no se puede poner una puntuacion o una critica a un libro que no se ha leido.*/
+
+        if (($request->puntuacion || $request->critica) && $request->estado && $request->estado != 'leido') {
+            return response()->json([
+                'success' => false,
+                'message' => 'No se puede poner una puntuación ni una crítica a un libro que no se ha leído'
+            ], 200);
+        }
+
+        if (($request->puntuacion || $request->critica) && !$request->estado) {
+            $estado = MiLista::where('idlibro', $idlibro)->where('user_id', $user_id)->first()->estado;
+
+            if ($estado != 'leido') {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'No se puede poner una puntuación ni una crítica a un libro que no se ha leído'
+                ], 200);
+            }
+        }
+        
+
+
+
         // Buscamos el registro por el idlibro
         $miLista = MiLista::where('idlibro', $idlibro)->first();
         $miLista->update($request->all());
 
         return response()->json([
             'success' => true,
-            'data' => $miLista
+            'items' => new MiListaResource($miLista)
         ], 200);
     }
 
