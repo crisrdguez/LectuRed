@@ -38,7 +38,7 @@ export class GoogleBooksService {
 
     if (!queryParams || queryParams.trim() === '') {//TODO afinarlo
       // Si queryParams está vacío o solo contiene espacios en blanco, no realizar la solicitud
-      alert("Es necesario introducir un nombre o palabra clave");
+      // alert("Es necesario introducir un nombre o palabra clave");
       //queryParams="Sanderson";
       //return of(null); // o puedes devolver un observable vacío o un valor predeterminado según tus necesidades
     }
@@ -153,7 +153,7 @@ export class GoogleBooksService {
 
     if (!idLibro || idLibro.trim() === '') {//TODO afinarlo
       // Si queryParams está vacío o solo contiene espacios en blanco, no realizar la solicitud
-      alert("Es necesario introducir un nombre o palabra clave");
+      // alert("Es necesario introducir un nombre o palabra clave");
       //return of(null); // o puedes devolver un observable vacío o un valor predeterminado según tus necesidades
     }
 

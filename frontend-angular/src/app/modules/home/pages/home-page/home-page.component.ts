@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Libro } from 'src/app/core/models';
 import { ActividadService } from 'src/app/services/actividad.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { BuscadorService } from 'src/app/services/buscador.service';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
 import { HttpClient } from '@angular/common/http';
+import { LocationStrategy } from '@angular/common';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class HomePageComponent implements OnInit{
   autores: string[] = ["King", "Sanderson", "agatha christie", "Jane Austen", "Megan Maxwell", "Javier Castillo"];
   autorElegido : string = "";
 
-  constructor(private http: HttpClient, private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute, private buscadorService : BuscadorService, private authService: AuthService) { }
+  constructor(private http: HttpClient, private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute, private buscadorService : BuscadorService, private authService: AuthService, private router: Router, private locationStrategy: LocationStrategy) { }
 
   ngOnInit(): void {
     this.actividadService.getRecomendados().subscribe(data => {
@@ -42,6 +43,8 @@ export class HomePageComponent implements OnInit{
     console.log(this.idUsuario);
     //this.authService.peticionToken();
     this.obtenerToken();
+
+    this.router.navigate(['/home'], {});
   }
 
   //Prueba para pedir el token al hacer peticion a la bbdd
@@ -59,6 +62,7 @@ export class HomePageComponent implements OnInit{
       (data: any) => {
         // Maneja la respuesta del servidor (puedes almacenar el token, etc.)
         console.log('Token recibido:', data.token);
+        this.authService.guardarToken(data.token, data.user.id);
         console.log(data);
       },
       error => {

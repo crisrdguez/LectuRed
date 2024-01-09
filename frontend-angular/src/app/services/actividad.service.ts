@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, map } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, catchError, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,7 @@ export class ActividadService {
 
   urlMiActividad = `${this.urlBase}/api/miActividad`;
 
+  urlDatosLibros = `${this.urlBase}/api/misLibros`; //Ruta a la api de Express
 
   constructor(private http: HttpClient) { }
   /**
@@ -85,16 +86,23 @@ export class ActividadService {
    * Obtiene la lista de los libros del usuario desde el archivo JSON.
    * @returns Observable con los datos de los libros del usuario.
    */
-  getMisLibros(): Observable<any> {
+  getMisLibrosOLD(): Observable<any> {
     console.log(this.http.get(this.json_misDatosLibros));
     return this.http.get(this.json_misDatosLibros);
   }
 
   //TODO Libros obtenidos de la bbdd - primera prueba
-  getMisLibrosBBDD(): Observable<any> {
+  getMisLibros(): Observable<any> {
     console.log("entrando a getMisLibrosBBDD");
     console.log(this.urlMisLibrosBBDD);
-    return this.http.get(this.urlMisLibrosBBDD);
+    let idPersona = localStorage.getItem('idPersona');
+
+    const token = localStorage.getItem('token');
+    const body = { };
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get(`${this.urlMisLibrosBBDD}?idPersona=${idPersona}`, { headers: headers });
   }
 
   
@@ -107,7 +115,26 @@ export class ActividadService {
 
   //TODO BBDD: Metodos para modificar datos BBDD
 
-  
+  setMisLibros(idPersona: string, libroId: string, estado: string | undefined, critica:string | undefined, puntuacion: number, metodo: string): void {
+    const token = localStorage.getItem('token');
+
+    console.log("setDatosLibroBBDD:"+idPersona+" "+libroId+" "+estado+" "+critica+" "+puntuacion+" "+metodo);
+    var body = {
+      idPersona: idPersona,
+      idLibro: libroId,
+      estado: estado,
+      puntuacion: puntuacion,
+      critica: critica, 
+      metodo: metodo
+    }
+
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    this.http.post(this.urlDatosLibros, body, { headers: headers }).subscribe();
+
+  }
 
   
 }

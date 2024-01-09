@@ -44,7 +44,8 @@ import { MiActividadComponent } from './mi-actividad/mi-actividad.component';
     LibroDetalleComponent,
     LibroCategoriasComponent,
     LibroActividadComponent,
-    LibroMisLibrosComponent
+    LibroMisLibrosComponent,
+    LibroRatingComponent
   ],
   providers: [],
 })

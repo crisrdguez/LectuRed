@@ -25,7 +25,7 @@
           <p><strong>Mi puntuación:</strong> 
           <app-puntuacion-media [puntuacionMedia]="data.puntuacion"></app-puntuacion-media></p>
         </div>
-        <div *ngIf="data.critica !== ''">
+        <div *ngIf="data.critica !== '' || data.critica !== null">
           <p><strong>Critica:</strong> {{ data.critica }}</p>
         </div>
         

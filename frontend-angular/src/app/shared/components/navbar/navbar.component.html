@@ -28,15 +28,15 @@
     </div>   
     <div class="nav-opcion logo-container">
         <ul>
-            <li *ngIf="!estaLogueado()">ç
+            <li *ngIf="!estaLogueado()">
                 <!--http://lectured.com:8000/login-->
                 <button mat-button><a href="http://127.0.0.1:8000/login" (click)="extraerId()">Iniciar sesión</a></button> 
                 <button mat-button><a href="http://127.0.0.1:8000/register">Registrarse</a></button>  
-                <button mat-button><a href="#" (click)="login()">login</a></button>          
+                <!--<button mat-button><a href="#" (click)="login()">login</a></button>   -->       
             </li>
             <li *ngIf="estaLogueado()">
-                <button mat-button><a href="http://lectured.com:8000/profile">Perfil</a></button> 
-                <button mat-button><a href="http://lectured.com:8000/register" (click)="logout()">Cerrar sesión</a></button>
+                <button mat-button><a href="http://127.0.0.1:8000/profile">Perfil</a></button> 
+                <button mat-button><a (click)="logout()">Cerrar sesión</a></button>
             </li>
         </ul>
         <!--

@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules').then(m => m.LibrosModule)
   },
   {path: 'categorias/:url', component:LibroCategoriasComponent},
-  {path: 'actividad', component:LibroActividadComponent,canActivate:[authGuard]},
+  {path: 'actividad', component:LibroActividadComponent},
   {path: 'mislibros', component:LibroMisLibrosComponent, canActivate:[authGuard]},
   {path: 'miactividad', component:MiActividadComponent, canActivate:[authGuard]},
   

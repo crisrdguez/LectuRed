@@ -48,12 +48,12 @@ export class NavbarComponent {
     Devuelve:token, datos de usuario, Actividad del usuario*/
   }
 
-  login(){
+  //login(){
     //guardo el token en localstorage
-    this.authService.guardarToken();
+    //this.authService.guardarToken();
 
     
-  }
+  //}
 
   logout(){
     this.estaLog = false;
