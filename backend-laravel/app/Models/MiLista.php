@@ -60,7 +60,7 @@ class MiLista extends Model
             //
         });
         
-
+/* 
         static::deleting(function ($miLista) {
             ActividadMiLista::create([
                 'user_id' => auth()->user()->id,
@@ -70,7 +70,7 @@ class MiLista extends Model
                 'critica'=> $miLista->critica,
                 'estado'=> $miLista->estado,
             ]);
-        });
+        }); */
         
     }
     public function user()
