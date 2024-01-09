@@ -1,0 +1,25 @@
+{
+  "success": true,
+  "items": [
+      {
+          "idPersona": "151",
+          "idLibro": "LsBkzwEACAAJ",
+          "estado": "deseado",
+          "puntuacion": 0,
+          "critica": "",
+          "media_puntuacion": null,
+          "created_at": "2024-01-05T13:26:25.000000Z",
+          "updated_at": "2024-01-05T13:26:25.000000Z"
+      },
+      {
+          "idPersona": "151",
+          "idLibro": "DDHFEAAAQBAJ",
+          "estado": "leido",
+          "puntuacion": 5,
+          "critica": "Me encantó este libro, muy recomendado. Una historia que conmueve un corazón difícil, entre la indecisión y el dolor de sus decisiones he terminado derramando una lagrima pese a conocer el final de antemano.",
+          "media_puntuacion": null,
+          "created_at": "2024-01-05T13:26:25.000000Z",
+          "updated_at": "2024-01-05T13:26:25.000000Z"
+      }
+  ]
+}

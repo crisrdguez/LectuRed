@@ -5,14 +5,31 @@
  * Se encarga de las solicitudes GET a las rutas /api/all para buscar libros en la API de Google Books
  * y /detalle para obtener información detallada de un libro específico.
  * También incluye un endpoint de prueba en /test.
+ * Además, utiliza CORS para permitir las solicitudes desde http://localhost:4200, que es un origen diferente.
  */
 const express = require("express"); // Importa el módulo Express, que se utiliza para crear y configurar el servidor web.
 const cors = require("cors"); //Importa el módulo CORS, que se utiliza para manejar las políticas de seguridad en las solicitudes de origen cruzado
 const axios = require("axios"); //  Importa el módulo Axios, que se utiliza para hacer solicitudes HTTP a la API de Google Books
 const app = express(); //Creo una instancia de Express
 const port = process.env.PORT || 3000;
-const apiKey = "";//Inserta tu propia clave de API de Google Books
+const apiKey = ""; //Inserta tu propia clave de API de Google Books
+const bodyParser = require("body-parser");
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(
+  cors({
+    origin: "http://localhost:4200",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // Habilita el envío de cookies y encabezados de autenticación
+  })
+);
+
+app.listen(port, () => {
+  console.log(`Servidor corriendo en el puerto ${port}`); //Imprime un mensaje en la consola para indicar que el servidor está en funcionamiento
+});
+
+/***** Peticiones a la API de Google Books*****/
 /**
  * Maneja solicitudes para obtener una lista de libros desde la API de Google Books.
  * Los parámetros de consulta permiten personalizar la búsqueda.
@@ -30,7 +47,7 @@ app.get("/api/all", cors(), (req, res) => {
   axios
     .get(apiUrl)
     .then((response) => {
-      res.json(response.data); //devuelve los datos obtenidos de la API de Google Books como una respuesta JSON
+      res.json(response.data);
     })
     .catch((error) => {
       res.status(500).json({ error: "Error en la solicitud" });
@@ -39,15 +56,11 @@ app.get("/api/all", cors(), (req, res) => {
 
 //Obtiene información detallada de un libro específico utilizando su ID
 app.get("/detalle", cors(), (req, res) => {
-  console.log("Entra en detalle");
-
   //Extraigo los parametros de consulta de la solicitud
   const idLibro = req.query.idLibro || "8w-YCgAAQBAJ";
 
   //URL de la API de Google Books utilizando estos parámetros
   const apiUrl = `https://www.googleapis.com/books/v1/volumes/${idLibro}`;
-  console.log(apiUrl);
-
   axios
     .get(apiUrl)
     .then((response) => {
@@ -58,53 +71,96 @@ app.get("/detalle", cors(), (req, res) => {
     });
 });
 
-app.get("/test", (req, res) => {
-  console.log("Hola /test");
-  res.send("¡Hola!! Esto es una respuesta desde el servidor Express en /test");
-});
+/***** Peticiones a la BBDD*****/
 
-// Configura CORS para permitir las solicitudes desde http://localhost:4200, que es un origen diferente.
-app.use(
-  cors({
-    origin: "http://localhost:4200",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true, // Habilita el envío de cookies y encabezados de autenticación
-  })
-);
-
-app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`); //Imprime un mensaje en la consola para indicar que el servidor está en funcionamiento
-});
-
-//TODO Peticiones a la BBDD*********************************************************************************************
-
-//Obtiene información de mis libros
+//Obtiene información de la lista de mis libros
 app.get("/api/mybooks", cors(), (req, res) => {
   console.log("Entra en api/mybooks");
 
   //URL de la API de Google Books utilizando estos parámetros
-  const apiUrl = `http://127.0.0.1:8000/api/mybooks`;
+  const idPersona = req.query.idPersona;
+  console.log("idPersona: " + idPersona);
+  const apiUrl = `http://127.0.0.1:8000/api/misLibros/${idPersona}`;
   console.log(apiUrl);
 
+  const token = req.headers.authorization;
+  console.log(`TOKEN:: ${token}`);
+
+  let config = {
+    method: "get",
+    maxBodyLength: Infinity,
+    url: apiUrl,
+    headers: {
+      Authorization: token,
+    },
+  };
+
   axios
-    .get(apiUrl)
+    .request(config)
     .then((response) => {
       res.json(response.data);
     })
     .catch((error) => {
-      res.status(500).json({ error: "Error en la solicitud" });
+      console.log(error);
     });
 });
 
+//Permite hacer modificaciones en la BBDD -  añadir/eliminar libros a Mis Libros, cambiar estado, puntuacion y critica
+app.post("/api/misLibros", cors(), (req, res) => {
+  console.log("-----------------------------------------");
+  const currentDateTime = new Date();
+  const formattedDateTime = currentDateTime.toISOString(); // Formato ISO para la fecha y hora
+  console.log(`[${formattedDateTime}] Entra en /api/misLibros`);
+  let apiUrl = `http://127.0.0.1:8000/api/misLibros`;
+  //header
+  const token = req.headers.authorization;
+  console.log(`TOKEN:: ${token}`);
+
+  //method
+  let metodo = req.body.metodo;
+  console.log("metodo: " + metodo);
+
+  if (metodo === "put" || metodo === "delete") {
+    apiUrl = `${apiUrl}/${req.body.idLibro}`;
+  }
+  console.log("apiUrl: " + apiUrl);
+
+  //data
+  let data = {
+    idPersona: req.body.idPersona,
+    idLibro: req.body.idLibro,
+    puntuacion: req.body.puntuacion,
+    critica: req.body.critica,
+    estado: req.body.estado,
+  };
+
+  let config = {
+    method: metodo,
+    maxBodyLength: Infinity,
+    url: apiUrl,
+    data: data,
+    headers: {
+      Authorization: token,
+    },
+  };
+
+  axios
+    .request(config)
+    .then((response) => {
+      console.log("-----------------------------------------");
+      console.log(JSON.stringify(response.data));
+      res.json(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+/**Actividad *****/
+
 //Obtiene informacion de la actividad general
-const fs = require('fs'); //todo borrar
-const path = require('path');//todo borrar
-
 app.get("/api/actividad", cors(), (req, res) => {
-  console.log("Entra en api/actividad");
-
-  //TODO DESCOMENTAR - URL de la API de Google Books utilizando estos parámetros
-  /*const apiUrl = `http://127.0.0.1:8000/api/actividad`;
+  const apiUrl = `http://127.0.0.1:8000/api/actividad`;
   console.log(apiUrl);
 
   axios
@@ -114,30 +170,14 @@ app.get("/api/actividad", cors(), (req, res) => {
     })
     .catch((error) => {
       res.status(500).json({ error: "Error en la solicitud" });
-    });*/
-
-    const jsonFilePath = path.join(__dirname, 'mocks', 'actividad.json'); // Ruta completa al archivo JSON
-    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send('Error al leer el archivo JSON');
-        return;
-      }
-  
-      const jsonData = JSON.parse(data);
-      res.json(jsonData);
     });
-
-
 });
 
 //Obtiene informacion de la actividad de un libro
 app.get("/api/actividadLibro", cors(), (req, res) => {
-  console.log("Entra en api/actividadLibro");
   const idLibro = req.query.idLibro || "8w-YCgAAQBAJ";
 
-  //TODO DESCOMENTAR - URL de la API de Google Books utilizando estos parámetros
-  /*const apiUrl = `http://127.0.0.1:8000/api/actividadLibro/${idLibro}`;
+  const apiUrl = `http://127.0.0.1:8000/api/actividad/${idLibro}`;
   console.log(apiUrl);
 
   axios
@@ -147,69 +187,57 @@ app.get("/api/actividadLibro", cors(), (req, res) => {
     })
     .catch((error) => {
       res.status(500).json({ error: "Error en la solicitud" });
-    });*/
-
-    const jsonFilePath = path.join(__dirname, 'mocks', 'actividad.json'); // Ruta completa al archivo JSON
-    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send('Error al leer el archivo JSON');
-        return;
-      }
-  
-      const jsonData = JSON.parse(data);
-      // Filtrar los elementos por el idLibro específico
-      const filteredData = jsonData.items.filter(item => item.idLibro === idLibro);
-
-      res.json({ items: filteredData });
     });
-
-
 });
 
-//Obtiene informacion de mi actividad
-
+//TODO ***************************
+//Obtiene informacion de Mi actividad
 app.get("/api/miActividad", cors(), (req, res) => {
   console.log("Entra en /api/miActividad");
   const idPersona = req.query.idPersona || "000";
 
-  //TODO DESCOMENTAR - URL de la API de Google Books utilizando estos parámetros
-  /*const apiUrl = `http://127.0.0.1:8000/api/actividadLibro/${idLibro}`;
+  const apiUrl = `http://127.0.0.1:8000/api/actividadLibro/${idPersona}`;
   console.log(apiUrl);
 
   axios
     .get(apiUrl)
     .then((response) => {
+      console.log(JSON.stringify(response.data));
       res.json(response.data);
     })
     .catch((error) => {
       res.status(500).json({ error: "Error en la solicitud" });
-    });*/
-
-    const jsonFilePath = path.join(__dirname, 'mocks', 'actividad.json'); // Ruta completa al archivo JSON
-    fs.readFile(jsonFilePath, 'utf8', (err, data) => {
-      if (err) {
-        console.error(err);
-        res.status(500).send('Error al leer el archivo JSON');
-        return;
-      }
-  
-      const jsonData = JSON.parse(data);
-      // Filtrar los elementos por el idLibro específico
-      const filteredData = jsonData.items.filter(item => item.idPersona === idPersona);
-
-      res.json({ items: filteredData });
     });
-
-
 });
 
+//TODO modificar logout
+app.post("/api/logout", cors(), (req, res) => {
+  const apiUrl = `http://127.0.0.1:8000/api/logout`;
 
-//Obtiene puntuacion media de un libro
+  const currentDateTime = new Date();
+  const formattedDateTime = currentDateTime.toISOString(); // Formato ISO para la fecha y hora
+  console.log(`[${formattedDateTime}] LOOOOOOOOOOOOGGGGGG OUT ${apiUrl}`);
 
+  const token = req.headers.authorization;
+  console.log(`TOKEN:: ${token}`);
 
-//TODO MANDO INFORMACION A LA BBDD
-//Cambio de estado, critica o puntuacion
+  let config = {
+    method: "post",
+    maxBodyLength: Infinity,
+    url: apiUrl,
+    headers: {
+      Authorization: token,
+    },
+  };
 
+  axios
+    .request(config)
+    .then((response) => {
+      console.log(JSON.stringify(response.data));
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
 
-
+//TODO Obtiene puntuacion media de un libro
