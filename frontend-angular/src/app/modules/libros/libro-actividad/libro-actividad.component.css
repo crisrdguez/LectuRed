@@ -1,5 +1,6 @@
-.container{   
-  background-color: #EFE8E8;
+.container{  
+  font-family: 'Roboto', 'Lato', sans-serif;
+  font-size: 1.3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,7 +8,7 @@
   width: 100%;
 }
 .contenedor-actividad {
-    background-color: #e2dddd;
+    background-color: #EFE8E8;
     width: 80%;
     display: flex;
     flex-direction: column;
@@ -36,27 +37,22 @@
   }
 
   .fecha{
-    font-family: 'Dancing Script', cursive;
     font-size: 1.5rem;
     padding: 10px;
   }
 
   .infoEstado{
-    font-family: serif;
-    font-size: 1.5rem;
+    
     padding: 10px;
   }
 
   .infoRes{
     color:#302B2D;
     background-color: #EFE8E8;
-    font-family: cursive;
-    font-size: 1.3rem;
     line-height: 30px;
     padding: 10px;
     width: 90%;
     white-space: pre-line; /* Para respetar los saltos de línea */
-    border-radius: 4px; /* Añadir esquinas redondeadas opcional */
     margin-top: 5px; /* Añadir margen superior opcional */
   }
 

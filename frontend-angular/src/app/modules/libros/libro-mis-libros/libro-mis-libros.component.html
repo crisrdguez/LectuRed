@@ -1,31 +1,34 @@
 <div class="contenedor">
-  <h3> Leyendo </h3>
-  <div class="contenedor-actividad">
-    <ng-container *ngFor="let entrada of listaMisLibros">
-      <ng-container *ngIf="entrada.estado === 'leyendo'">
-        <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-      </ng-container>
-    </ng-container>
+  <div class="contenedor-mislibros">
+    <div class="contenedor-min">
+      <h3> Leyendo </h3>
+      <div class="contenedor-actividad">
+        <ng-container *ngFor="let entrada of listaMisLibros">
+          <ng-container *ngIf="entrada.estado === 'leyendo'">
+            <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="barra-espaciadora"></div>
+      <h3> Leidos </h3>
+      <div class="contenedor-actividad">
+        <ng-container *ngFor="let entrada of listaMisLibros">
+          <ng-container *ngIf="entrada.estado === 'leido'">
+            <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="barra-espaciadora"></div>
+      <h3> Deseados</h3>
+      <div class="contenedor-actividad">
+        <ng-container *ngFor="let entrada of listaMisLibros">
+          <ng-container *ngIf="entrada.estado === 'deseado'">
+            <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
   </div>
-  
-  <h3> Leidos </h3>
-  <div class="contenedor-actividad">
-    <ng-container *ngFor="let entrada of listaMisLibros">
-      <ng-container *ngIf="entrada.estado === 'leido'">
-        <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-      </ng-container>
-    </ng-container>
-  </div>
-  
-  <h3> Deseados</h3>
-  <div class="contenedor-actividad">
-    <ng-container *ngFor="let entrada of listaMisLibros">
-      <ng-container *ngIf="entrada.estado === 'deseado'">
-        <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
-      </ng-container>
-    </ng-container>
-  </div>
-  
 </div>
 
 <!--

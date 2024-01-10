@@ -2,10 +2,9 @@
 sin corchetes estás pasando solo cadena y no puedes cambiarla, está codificada y será así en toda tu app -> <a routerLink="/home"></a>
 -->
     <ng-container *ngIf="libro!=undefined">
-      <mat-card class="example-card">
+      <mat-card class="example-card" [routerLink]="'/libros/libro-detalle/' + libro.id">
         <!--Si el libro no tiene thumbail, le añado una imagen que tengo en la carpeta assets-->
         <img
-          [routerLink]="'/libros/libro-detalle/' + libro.id"
           mat-card-image
           [src]="libro.thumbnail ? libro.thumbnail : '../../assets/imagenlibro.jpg'"
           alt="Portada del libro"

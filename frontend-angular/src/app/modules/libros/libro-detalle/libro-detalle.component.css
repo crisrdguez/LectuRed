@@ -1,29 +1,35 @@
 .container{   
-    background-color: #EFE8E8;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  font-family: 'Roboto', 'Lato', sans-serif;
+  font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   }
 
-.bookpage_gridcontainer {
-    width: 90%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.contenedor-detalle {
+  background-color: #EFE8E8;
+  width: 80%;
+  min-height: 900px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-.bookpage_leftcolumn {
+.columna-izquierda {
     position: fixed;
     top: 110px;
-    left: 30px;
     width: 15%;
 }
 
 .bookpage_bookcover img {
-    width: 80%; 
-    margin-left: 25px;
+    width: 70%; 
+    margin-left: 35px;
+}
+
+p{
+  font-size: small;
 }
 
 .bookpage_rightcolumn {
@@ -36,6 +42,7 @@
 
 button{
     padding: 10px;
+    margin-top: 10px;
     background-color: #CE7979;
     cursor:pointer;
 }

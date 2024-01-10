@@ -1,80 +1,79 @@
 <div class="container">
-    <div *ngIf="libroSeleccionado" class="bookpage_gridcontainer">
-        <div class="bookpage_leftcolumn">
-            <div class="sticky">
-                <div class="bookpage_bookcover">
-                    <img mat-card-image [src]="libroSeleccionado.thumbnail ? libroSeleccionado.thumbnail : '../../assets/imagenlibro.jpg'" alt="Portada del libro">
-                </div>          
-                <div class="rating-container">
-                    <div class="bookActions">
-                        <div class="bookActions_button">
-                            <button (click)="agregarAFavoritos(libroSeleccionado)" (click)="openDialog('1000ms', '500ms')" [disabled]="!estaAutenticado">{{estadoLibro}}</button>
-                        </div>
-                    </div>
-                    <!--PARA BBDD<app-puntuacion-media [puntuacionMedia]="obtenerPuntuacionMedia(libroSeleccionado)"></app-puntuacion-media>-->
-                    <app-puntuacion-media [puntuacionMedia]="obtenerPuntuacionMedia(libroSeleccionado)"></app-puntuacion-media>
-                    <p>Puntuación Media: <strong> {{ obtenerPuntuacionMedia(libroSeleccionado) }} / 5</strong></p>
-                </div>  
+  <div *ngIf="libroSeleccionado" class="contenedor-detalle">
+    <div class="columna-izquierda">
+      <div class="sticky">
+        <div class="bookpage_bookcover">
+          <img mat-card-image [src]="libroSeleccionado.thumbnail ? libroSeleccionado.thumbnail : '../../assets/imagenlibro.jpg'" alt="Portada del libro">
+        </div>          
+        <div class="rating-container">
+          <div class="bookActions">
+            <div class="bookActions_button">
+              <button (click)="agregarAFavoritos(libroSeleccionado)" (click)="openDialog('1000ms', '500ms')" [disabled]="!estaAutenticado">{{estadoLibro}}</button>
             </div>
-        </div>
-        <div class="bookpage_rightcolumn">
-            <!-- Contenido de la columna derecha -->
-            <h2> {{ libroSeleccionado.title }}</h2>
-            <p class="autor">Autor(es): {{ libroSeleccionado.authors?.join(', ') }}</p>
-            <p class="editorial">Editorial: {{ libroSeleccionado.publisher }}</p>
-            <div [innerHTML]="libroSeleccionado.description" class="resumen"></div>
-            <!-- Otros detalles del libro -->
-            <h3>Opiniones de otros usuarios</h3>
-                <div class="contenedor-actividad" *ngFor="let entrada of listaActividad">           
-                  <ng-container *ngIf="entrada.puntuacion === 0">
-                    <ng-container *ngIf="entrada.estado === 'leyendo'">
-                      <div class="entry-container">
-
-                        <div class="activity-item">
-                          <p class="fecha">{{entrada.fecha}}</p>
-                          <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
-                          <p class="infoEstado">ha comenzado a leer este libro</p>
-                        </div>
-                      </div>
-                    </ng-container>
-            
-                    <ng-container *ngIf="entrada.estado === 'deseado'">
-                      <div class="entry-container">
-                        <div class="activity-item">
-                          <p class="fecha">{{entrada.fecha}}</p>
-                          <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
-                          <p class="infoEstado"> ha añadido este libro a su lista de deseos</p>
-                        </div>
-                      </div>
-                    </ng-container>
-                  </ng-container>
-            
-                  <ng-container *ngIf="entrada.puntuacion !== 0">
-                    <!-- Si la puntuación es distinta de 0, el usuario ha leído el libro -->
-                    <div class="entry-container">
-                      <div class="activity-item">
-                        <p class="fecha">{{entrada.fecha}}</p>
-                        <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
-                        <p class="infoEstado"> ha leído este libro</p>
-            
-                        <div class="puntuacion-container">
-                          <p class="infoEstado">Puntuación:</p>
-                          <div class="estrellas-container">
-                            <p class="estrellas" *ngFor="let estrella of [0,1,2,3,4]">
-                              <mat-icon [ngClass]="{'estrella-amarilla': estrella < entrada.puntuacion, 'estrella-gris': estrella >= entrada.puntuacion}">star</mat-icon>
-                            </p>
-                          </div>
-                        </div>
-            
-                        <ng-container *ngIf="entrada.critica !== '' ">
-                          <p class="infoEstado">Reseña: </p>
-                          <div class="infoRes">"{{ entrada.critica }}"</div>
-                        </ng-container>
-                      </div>
-                    </div>
-                  </ng-container>
-                </div>
-        </div>
+          </div>
+            <!--PARA BBDD<app-puntuacion-media [puntuacionMedia]="obtenerPuntuacionMedia(libroSeleccionado)"></app-puntuacion-media>-->
+          <app-puntuacion-media [puntuacionMedia]="obtenerPuntuacionMedia(libroSeleccionado)"></app-puntuacion-media>
+          <p>Puntuación Media: <strong> {{ obtenerPuntuacionMedia(libroSeleccionado) }} / 5</strong></p>
+        </div>  
+      </div>
     </div>
+    <div class="bookpage_rightcolumn">
+      <!-- Contenido de la columna derecha -->
+      <h2> {{ libroSeleccionado.title }}</h2>
+      <p class="autor">Autor(es): {{ libroSeleccionado.authors?.join(', ') }}</p>
+      <p class="editorial">Editorial: {{ libroSeleccionado.publisher }}</p>
+      <div [innerHTML]="libroSeleccionado.description" class="resumen"></div>
+      <!-- Otros detalles del libro -->
+      <h3>Opiniones de otros usuarios</h3>
+      <div class="contenedor-actividad" *ngFor="let entrada of listaActividad">           
+        <ng-container *ngIf="entrada.puntuacion === 0">
+          <ng-container *ngIf="entrada.estado === 'leyendo'">
+            <div class="entry-container">
+              <div class="activity-item">
+                <p class="fecha">{{entrada.fecha}}</p>
+                <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
+                <p class="infoEstado">ha comenzado a leer este libro</p>
+              </div>
+            </div>
+          </ng-container>
+  
+          <ng-container *ngIf="entrada.estado === 'deseado'">
+            <div class="entry-container">
+              <div class="activity-item">
+                <p class="fecha">{{entrada.fecha}}</p>
+                <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
+                <p class="infoEstado"> ha añadido este libro a su lista de deseos</p>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+  
+        <ng-container *ngIf="entrada.puntuacion !== 0">
+          <!-- Si la puntuación es distinta de 0, el usuario ha leído el libro -->
+          <div class="entry-container">
+            <div class="activity-item">
+              <p class="fecha">{{entrada.fecha}}</p>
+              <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
+              <p class="infoEstado"> ha leído este libro</p>
+  
+              <div class="puntuacion-container">
+                <p class="infoEstado">Puntuación:</p>
+                <div class="estrellas-container">
+                  <p class="estrellas" *ngFor="let estrella of [0,1,2,3,4]">
+                    <mat-icon [ngClass]="{'estrella-amarilla': estrella < entrada.puntuacion, 'estrella-gris': estrella >= entrada.puntuacion}">star</mat-icon>
+                  </p>
+                </div>
+              </div>
+  
+              <ng-container *ngIf="entrada.critica !== '' ">
+                <p class="infoEstado">Reseña: </p>
+                <div class="infoRes">{{ entrada.critica }}</div>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
 </div>
 
