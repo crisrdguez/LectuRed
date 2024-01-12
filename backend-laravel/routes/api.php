@@ -11,6 +11,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\MiListaController;
 use App\Http\Controllers\ActividadController;
 use App\Http\Controllers\ActividadMiListaController;
+use App\Http\Controllers\PuntuacionMediaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,16 +25,17 @@ use App\Http\Controllers\ActividadMiListaController;
 |
 */
 
-/* Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-}); */
+// Rutas NO PROTEGIDAS
 
 Route::post('/login', [AuthenticatedSessionController::class, 'generarToken']);
 Route::get('/actividad/{idlibro}', [ActividadMiListaController::class, 'actividadporlibro']);
+Route::get('/actividad/usuario/{idpersona}', [ActividadMiListaController::class, 'actividadporusuario']);
 Route::get('/actividad', [ActividadMiListaController::class, 'actividad']);
+Route::get('/puntuacionmedia/{idlibro}', [PuntuacionMediaController::class, 'puntuacionmedia']);
 
 
-//creamos un grupo para proteger las rutas con auth:sanctum
+// Rutas PROTEGIDAS
+
 Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::apiResources([
@@ -45,4 +48,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     ]);
     Route::post('/logout', [AuthenticatedSessionController::class, 'logout']);
+
 });
