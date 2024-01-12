@@ -48,4 +48,23 @@ class ActividadMiListaController extends Controller
         }
     }
 
+    public function actividadporusuario($idpersona)
+    {
+        $actividad = ActividadMiLista::where('user_id', $idpersona)->get();
+        // si la lista esta vacia
+        if ($actividad->isEmpty()) {
+
+            return response()->json([
+                'success' => false,
+                'message' => 'No se encontro actividad para este usuario'
+            ], 404);
+        }else {
+            
+        return response()->json([
+            'success' => true,
+            'items' => ActividadMiListaResource::collection($actividad)
+        ], 200);
+        }
+    }
+
 }
