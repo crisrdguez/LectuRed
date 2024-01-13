@@ -9,6 +9,7 @@ export class PuntuacionMediaComponent {
 
   @Input() puntuacionMedia: number = 0;
 
+
   constructor() { }
 
 }

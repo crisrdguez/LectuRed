@@ -6,6 +6,7 @@ import { Observable, catchError, map } from 'rxjs';
   providedIn: 'root'
 })
 export class ActividadService {
+  
 
   // Rutas a los archivos JSON que contienen datos de simulacion (actividad, recomendados, mis libros)
   jsonURL = 'assets/mock/actividad.json'; // Ruta al archivo JSON
@@ -24,6 +25,8 @@ export class ActividadService {
   urlActividadPorLibro = `${this.urlBase}/api/actividadLibro`;
 
   urlMiActividad = `${this.urlBase}/api/miActividad`;
+
+  urlPuntuacionMedia = `${this.urlBase}/api/puntuacionmedia`;
 
   urlDatosLibros = `${this.urlBase}/api/misLibros`; //Ruta a la api de Express
 
@@ -64,6 +67,11 @@ export class ActividadService {
   getMiActividad(idPersona: string): Observable<any> {
     console.log("entrando a getMiActividad, idPersona:" + idPersona);
     let url = `${this.urlMiActividad}?idPersona=${idPersona}`;
+    return this.http.get(url);
+  }
+
+  getPuntuacionMedia(idLibro: string | undefined): Observable<any> {
+    let url = `${this.urlPuntuacionMedia}?idLibro=${idLibro}`;
     return this.http.get(url);
   }
 
