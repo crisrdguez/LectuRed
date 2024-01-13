@@ -40,6 +40,7 @@ export class MiActividadComponent implements OnInit{
     this.actividadService.getMiActividad(this.idPersona).subscribe(data => {
       console.log(data.items);
       this.listaActividad = data.items; // Accede a la propiedad "items" del JSON
+      this.listaActividad = this.listaActividad.reverse();//para mostrar los mas nuevos primero
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
       data.items.forEach((item:any) => this.getLibroId(item.idLibro));
     });

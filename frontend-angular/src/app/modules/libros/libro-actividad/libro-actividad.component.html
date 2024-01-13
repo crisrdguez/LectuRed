@@ -25,7 +25,7 @@
         </ng-container>
       </ng-container>
 
-      <ng-container *ngIf="entrada.puntuacion !== 0">
+      <ng-container *ngIf="entrada.estado === 'leido'">
         <!-- Si la puntuación es distinta de 0, el usuario ha leído el libro -->
         <div class="entry-container">
           <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
@@ -33,18 +33,19 @@
             <p class="fecha">{{entrada.fecha}}</p>
             <p class="infoEstado">{{ entrada.nombre }} ha leído este libro</p>
 
-            <div class="puntuacion-container">
-              <p class="infoEstado">Puntuación:</p>
-              <div class="estrellas-container">
-                <p class="estrellas" *ngFor="let estrella of [0,1,2,3,4]">
-                  <mat-icon [ngClass]="{'estrella-amarilla': estrella < entrada.puntuacion, 'estrella-gris': estrella >= entrada.puntuacion}">star</mat-icon>
-                </p>
+            <ng-container *ngIf="entrada.puntuacion !== 0" >
+              <div class="puntuacion-container">
+                <p class="infoEstado">Puntuación:</p>
+                <div class="estrellas-container">
+                  <p class="estrellas" *ngFor="let estrella of [0,1,2,3,4]">
+                    <mat-icon [ngClass]="{'estrella-amarilla': estrella < entrada.puntuacion, 'estrella-gris': estrella >= entrada.puntuacion}">star</mat-icon>
+                  </p>
+                </div>
               </div>
-            </div>
-
-            <ng-container *ngIf="entrada.critica !== ''" >
+            </ng-container>
+            <ng-container *ngIf="entrada.critica !== null && entrada.critica !== ''" >
               <p class="infoEstado">Reseña: </p>
-              <div class="infoRes">"{{ entrada.critica }}"</div>
+              <div class="infoRes">{{ entrada.critica }}</div>
             </ng-container>
           </div>
         </div>
