@@ -42,10 +42,10 @@
             <x-primary-button class="ml-3">
                 {{ __('Iniciar sesión') }}
             </x-primary-button>
-            <a href="{{ route('login_google') }}" class="ml-2">
-                <x-primary-button>
-                    {{ __('Iniciar sesión con google') }}
-                </x-primary-button>
+            <a href="{{ route('login_google') }}" class="ml-2 onclick="return false;">
+                <x-secondary-button>
+                    {{ __('Iniciar sesion con google') }}
+                </x-secondary-button>
         </div>
     </form>
 </x-guest-layout>
