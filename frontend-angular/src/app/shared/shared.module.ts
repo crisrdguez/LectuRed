@@ -8,13 +8,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 //Pipe
 import { TruncateTextPipe } from './pipes/corta-texto.pipe';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     PageNotFoundComponent,
     NavbarComponent,
-    TruncateTextPipe
+    TruncateTextPipe,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +27,7 @@ import { TruncateTextPipe } from './pipes/corta-texto.pipe';
   ],
   exports: [
     NavbarComponent,
+    FooterComponent,
     PageNotFoundComponent,
     TruncateTextPipe,
     MaterialModule,
