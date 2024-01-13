@@ -19,9 +19,10 @@ export class AuthService {
   constructor(private router: Router, private actividadService: ActividadService, private http: HttpClient) { }
 
   // Método para guardar el token en el localStorage
-  guardarToken(token: string, idPersona: string): void {
+  guardarToken(token: string, idPersona: string, name: string): void {
     localStorage.setItem('token', token);
     localStorage.setItem('idPersona', idPersona);
+    localStorage.setItem('name', name);
     if(this.estaAutenticado()){
       //TODO Accedo a los libros que vienen de la bbdd y los guardo en localstorage
       this.actividadService.getMisLibros().subscribe(data => {

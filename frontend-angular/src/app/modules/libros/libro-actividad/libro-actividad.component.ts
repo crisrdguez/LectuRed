@@ -23,6 +23,7 @@ export class LibroActividadComponent implements OnInit{
     if(!this.idLibroEnvio){
       this.actividadService.getActividadGeneralBBDD().subscribe(data => {
         this.listaActividad = data.items;
+        this.listaActividad = this.listaActividad.reverse();//para mostrar los mas nuevos primero
         data.items.forEach((item:any) => this.getLibroId(item.idLibro));
       });
     }

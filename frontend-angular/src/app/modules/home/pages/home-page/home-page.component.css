@@ -15,7 +15,7 @@ p{
   font-family: 'Dancing Script', cursive;
   text-align: center;
   margin-top:40px;
-  color:beige;
+  color:#EFE8E8;
   font-size: 2.9rem;
   padding-bottom: 20px;
 }
@@ -104,7 +104,7 @@ p{
 }
 
 .seccion-oscura{
-  color:white;
+  color:#EFE8E8;
   background-color:#122747;
 }
 
@@ -116,9 +116,8 @@ p{
 
 .footer-texto{
     font-size: 1.5rem;
-    padding: 20px;
     margin-top: 20px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Dancing Script', cursive;;
 }
 
 .iconos-redes{
@@ -137,19 +136,19 @@ p{
     justify-content: center;
     padding: 2px;
     margin: 10px;
-    border: 2px solid white;
+    border: 2px solid #EFE8E8;
     border-radius:50%;
     transition: all 0.2s ease-in;
 }
 
 .iconos-redes i{
-    color:white;
+    color:#EFE8E8;
     font-size: 1.5rem;
     transition: all 0.2s ease-in;
 }
 
 .iconos-redes a:hover{
-    background-color: white;
+    background-color: #EFE8E8;
     border:2px solid #E4c57f;
 
 }
@@ -160,7 +159,7 @@ p{
 
 .derechos{
     font-size: 15px;
-    color:#aeaeae;
+    color:#EFE8E8;
     padding:20px;
 }
 

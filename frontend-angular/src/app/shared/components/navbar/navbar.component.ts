@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class NavbarComponent {
 
   idUsuario: string | null = '';
+  name: string | null = '';
   estaLog: boolean = false;
   categorias: any[] = categorias.categorias;
 
@@ -30,36 +31,21 @@ export class NavbarComponent {
   estaLogueado(){ 
 
     this.estaLog = this.authService.estaAutenticado();
+    if(this.estaLog){
+      this.name = localStorage.getItem('name');
+    }
     return this.estaLog;
     
   }
 
   extraerId(){
-    //Una vez extraido el id del usuario de la url, hacer peticion API al backend
-    // POST http://127.0.0.1:8000/api/login
-
     this.idUsuario = this.route.snapshot.queryParamMap.get('id');
     console.log(this.idUsuario);
-
-    /*Se debe indicar en el body de la peticion el id del usuario logado (ha llegao previamente por url al front http://localhost:4200/home?id=152)
-  {
-  "id":152
   }
-    Devuelve:token, datos de usuario, Actividad del usuario*/
-  }
-
-  //login(){
-    //guardo el token en localstorage
-    //this.authService.guardarToken();
-
-    
-  //}
 
   logout(){
     this.estaLog = false;
     this.authService.cerrarSesion();
   }
-
-  
 
 }

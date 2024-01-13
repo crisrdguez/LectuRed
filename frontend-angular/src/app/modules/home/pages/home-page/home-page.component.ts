@@ -62,7 +62,8 @@ export class HomePageComponent implements OnInit{
       (data: any) => {
         // Maneja la respuesta del servidor (puedes almacenar el token, etc.)
         console.log('Token recibido:', data.token);
-        this.authService.guardarToken(data.token, data.user.id);
+        console.log("nombre: " + data.user.name);
+        this.authService.guardarToken(data.token, data.user.id, data.user.name);
         console.log(data);
       },
       error => {

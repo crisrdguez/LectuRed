@@ -1,89 +1,136 @@
-/*--mat-menu-container-color: #122747;*/
-
 .horizontal-navigation {
   position: fixed;
-  top:0;
+  top: 0;
   left: 0;
   width: 100%;
   background-color: #122747;
   padding: 10px 0;
   list-style-type: none;
   margin: 0;
-  padding: 0;
   display: flex;
   justify-content: space-between;
-  z-index: 1000; /* Aseguro que esté por encima de otros elementos */
-  }
-
-  .logo-container {
-    display: flex;
-    align-items: center;
-}
-  
-  .horizontal-navigation ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  .horizontal-navigation li {
-    margin-right: 20px;
-  }
-  
-  .horizontal-navigation a {
-    color: #F9F6F6;
-    text-decoration: none;
-  }
-
-  .nav-opcion{
-    padding: 10px;
-    
-  } 
-
-  button{
-    font-size: 15px !important;
-  }
-
-  /*boton login*/
-  .nav-opcion:last-child {
-    margin-left: auto;
-  }
-
-  .container-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50px;
-  }
-  
-  .input {
-    padding: 8px; 
-    width: 300px;
-    margin-right: 0; /* Elimina el margen derecho */
-  }
-  
-  .item-categoria a {
-    background-color: #122747;
-    color: #F9F6F6;
-    text-decoration: none;
-  }
-
-  .item-categoria{
-    background-color: #122747;
-  }
-
-  .item-categoria a:hover {
-    background-color: #122747;
-  }
-
-  .logo-pequeno {
-    width: 70px; /* Ajusta el ancho de la imagen según tus necesidades */
-    height: auto; /* Esto mantiene la proporción original al ajustar el ancho */
+  z-index: 1000;
 }
 
-.mat-mdc-button:not(:disabled){
-  color:#F9F6F6;
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.horizontal-navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.horizontal-navigation li {
+  margin-right: 20px; /* o utiliza margin-left para consistencia */
+}
+
+.horizontal-navigation a {
+  color: #F9F6F6;
+  text-decoration: none;
+}
+
+.nav-opcion {
+  padding: 10px;
+}
+
+.nav-opcion.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.container-icono {
+  display: flex;
+  align-items: center;
+  margin-right: 50px; 
+}
+
+.container-icono mat-icon {
+  font-size: 35px; /* Ajusta el tamaño del ícono según tus necesidades */
+}
+
+.mat-icon {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  width: 35px;
 }
 
 
+mat-icon {
+  color: #F9F6F6;
+  
+}
+
+
+button {
+  font-size: 15px;
+}
+
+/* boton login */
+.nav-opcion:last-child {
+  margin-left: auto;
+}
+
+.container-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.input {
+  padding: 8px;
+  width: 300px;
+}
+
+.item-categoria a,
+.item-categoria {
+  background-color: #122747;
+  color: #F9F6F6;
+  text-decoration: none;
+}
+
+.item-categoria a:hover {
+  background-color: #122747;
+}
+
+.logo-pequeno {
+  width: 70px;
+  height: auto;
+}
+
+.mat-mdc-button:not(:disabled) {
+  color: #F9F6F6;
+}
+
+.logo-text {
+  font-size: 16px;
+  color: #F9F6F6;
+  margin-top: 12px; /* Ajusta el margen superior según sea necesario */
+  margin-right: 20px;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+  --mdc-icon-button-state-layer-size: 60px;
+} 
+.container-icono .avatar-circle {
+  width: 35px; /* Ajusta el tamaño del círculo según sea necesario */
+  height: 35px; /* Ajusta el tamaño del círculo según sea necesario */
+  background-color: #E47171;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px; /* Tamaño de la letra dentro del círculo */
+  color: #07162c; /* Color del texto dentro del círculo */
+}
+
+.container-icono mat-icon {
+  font-size: 35px; /* Ajusta el tamaño del ícono según sea necesario */
+  margin-right: 10px; /* Ajusta el margen derecho del ícono según sea necesario */
+}

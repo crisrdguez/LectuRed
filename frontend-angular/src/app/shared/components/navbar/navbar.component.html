@@ -27,18 +27,27 @@
         </div>
     </div>   
     <div class="nav-opcion logo-container">
-        <ul>
-            <li *ngIf="!estaLogueado()">
-                <!--http://lectured.com:8000/login-->
-                <button mat-button><a href="http://127.0.0.1:8000/login" (click)="extraerId()">Iniciar sesión</a></button> 
-                <button mat-button><a href="http://127.0.0.1:8000/register">Registrarse</a></button>  
-                <!--<button mat-button><a href="#" (click)="login()">login</a></button>   -->       
-            </li>
-            <li *ngIf="estaLogueado()">
-                <button mat-button><a href="http://127.0.0.1:8000/profile">Perfil</a></button> 
-                <button mat-button><a (click)="logout()">Cerrar sesión</a></button>
-            </li>
-        </ul>
+        <div class="container-icono">
+            <button mat-icon-button [matMenuTriggerFor]="menuOptions">
+                <ng-container *ngIf="estaLogueado()">
+                    <div class="avatar-circle"><strong>{{ name?.charAt(0) | uppercase }}</strong></div>
+                  </ng-container>
+                  <ng-container *ngIf="!estaLogueado()">
+                    <mat-icon>account_circle</mat-icon>
+                  </ng-container>
+            </button>
+            <p class="logo-text">{{name}}</p>
+        </div>
+        <mat-menu #menuOptions="matMenu">
+            <ng-container *ngIf="!estaLogueado(); else noLogin">
+              <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/login" (click)="extraerId()">Iniciar sesión</a></button>
+              <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/register">Registrarse</a></button>
+            </ng-container>
+            <ng-template #noLogin>
+              <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/profile">Perfil</a></button>
+              <button mat-menu-item class="item-categoria"><a (click)="logout()">Cerrar sesión</a></button>
+            </ng-template>
+          </mat-menu>
         <!--
         <button mat-button><a routerLink="/auth/login">Login</a></button>
         -->
