@@ -196,7 +196,7 @@ app.get("/api/miActividad", cors(), (req, res) => {
   console.log("Entra en /api/miActividad");
   const idPersona = req.query.idPersona || "000";
 
-  const apiUrl = `http://127.0.0.1:8000/api/actividadLibro/${idPersona}`;
+  const apiUrl = `http://127.0.0.1:8000/api/actividad/usuario/${idPersona}`;
   console.log(apiUrl);
 
   axios
@@ -241,3 +241,20 @@ app.post("/api/logout", cors(), (req, res) => {
 });
 
 //TODO Obtiene puntuacion media de un libro
+
+
+app.get("/api/puntuacionmedia", cors(), (req, res) => {
+  const idLibro = req.query.idLibro || "8w-YCgAAQBAJ";
+
+  const apiUrl = `http://127.0.0.1:8000/api/puntuacionmedia/${idLibro}`;
+  console.log(apiUrl);
+
+  axios
+    .get(apiUrl)
+    .then((response) => {
+      res.json(response.data);
+    })
+    .catch((error) => {
+      res.status(500).json({ error: "Error en la solicitud" });
+    });
+});

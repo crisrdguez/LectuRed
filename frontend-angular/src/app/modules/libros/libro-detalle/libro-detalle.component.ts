@@ -6,6 +6,7 @@ import { GoogleBooksService } from 'src/app/services/google-books.service';
 import { LibroRatingComponent } from '../libro-rating/libro-rating.component';
 import { AuthService } from 'src/app/services/auth.service';
 import { ActividadService } from 'src/app/services/actividad.service';
+import { Observable, map, of, take } from 'rxjs';
 
 @Component({
   selector: 'app-libro-detalle',
@@ -61,12 +62,19 @@ export class LibroDetalleComponent implements OnInit{
     this.verificarAutenticacion();
 
     if (this.idLibro !== undefined) {
-      this.actividadService.getCriticasPorLibro(this.idLibro).subscribe((data) => {
+        //Actividad de un libro
+        this.actividadService.getCriticasPorLibro(this.idLibro).subscribe((data) => {
         this.listaActividad = data.items;
         data.items.forEach((item: any) => this.getLibroId(item.idLibro));
+
+        // Puntuacion media
+        this.actividadService.getPuntuacionMedia(this.idLibro).subscribe(data => {
+        console.log("PUNTUACION MEDIAAAAAAAAAAAAAAAAA, LO QUE DEVUELVE: DATA" + data.data.media);
+        this.puntuacionMedia = data.data.media; 
+        });
       });
     }
-      
+     
   }
 
   verificarAutenticacion(): void {
@@ -117,18 +125,4 @@ export class LibroDetalleComponent implements OnInit{
   agregarAFavoritos(libro: any): void {
     console.log('Libro añadido a favoritos:', libro.title);
   }
-  //TODO puntuacion media que me llega de la bbdd
-  obtenerPuntuacionMedia(libro: any):number{
-    this.puntuacionMedia = libro.averageRating;
-    return 4.2;
-  }
-//TODO eliminar este metodo
-  rate(stars:any) {
-    const resultElement = document.getElementById('result');
-    if(!resultElement) {
-        return;
-    }
-    resultElement.textContent = `Has puntuado con ${stars} estrellas`;
-}
-
 }
