@@ -12,6 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 
 //Dialog
 import {MatDialogModule} from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -22,7 +23,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     MatMenuModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [
     MatTabsModule,
@@ -30,7 +32,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatCardModule,
     MatMenuModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
 })
 export class MaterialModule {}

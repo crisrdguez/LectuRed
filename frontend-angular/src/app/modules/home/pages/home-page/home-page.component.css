@@ -1,6 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap-grid.css";
 .container-principal {
   background-color: #EFE8E8;
+  padding-bottom: 60px;
 }
 .banner {
     background-image: url('../../../../../assets/bannerHome.png');

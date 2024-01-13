@@ -71,6 +71,11 @@ button {
   font-size: 15px;
 }
 
+button:hover {
+  background-color: #293c58; /* Cambia el color de fondo al pasar el ratón */
+}
+
+
 /* boton login */
 .nav-opcion:last-child {
   margin-left: auto;
@@ -96,7 +101,11 @@ button {
 }
 
 .item-categoria a:hover {
-  background-color: #122747;
+  background-color: #293c58 !important;
+}
+
+.item-categoria:hover {
+  background-color: #293c58 !important;
 }
 
 .logo-pequeno {

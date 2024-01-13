@@ -1,6 +1,7 @@
 /*footer*/
+
 footer{
-    min-height: 400px;
+    min-height: 300px;
     text-align: center;
     padding: 20px;
 }
@@ -11,14 +12,14 @@ footer{
 }
 
 .footer-logo{
-    height: 80px;
-    width: 80px;
-    margin: 10px;
+    height: 55px;
+    width: 55px;
+    margin: 8px;
 }
 
 .footer-texto{
-    font-size: 1.5rem;
-    margin-top: 20px;
+    font-size: 1.4rem;
+    margin-top: 16px;
     font-family: 'Dancing Script', cursive;;
 }
 
@@ -31,13 +32,13 @@ footer{
 }
 
 .iconos-redes a{
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2px;
-    margin: 10px;
+    margin: 5px;
     border: 2px solid #EFE8E8;
     border-radius:50%;
     transition: all 0.2s ease-in;
@@ -62,7 +63,7 @@ footer{
 .derechos{
     font-size: 15px;
     color:#EFE8E8;
-    padding:20px;
+
 }
 
 .logo-pequeno {

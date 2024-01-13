@@ -11,7 +11,7 @@ sin corchetes estás pasando solo cadena y no puedes cambiarla, está codificada
         />
         <mat-card-header>
           <mat-card-title class="titulo" (click)="dameDetalle()">{{libro.title | cortaTexto : 40}}</mat-card-title> <!--Uso pipe cortaTexto, situado en el modulo shared-->
-          <mat-card-subtitle>{{libro.authors?.join(', ') | cortaTexto : 20}}</mat-card-subtitle>
+          <mat-card-subtitle class="autor">{{libro.authors?.join(', ') | cortaTexto : 20}}</mat-card-subtitle>
         </mat-card-header>
       </mat-card>
     </ng-container>
