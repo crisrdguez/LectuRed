@@ -40,7 +40,7 @@ class AuthenticatedSessionController extends Controller
         // Obten el usuario autenticado
         $user = Auth::user();
         // cerrar sesion
-        Auth::guard('web')->logout();
+        /* Auth::guard('web')->logout(); */
         // Redeirecciona a la ruta del front http://localhost:4200/home con el id del usuario
         return redirect()->intended('http://localhost:4200/home?id=' . $user->id);
     }
