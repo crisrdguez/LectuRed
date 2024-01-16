@@ -1,4 +1,3 @@
-//TODO buscar categorias en googlebooks apis
 export const categorias = {
     "categorias": [
       {

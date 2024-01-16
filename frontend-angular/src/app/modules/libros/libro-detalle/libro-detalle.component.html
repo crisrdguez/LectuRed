@@ -11,9 +11,10 @@
               <button (click)="agregarAFavoritos(libroSeleccionado)" (click)="openDialog('1000ms', '500ms')" [disabled]="!estaAutenticado">{{estadoLibro}}</button>
             </div>
           </div>
-            <!--PARA BBDD<app-puntuacion-media [puntuacionMedia]="obtenerPuntuacionMedia(libroSeleccionado)"></app-puntuacion-media>-->
+
           <app-puntuacion-media [puntuacionMedia]="puntuacionMedia"></app-puntuacion-media>
           <p>Puntuación Media: <strong> {{ puntuacionMedia }} / 5</strong></p>
+          
         </div>  
       </div>
     </div>
@@ -24,6 +25,7 @@
       <p class="editorial">Editorial: {{ libroSeleccionado.publisher }}</p>
       <div [innerHTML]="libroSeleccionado.description" class="resumen"></div>
       <!-- Otros detalles del libro -->
+      <div class="barra-espaciadora"></div>
       <h3>Opiniones de otros usuarios</h3>
       <div class="contenedor-actividad" *ngFor="let entrada of listaActividad">           
         <ng-container *ngIf="entrada.puntuacion === 0">
@@ -65,7 +67,7 @@
                 </div>
               </div>
   
-              <ng-container *ngIf="entrada.critica !== '' ">
+              <ng-container *ngIf="entrada.critica !== '' && entrada.critica !== null ">
                 <p class="infoEstado">Reseña: </p>
                 <div class="infoRes">{{ entrada.critica }}</div>
               </ng-container>

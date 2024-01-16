@@ -56,8 +56,8 @@
 .mat-icon {
   display: flex;
   align-items: center;
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
 }
 
 
@@ -68,7 +68,7 @@ mat-icon {
 
 
 button {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 button:hover {
@@ -118,28 +118,50 @@ button:hover {
 }
 
 .logo-text {
-  font-size: 16px;
+  font-size: 18px;
   color: #F9F6F6;
   margin-top: 12px; /* Ajusta el margen superior según sea necesario */
   margin-right: 20px;
 }
 
 .mat-mdc-icon-button.mat-mdc-button-base {
-  --mdc-icon-button-state-layer-size: 60px;
+  --mdc-icon-button-state-layer-size: 70px;
 } 
 .container-icono .avatar-circle {
-  width: 35px; /* Ajusta el tamaño del círculo según sea necesario */
-  height: 35px; /* Ajusta el tamaño del círculo según sea necesario */
+  width: 45px; /* Ajusta el tamaño del círculo según sea necesario */
+  height: 45px; /* Ajusta el tamaño del círculo según sea necesario */
   background-color: #E47171;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px; /* Tamaño de la letra dentro del círculo */
+  font-size: 24px; /* Tamaño de la letra dentro del círculo */
   color: #07162c; /* Color del texto dentro del círculo */
 }
 
 .container-icono mat-icon {
-  font-size: 35px; /* Ajusta el tamaño del ícono según sea necesario */
-  margin-right: 10px; /* Ajusta el margen derecho del ícono según sea necesario */
+  font-size: 45px; /* Ajusta el tamaño del ícono según sea necesario */
+  margin-right: 15px; /* Ajusta el margen derecho del ícono según sea necesario */
+}
+
+.submenu-contenedor{
+  background-color: #122747 !important;
+}
+
+.sorpresa {
+  border: none;
+  padding: 0.5rem;
+  background: #fddde3;
+  color: #8e5d5d;
+  width: 200px;
+  height: 50px;
+  font-size: 21px;
+  box-shadow: 0px 1px 4px 0px #d59d9d;
+  margin-top: 2rem;
+  cursor: pointer;
+}
+ 
+canvas {
+  height: 100%; /* we need these for full-screen effect */
+  width: 100%;
 }

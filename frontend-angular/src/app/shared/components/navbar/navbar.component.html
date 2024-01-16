@@ -1,3 +1,4 @@
+<span translate="no">
 <nav class="horizontal-navigation" >
     <div class="nav-opcion logo-container">
         <img src="../../../../assets/logoLectured.png" alt="logo proyecto" class="logo-pequeno">
@@ -7,9 +8,11 @@
     </div>
     <div class="nav-opcion logo-container">
         <button mat-button [matMenuTriggerFor]="afterMenu">Categorías</button>
-        <mat-menu #afterMenu="matMenu" xPosition="after">
-          <button mat-menu-item class="item-categoria" *ngFor="let categoria of categorias"><a routerLink="/categorias/{{ categoria.url}}">{{ categoria.titulo }}</a></button>
-        </mat-menu>
+        <mat-menu  #afterMenu="matMenu" xPosition="after">
+                <div class="submenu-contenedor">
+            <button mat-menu-item class="item-categoria" *ngFor="let categoria of categorias"><a routerLink="/categorias/{{ categoria.url}}">{{ categoria.titulo }}</a></button>
+        </div>
+            </mat-menu>
     </div>
     <div class="nav-opcion logo-container">
         <button mat-button><a routerLink="/actividad">Actividad</a></button>
@@ -26,6 +29,11 @@
             <button mat-button (click)="buscarLibros()">Buscar</button>
         </div>
     </div>   
+    <div class="nav-opcion logo-container" (onload)="surprise()">
+        <div class="container-form">
+            <button class="" *ngIf="!clicked" (click)="surprise()">goes to </button>
+        </div>
+    </div>
     <div class="nav-opcion logo-container">
         <div class="container-icono">
             <button mat-icon-button [matMenuTriggerFor]="menuOptions">
@@ -38,9 +46,9 @@
             </button>
             <p class="logo-text">{{name}}</p>
         </div>
-        <mat-menu #menuOptions="matMenu">
+        <mat-menu class="submenu-contenedor" #menuOptions="matMenu">
             <ng-container *ngIf="!estaLogueado(); else noLogin">
-              <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/login" (click)="extraerId()">Iniciar sesión</a></button>
+              <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/login">Iniciar sesión</a></button>
               <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/register">Registrarse</a></button>
             </ng-container>
             <ng-template #noLogin>
@@ -53,4 +61,4 @@
         -->
     </div>
 </nav>
-<p></p>
+</span>

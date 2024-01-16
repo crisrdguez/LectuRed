@@ -39,8 +39,17 @@ p{
     margin-left: 50%; 
 }
 
-
-
+.barra-espaciadora {
+  margin-top:40px;
+  width: 90%;
+  height: 30px; /* Grosor de la línea */
+  background: rgb(239,232,232);
+  background: linear-gradient(90deg, rgba(239,232,232,1) 0%, rgba(0,66,108,1) 50%, rgba(239,232,232,1) 100%);
+}
+h3{
+  margin-top:20px;
+  font-size: 1.4rem;
+}
 button{
     padding: 10px;
     margin-top: 10px;

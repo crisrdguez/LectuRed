@@ -32,6 +32,13 @@ export class AuthService {
         console.log("Mi lista de libros que guardo en localstorage:");
         console.log(this.listaMisLibros);
 
+        // Filtrar los libros con estado "leído"
+        const librosLeidos = this.listaMisLibros.filter(item => item.estado === 'leido');
+
+        // Guardar en localStorage solo el número de libros leídos
+        const numeroLibrosLeidos = librosLeidos.length;
+        localStorage.setItem('numeroLibrosLeidos', numeroLibrosLeidos.toString());
+
         // Guardar en localStorage
         this.listaMisLibros.forEach(item => {
           const libroId = item.idLibro;
@@ -72,6 +79,8 @@ export class AuthService {
     localStorage.removeItem('token');
     localStorage.removeItem('misLibros');
     localStorage.removeItem('idPersona');
+    localStorage.removeItem('name');
+    localStorage.removeItem('numeroLibrosLeidos');
 
     //this.router.navigate(['/home']);
     window.location.reload(); //actualiza la pagina

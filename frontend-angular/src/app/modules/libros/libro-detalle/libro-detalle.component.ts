@@ -47,7 +47,6 @@ export class LibroDetalleComponent implements OnInit{
             this.puntuacion = libroExistente.puntuacion;
             this.critica = libroExistente.critica;
             console.log(`${this.idLibro} - ${this.estadoLibro} - ${this.puntuacion} - ${this.critica}`);
-            //this.rate(this.puntuacion);
           }
         },
         error: (error) => {
@@ -65,11 +64,11 @@ export class LibroDetalleComponent implements OnInit{
         //Actividad de un libro
         this.actividadService.getCriticasPorLibro(this.idLibro).subscribe((data) => {
         this.listaActividad = data.items;
+        this.listaActividad = this.listaActividad.reverse();
         data.items.forEach((item: any) => this.getLibroId(item.idLibro));
 
         // Puntuacion media
         this.actividadService.getPuntuacionMedia(this.idLibro).subscribe(data => {
-        console.log("PUNTUACION MEDIAAAAAAAAAAAAAAAAA, LO QUE DEVUELVE: DATA" + data.data.media);
         this.puntuacionMedia = data.data.media; 
         });
       });
@@ -84,14 +83,14 @@ export class LibroDetalleComponent implements OnInit{
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     
-    //El componente se va a inicializar cuando el dialogo lo abra
+    //El componente se va a inicializar cuando el se abre el Dialog
     this.dialog.open(LibroRatingComponent, {
       width: '900px',
       height: '500px',
       data:{
         enterAnimationDuration,
         exitAnimationDuration,
-        libroSeleccionado: this.libroSeleccionado,  // Paso el libro seleccionado al diálogo
+        libroSeleccionado: this.libroSeleccionado,  // Paso el libro seleccionado al Dialog
         estadoLibro: this.estadoLibro,  // Paso el estado del libro al diálogo
         puntuacion: this.puntuacion,  // Paso mi puntuación al diálogo
         critica: this.critica  // Paso la crítica al diálogo

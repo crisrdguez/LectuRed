@@ -107,25 +107,16 @@ app.get("/api/mybooks", cors(), (req, res) => {
 
 //Permite hacer modificaciones en la BBDD -  añadir/eliminar libros a Mis Libros, cambiar estado, puntuacion y critica
 app.post("/api/misLibros", cors(), (req, res) => {
-  console.log("-----------------------------------------");
-  const currentDateTime = new Date();
-  const formattedDateTime = currentDateTime.toISOString(); // Formato ISO para la fecha y hora
-  console.log(`[${formattedDateTime}] Entra en /api/misLibros`);
   let apiUrl = `http://127.0.0.1:8000/api/misLibros`;
   //header
   const token = req.headers.authorization;
-  console.log(`TOKEN:: ${token}`);
 
-  //method
   let metodo = req.body.metodo;
-  console.log("metodo: " + metodo);
 
   if (metodo === "put" || metodo === "delete") {
     apiUrl = `${apiUrl}/${req.body.idLibro}`;
   }
-  console.log("apiUrl: " + apiUrl);
 
-  //data
   let data = {
     idPersona: req.body.idPersona,
     idLibro: req.body.idLibro,
@@ -147,8 +138,6 @@ app.post("/api/misLibros", cors(), (req, res) => {
   axios
     .request(config)
     .then((response) => {
-      console.log("-----------------------------------------");
-      console.log(JSON.stringify(response.data));
       res.json(response.data);
     })
     .catch((error) => {
@@ -162,7 +151,6 @@ app.post("/api/misLibros", cors(), (req, res) => {
 app.get("/api/actividad", cors(), (req, res) => {
   const apiUrl = `http://127.0.0.1:8000/api/actividad`;
   console.log(apiUrl);
-
   axios
     .get(apiUrl)
     .then((response) => {
@@ -210,16 +198,11 @@ app.get("/api/miActividad", cors(), (req, res) => {
     });
 });
 
-//TODO modificar logout
+
 app.post("/api/logout", cors(), (req, res) => {
   const apiUrl = `http://127.0.0.1:8000/api/logout`;
 
-  const currentDateTime = new Date();
-  const formattedDateTime = currentDateTime.toISOString(); // Formato ISO para la fecha y hora
-  console.log(`[${formattedDateTime}] LOOOOOOOOOOOOGGGGGG OUT ${apiUrl}`);
-
   const token = req.headers.authorization;
-  console.log(`TOKEN:: ${token}`);
 
   let config = {
     method: "post",
