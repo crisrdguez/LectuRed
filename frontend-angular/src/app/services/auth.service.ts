@@ -23,6 +23,7 @@ export class AuthService {
     localStorage.setItem('token', token);
     localStorage.setItem('idPersona', idPersona);
     localStorage.setItem('name', name);
+    localStorage.setItem('confeti','false');
     if(this.estaAutenticado()){
       //TODO Accedo a los libros que vienen de la bbdd y los guardo en localstorage
       this.actividadService.getMisLibros().subscribe(data => {
@@ -31,13 +32,6 @@ export class AuthService {
         this.listaMisLibros = data.items; // Accede a la propiedad "misLibros" del JSON
         console.log("Mi lista de libros que guardo en localstorage:");
         console.log(this.listaMisLibros);
-
-        // Filtrar los libros con estado "leído"
-        const librosLeidos = this.listaMisLibros.filter(item => item.estado === 'leido');
-
-        // Guardar en localStorage solo el número de libros leídos
-        const numeroLibrosLeidos = librosLeidos.length;
-        localStorage.setItem('numeroLibrosLeidos', numeroLibrosLeidos.toString());
 
         // Guardar en localStorage
         this.listaMisLibros.forEach(item => {

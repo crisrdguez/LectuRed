@@ -1,6 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ActividadService } from 'src/app/services/actividad.service';
+
 
 @Component({
   selector: 'app-libro-rating',
@@ -8,11 +9,12 @@ import { ActividadService } from 'src/app/services/actividad.service';
   styleUrls: ['./libro-rating.component.css']
 })
 export class LibroRatingComponent {
-
+  
   estadoActual = this.data.estadoLibro;
   miCritica = this.data.critica;
   puntuacion = this.data.puntuacion;
   mostrarModificarPuntuacion: boolean = false;
+
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog, private actividadService: ActividadService) { 
@@ -111,5 +113,11 @@ export class LibroRatingComponent {
     window.location.reload();
     ////TODO ELIMINAR EN LA BBDD
   }
+
+  
+
+
+
+
 
 }
