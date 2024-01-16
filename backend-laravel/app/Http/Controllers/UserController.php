@@ -71,7 +71,7 @@ class UserController extends Controller
     
     public function googleCallback()
     {
-        $user = Socialite::driver('google')->user();
+        $user = Socialite::driver('google')->stateless()->user();
         
         $user = User::updateOrCreate([
             'google_id' => $user->id,
@@ -84,7 +84,7 @@ class UserController extends Controller
             'authentication_provider'=>'google',
 
         ]);
-        Auth::login($user); 
+        Auth::login($user);
         $usuario= Auth()->user();
         return redirect()->intended('http://localhost:4200/home?id=' . $usuario->id);
     }

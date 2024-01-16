@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Auth;
 Route::view('/','welcome');
 Route::get('/google-auth/redirect',[UserController::class,'googleRedirect'])->name('login_google');
 Route::get('/google-auth/callback', [userController::class, 'googleCallback']);
-Route::get('/dashboard', function () {return view('dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () { Auth::guard('web')->logout(); return view('auth.login');})->name('dashboard'); 
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
