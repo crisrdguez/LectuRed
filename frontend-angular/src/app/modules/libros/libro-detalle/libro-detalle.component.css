@@ -15,12 +15,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  padding-bottom: 60px;
+  padding-bottom: 130px;
 }
 
 .columna-izquierda {
     position: fixed;
-    top: 120px;
+    top: 140px;
     width: 15%;
 }
 
@@ -35,6 +35,7 @@ p{
 
 .bookpage_rightcolumn {
     width: 100%;
+    padding-top:50px;
     margin-top: 30px;
     margin-left: 50%; 
 }
@@ -42,7 +43,7 @@ p{
 .barra-espaciadora {
   margin-top:40px;
   width: 90%;
-  height: 30px; /* Grosor de la línea */
+  height: 30px; 
   background: rgb(239,232,232);
   background: linear-gradient(90deg, rgba(239,232,232,1) 0%, rgba(0,66,108,1) 50%, rgba(239,232,232,1) 100%);
 }

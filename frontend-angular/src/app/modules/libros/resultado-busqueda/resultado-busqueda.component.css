@@ -38,13 +38,13 @@
     width: 80%; 
     padding: 10px;
     font-size: 1.2em;
-    margin-bottom: 20px; /* Espacio inferior para separar el input de los tabs */
+    margin-bottom: 20px; 
 }
 
 /* Estilo para mat-tab-group */
 mat-tab-group {
     width: 100%;
-    margin: 0 auto; /* Centra horizontalmente el tab group */
+    margin: 0 auto; 
   }
   
   /* Estilo para mat-tab */
@@ -60,4 +60,8 @@ mat-tab-group {
   /* Estilo para el contenido del mat-tab */
   mat-tab-content {
     padding: 15px; /* Agrega espacio interno al contenido del tab */
+  }
+
+.separacion{
+    margin-top:20px;
   }

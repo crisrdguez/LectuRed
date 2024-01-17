@@ -1,8 +1,8 @@
-import { Component, ElementRef, Renderer2 } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import {categorias} from '../../../core/models/categorias';
 import { AuthService } from 'src/app/services/auth.service';
-import * as confetti from 'canvas-confetti';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 
 @Component({
@@ -11,7 +11,11 @@ import * as confetti from 'canvas-confetti';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  public clicked = false;
+
+  isSmallScreen = false;
+  navMenu: any;
+  afterMenu: any;
+  menuOptions:any;
   idUsuario: string | null = '';
   name: string | null = '';
   estaLog: boolean = false;
@@ -20,8 +24,16 @@ export class NavbarComponent {
   queryparams:string="";
   showCategoriesDropdown: boolean = false;
   
-  constructor(private renderer2: Renderer2,private router: Router, private authService: AuthService, private route: ActivatedRoute) {}
+  constructor(private router: Router, private authService: AuthService, private breakpointObserver: BreakpointObserver) {}
 
+  ngOnInit() {
+    // Observa cambios en el tamaño de la pantalla
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe(result => {
+        // Actualiza la variable isSmallScreen basada en el tamaño de la pantalla
+        this.isSmallScreen = result.matches;
+      });
+  }
 
   buscarLibros() {
     // Navegar a la ruta de resultados de búsqueda con los parámetros de consulta

@@ -3,26 +3,30 @@
     <div class="nav-opcion logo-container">
         <img src="../../../../assets/logoLectured.png" alt="logo proyecto" class="logo-pequeno">
     </div>
-    <div class="nav-opcion logo-container">
-        <button mat-button><a routerLink="/home">Home</a></button>
+    <div class="nav-opcion logo-container" routerLinkActive="active">
+        <button mat-button routerLink="/home">Home</button>
     </div>
-    <div class="nav-opcion logo-container">
+    <div class="nav-opcion logo-container" routerLinkActive="active">
         <button mat-button [matMenuTriggerFor]="afterMenu">Categorías</button>
         <mat-menu  #afterMenu="matMenu" xPosition="after">
-                <div class="submenu-contenedor">
-            <button mat-menu-item class="item-categoria" *ngFor="let categoria of categorias"><a routerLink="/categorias/{{ categoria.url}}">{{ categoria.titulo }}</a></button>
+            <div class="submenu-contenedor">
+                <button mat-menu-item class="item-categoria" *ngFor="let categoria of categorias" routerLink="/categorias/{{ categoria.url}}">{{ categoria.titulo }}</button>
+            </div>
+        </mat-menu>
+    </div>
+    <div class="nav-opcion logo-container" routerLinkActive="active">
+        <button mat-button routerLink="/actividad">Actividad</button>
+    </div>
+    <ng-container *ngIf="estaLogueado()">
+        <div class="nav-opcion logo-container" routerLinkActive="active">
+            <button mat-button routerLink="/mislibros">Mis Libros</button>
         </div>
-            </mat-menu>
-    </div>
-    <div class="nav-opcion logo-container">
-        <button mat-button><a routerLink="/actividad">Actividad</a></button>
-    </div>
-    <div class="nav-opcion logo-container">
-        <button mat-button><a routerLink="/mislibros">Mis Libros</a></button>
-    </div>
-    <div class="nav-opcion logo-container">
-        <button mat-button><a routerLink="/miactividad">Mi Actividad</a></button>
-    </div>
+    </ng-container>
+    <ng-container *ngIf="estaLogueado()">
+        <div class="nav-opcion logo-container" routerLinkActive="active">
+            <button mat-button routerLink="/miactividad">Mi Actividad</button>
+        </div>
+    </ng-container>
     <div class="nav-opcion logo-container">
         <div class="container-form">
             <input class="input" type="text" placeholder="Buscar libros" [(ngModel)]='queryparams'>
@@ -41,6 +45,8 @@
             </button>
             <p class="logo-text">{{name}}</p>
         </div>
+         <!-- Menú desplegable con todas las opciones para pantallas pequeñas -->
+    
         <mat-menu class="submenu-contenedor" #menuOptions="matMenu">
             <ng-container *ngIf="!estaLogueado(); else noLogin">
               <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/login">Iniciar sesión</a></button>

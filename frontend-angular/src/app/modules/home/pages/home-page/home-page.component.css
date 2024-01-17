@@ -34,18 +34,10 @@ p{
 }
 
 .libro-card {
-  /*width: calc(20% - 20px); 
-  margin: 10px; 
-  padding: 10px;
-  /*box-shadow: 0 9px 4px rgba(12, 11, 11, 0.1);*/
-  /*box-sizing: border-box;
-  text-align: center;
-  /*background-color:#EFE8E8;*/
   flex: 0 0 calc(20% - 20px);
   max-width: calc(20% - 20px);
   margin: 5px;
   padding: 5px;
-  box-sizing: border-box;
   text-align: center;
 }
 
@@ -57,14 +49,14 @@ p{
 .container.text-center.rectangulo {
    width: 100%;
   max-width: 1200px; /* O ajusta según tus necesidades */
-  box-sizing: border-box;
 }
 
 .listado-recomendados .container{
     max-width: 1400px;
     width: 100%;
     min-height: 400px;
-    padding:10px;
+    padding-top:10px;
+    padding-bottom:30px;
 }
 
 .rectangulo, .rectangulo2{
@@ -88,7 +80,6 @@ p{
     max-width: calc(20% - 20px);
     margin: 10px;
     padding: 10px;
-    box-sizing: border-box;
     text-align: center;
   }
 

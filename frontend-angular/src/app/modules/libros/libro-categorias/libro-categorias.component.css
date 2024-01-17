@@ -26,7 +26,7 @@
 }
 
 .contenedor-categoria .categoria-overlay h2 {
-  margin:20px;
+  margin-top:30px;
   padding-bottom: 10px;
   font-family: 'Dancing Script', cursive;
   font-size: 4rem; /* Ajusta el tamaño según tus preferencias */
@@ -102,4 +102,12 @@
     font-size: 2.9rem;
     padding-bottom: 20px;
 
+}
+
+
+
+@media screen and (max-width: 1500px) {
+  .categoria-overlay {
+    display: none; 
+  }
 }
