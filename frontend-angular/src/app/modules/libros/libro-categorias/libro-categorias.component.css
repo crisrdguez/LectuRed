@@ -6,8 +6,8 @@
   max-width: 100%;
   margin: 0 auto;
   display: flex;
-  flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
-  align-items: center; /* Centra verticalmente */
+  flex-direction: column; 
+  align-items: center;
   padding-bottom: 60px;
 }
 
@@ -16,21 +16,19 @@
   background-color: #EFE8E8;
   top: 0;
   right: 0;
-  padding: 20px;
+  padding: 25px;
   text-align: center;
-  max-width: 35%; /* Ajusta el ancho según tus preferencias */
-  height: 460px; /* Ajusta la altura aquí */
+  max-width: 35%; 
+  height: 460px; 
   background: linear-gradient(to left, rgba(219, 216, 215, 0.5), rgba(219, 216, 215, 0.5),  rgb(219, 216, 215, 0.5), rgb(219, 216, 215, 0.5), rgba(219, 216, 215, 0.5), rgba(15, 15, 15, 0));
-
-  /*background: rgba(219, 216, 215, 0.5);*/
 }
 
 .contenedor-categoria .categoria-overlay h2 {
-  margin:20px;
+  margin-top:30px;
   padding-bottom: 10px;
   font-family: 'Dancing Script', cursive;
-  font-size: 4rem; /* Ajusta el tamaño según tus preferencias */
-  color: #110107; /* Cambia el color del texto según tus preferencias */
+  font-size: 4rem; 
+  color: #110107; 
   text-shadow: 
     -1px -1px 0 #fff,  
     1px -1px 0 #fff,
@@ -40,8 +38,8 @@
 }
 
 .rectangulo{
-  position: relative; /* Cambiado a relativo */
-  z-index: 1; /* Asegura que esté por encima de la imagen */
+  position: relative;
+  z-index: 1; 
   margin-top:  -7rem;
   width: 100%;
   background-color:#00426C;
@@ -61,24 +59,20 @@
 
 
   .contenedor-categoria img {
-    width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+    width: 100%;
     max-height: 500px;
-    box-shadow: 0 4px 4px rgba(4, 15, 65, 0.61); /* Agrega una sombra suave */
+    box-shadow: 0 4px 4px rgba(4, 15, 65, 0.61);
 
   }
   
-  /* Estilos para el listado de recomendados */
+
   .listado-recomendados {
-    padding: 40px 0; /* Ajusta el relleno según tus preferencias */
+    padding: 40px 0; 
   }
   
   .listado-recomendados .container {
     text-align: center;
   }
-
-  
-
-/*listado de libros*/
 
 .listado-recomendados {
     display: flex;
@@ -102,4 +96,10 @@
     font-size: 2.9rem;
     padding-bottom: 20px;
 
+}
+
+@media screen and (max-width: 1500px) {
+  .categoria-overlay {
+    display: none; 
+  }
 }

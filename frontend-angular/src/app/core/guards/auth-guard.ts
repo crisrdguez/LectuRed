@@ -15,8 +15,8 @@ export const authGuard: CanActivateFn = () => {
   }else{
     snackBar.open('Necesitas iniciar sesión para disfrutar de todas las ventajas de LectuRed', 'Cerrar', { 
       duration: 3000,
-      horizontalPosition: 'end', // Posición horizontal
-      verticalPosition: 'top', // Posición vertical
+      horizontalPosition: 'end',
+      verticalPosition: 'top',
      });
     router.navigate(['home']);
     return false;

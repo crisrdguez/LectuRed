@@ -7,7 +7,10 @@
           <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
           <div class="activity-item">
             <p class="fecha">{{entrada.fecha}}</p>
-            <p class="infoEstado">{{ entrada.nombre }} ha comenzado a leer este libro</p>
+            <div class="info-container">
+              <span class="avatar"><strong>{{ entrada.nombre?.charAt(0) | uppercase }}</strong></span>
+              <p class="infoEstado">{{ entrada.nombre }} ha comenzado a leer este libro</p>
+            </div>
           </div>
         </div>
       </ng-container>
@@ -17,7 +20,10 @@
           <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
           <div class="activity-item">
             <p class="fecha">{{entrada.fecha}}</p>
-            <p class="infoEstado">{{ entrada.nombre }} ha añadido este libro a su lista de deseos</p>
+            <div class="info-container">
+              <span class="avatar"><strong>{{ entrada.nombre?.charAt(0) | uppercase }}</strong></span>
+              <p class="infoEstado">{{ entrada.nombre }} ha añadido este libro a su lista de deseos</p>
+            </div>
           </div>
         </div>
       </ng-container>
@@ -29,8 +35,10 @@
         <app-libro [libro]="buscaLibro(entrada.idLibro)"></app-libro>
         <div class="activity-item">
           <p class="fecha">{{entrada.fecha}}</p>
-          <p class="infoEstado">{{ entrada.nombre }} ha leído este libro</p>
-
+          <div class="info-container">
+            <span class="avatar"><strong>{{ entrada.nombre?.charAt(0) | uppercase }}</strong></span>
+            <p class="infoEstado">{{ entrada.nombre }} ha leído este libro</p>
+          </div>
           <ng-container *ngIf="entrada.puntuacion !== 0" >
             <div class="puntuacion-container">
               <p class="infoEstado">Puntuación:</p>

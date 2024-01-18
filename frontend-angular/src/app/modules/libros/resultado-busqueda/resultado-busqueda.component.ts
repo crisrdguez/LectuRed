@@ -21,13 +21,6 @@ listaLibros:Libro[] = [];
 
 libroSeleccionado:Libro | null = null;
 
-// Usando ViewChild para obtener una referencia al componente BookList
-
-/*
-@ViewChild('bookList1', { static: false }) bookList1!: LibroListasComponent;
-@ViewChild('bookList2', { static: false }) bookList2!: LibroListasComponent;
-@ViewChild('bookList3', { static: false }) bookList3!: LibroListasComponent;
-*/
 
 constructor(private buscadorService : BuscadorService, private route: ActivatedRoute, private router: Router){
 
@@ -39,17 +32,16 @@ replaceSpaces(query: string): string {
 }
 
 ngOnInit():void{
-  // Suscribirse a los cambios en los parámetros de consulta
   this.route.queryParams.subscribe((params) => {
-    this.queryparams = params['q2'] || ''; // 'q' es el nombre del parámetro de consulta en navbar
-    this.buscadorService.setQueryParams(this.replaceSpaces(this.queryparams));
+    this.queryparams = params['q'] || '';
+    this.buscadorService.setQueryParams(this.queryparams);
     this.buscadorService.setOpcionBusqueda(1);
   });
 }
 
 onTabChange(event: MatTabChangeEvent) {
   const selectedIndex = event.index;
-  this.buscadorService.setQueryParams(this.replaceSpaces(this.queryparams));
+  this.buscadorService.setQueryParams(this.queryparams);
 
   switch (selectedIndex) {
     case 0:
@@ -68,47 +60,10 @@ onTabChange(event: MatTabChangeEvent) {
 
 buscarclick(){
   this.buscadorService.setQueryParams(this.replaceSpaces(this.queryparams));
-  //this.buscadorService.setOpcionBusqueda(this.opcionBusqueda);
-  //todo vuelvo a llamar a la vista de applistas
   this.selectedTabIndex==0;
   this.buscadorService.setOpcionBusqueda(1);
 }
 }
-
-
-// Método que se ejecuta cuando cambia la pestaña seleccionada
-/*
-onTabChange(event: MatTabChangeEvent) {
-  console.log("palabra" + this.queryparams);
-  console.log("opcion busqueda antes del switch" + this.opcionBusqueda);
-  const selectedIndex = event.index;
-  console.log("selectedIndex" + selectedIndex);
-
-  switch (selectedIndex) {
-    case 0:
-      this.opcionBusqueda = 1;
-      console.log("opcion busqueda en el switch" + this.opcionBusqueda);
-      // Llama al método en el componente BookList para realizar la búsqueda
-      this.bookList1.realizarBusquedaDesdeBuscador();
-      break;
-    case 1:
-      this.opcionBusqueda = 2;
-      // Llama al método en el componente BookList para realizar la búsqueda
-      console.log("opcion busqueda  en el switch" + this.opcionBusqueda);
-      this.bookList2.realizarBusquedaDesdeBuscador();
-      
-      break;
-    case 2:
-      this.opcionBusqueda = 3;
-      console.log("opcion busqueda  en el switch" + this.opcionBusqueda);
-      // Llama al método en el componente BookList para realizar la búsqueda
-      this.bookList3.realizarBusquedaDesdeBuscador();
-      break;
-    default:
-      this.opcionBusqueda = 0;
-  }
-
-}*/
 
 
 

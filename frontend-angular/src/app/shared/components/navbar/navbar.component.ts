@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import {categorias} from '../../../core/models/categorias';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 
 @Component({
@@ -12,6 +12,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavbarComponent {
 
+  isSmallScreen = false;
+  navMenu: any;
+  afterMenu: any;
+  menuOptions:any;
   idUsuario: string | null = '';
   name: string | null = '';
   estaLog: boolean = false;
@@ -20,12 +24,20 @@ export class NavbarComponent {
   queryparams:string="";
   showCategoriesDropdown: boolean = false;
   
-  constructor(private router: Router, private authService: AuthService, private route: ActivatedRoute) {}
+  constructor(private router: Router, private authService: AuthService, private breakpointObserver: BreakpointObserver) {}
 
+  ngOnInit() {
+    // Observa cambios en el tamaño de la pantalla
+    this.breakpointObserver.observe([Breakpoints.Small, Breakpoints.XSmall])
+      .subscribe(result => {
+        // Actualiza la variable isSmallScreen basada en el tamaño de la pantalla
+        this.isSmallScreen = result.matches;
+      });
+  }
 
   buscarLibros() {
     // Navegar a la ruta de resultados de búsqueda con los parámetros de consulta
-    this.router.navigate(['/libros/resultado-busqueda'], { queryParams: { q2: this.queryparams } });
+    this.router.navigate(['/libros/resultado-busqueda'], { queryParams: { q: this.queryparams } });
   }
 
   estaLogueado(){ 
@@ -36,11 +48,6 @@ export class NavbarComponent {
     }
     return this.estaLog;
     
-  }
-
-  extraerId(){
-    this.idUsuario = this.route.snapshot.queryParamMap.get('id');
-    console.log(this.idUsuario);
   }
 
   logout(){

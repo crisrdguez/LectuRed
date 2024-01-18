@@ -29,7 +29,7 @@
           <p><strong>Critica:</strong> {{ data.critica }}</p>
         </div>
         
-        <p class="modificarPuntuacion" (click)="mostrarModificarPuntuacion = !mostrarModificarPuntuacion">Modificar o añadir mi reseña/puntuación</p>
+        <p class="modificarPuntuacion" (click)="mostrarModificarPuntuacion = !mostrarModificarPuntuacion">Puntúa o escribe una reseña</p>
         <div *ngIf="mostrarModificarPuntuacion">
           <app-estrellas (puntuacionSeleccionada)="actualizarPuntuacion($event)"></app-estrellas>
           <textarea name="critica" id="critica" cols="60" rows="10" [(ngModel)]="data.critica"></textarea>
@@ -39,13 +39,6 @@
       
     
     <button class="boton" (click)="actualizarLibroLocalStorage(data.libroSeleccionado.id, data.estadoLibro, data.critica)">Guardar</button>
-
-    <!--PROBANDO RADIOBUTTTTTONS-->
-
-
-  
-
-    <!-- También puedes acceder a propiedades del libro seleccionado -->
     
   </div>
   

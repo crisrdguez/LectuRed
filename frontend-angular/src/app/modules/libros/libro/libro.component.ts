@@ -14,7 +14,6 @@ export class LibroComponent {
   queryparams="";
 
   constructor(private router: Router){
-    //console.log(this.entrada);
   }
 
   dameDetalle(){

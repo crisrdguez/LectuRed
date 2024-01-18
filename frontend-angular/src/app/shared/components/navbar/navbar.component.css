@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   background-color: #122747;
-  padding: 10px 0;
+
   list-style-type: none;
   margin: 0;
   display: flex;
@@ -18,6 +18,16 @@
   padding: 5px;
 }
 
+.nav-opcion.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-pequeno {
+  width: 100px;
+  height: auto;
+}
+
 .horizontal-navigation ul {
   list-style-type: none;
   margin: 0;
@@ -26,19 +36,19 @@
 }
 
 .horizontal-navigation li {
-  margin-right: 20px; /* o utiliza margin-left para consistencia */
+  margin-right: 20px;
 }
 
-.horizontal-navigation a {
-  color: #F9F6F6;
-  text-decoration: none;
+.horizontal-navigation .nav-opcion.active button {
+  border-bottom: 2px solid #F9F6F6;
+  padding-bottom: 1px;
 }
 
 .nav-opcion {
-  padding: 10px;
+  padding-left: 40px;
 }
 
-.nav-opcion.logo-container {
+.container-form{
   display: flex;
   align-items: center;
 }
@@ -46,18 +56,18 @@
 .container-icono {
   display: flex;
   align-items: center;
-  margin-right: 50px; 
+  margin-right: 20px; 
 }
 
 .container-icono mat-icon {
-  font-size: 35px; /* Ajusta el tamaño del ícono según tus necesidades */
+  font-size: 35px; 
 }
 
 .mat-icon {
   display: flex;
   align-items: center;
-  height: 35px;
-  width: 35px;
+  height: 45px;
+  width: 45px;
 }
 
 
@@ -68,36 +78,38 @@ mat-icon {
 
 
 button {
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 button:hover {
-  background-color: #293c58; /* Cambia el color de fondo al pasar el ratón */
+  background-color: #293c58; 
 }
-
 
 /* boton login */
 .nav-opcion:last-child {
   margin-left: auto;
 }
-
 .container-form {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-left: 50px;
+  margin-left: auto;
 }
 
 .input {
-  padding: 8px;
-  width: 300px;
+  padding: 10px;
+  width: 400px;
 }
+
 
 .item-categoria a,
 .item-categoria {
   background-color: #122747;
   color: #F9F6F6;
   text-decoration: none;
+}
+
+.mat-mdc-menu-item, .mat-mdc-menu-item:visited, .mat-mdc-menu-item:link {
+  color: #F9F6F6;
 }
 
 .item-categoria a:hover {
@@ -108,38 +120,39 @@ button:hover {
   background-color: #293c58 !important;
 }
 
-.logo-pequeno {
-  width: 70px;
-  height: auto;
-}
+
 
 .mat-mdc-button:not(:disabled) {
   color: #F9F6F6;
 }
 
 .logo-text {
-  font-size: 16px;
+  font-size: 18px;
   color: #F9F6F6;
-  margin-top: 12px; /* Ajusta el margen superior según sea necesario */
+  margin-top: 12px; 
   margin-right: 20px;
 }
 
 .mat-mdc-icon-button.mat-mdc-button-base {
-  --mdc-icon-button-state-layer-size: 60px;
+  --mdc-icon-button-state-layer-size: 70px;
 } 
-.container-icono .avatar-circle {
-  width: 35px; /* Ajusta el tamaño del círculo según sea necesario */
-  height: 35px; /* Ajusta el tamaño del círculo según sea necesario */
+.container-icono .avatar {
+  width: 45px; 
+  height: 45px; 
   background-color: #E47171;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px; /* Tamaño de la letra dentro del círculo */
-  color: #07162c; /* Color del texto dentro del círculo */
+  font-size: 24px; 
+  color: #07162c; 
 }
 
 .container-icono mat-icon {
-  font-size: 35px; /* Ajusta el tamaño del ícono según sea necesario */
-  margin-right: 10px; /* Ajusta el margen derecho del ícono según sea necesario */
+  font-size: 45px; 
+  margin-right: 15px; 
+}
+
+.submenu-contenedor{
+  background-color: #122747 !important;
 }

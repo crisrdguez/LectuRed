@@ -1,4 +1,3 @@
-//TODO buscar categorias en googlebooks apis
 export const categorias = {
     "categorias": [
       {
@@ -13,14 +12,14 @@ export const categorias = {
         "subject": "Fiction",
         "url":"ficcion",
         "descripcion": "La ciencia ficción te lleva a futuros desconocidos, galaxias lejanas y tecnologías extraordinarias. Explora mundos futuristas, viajes en el tiempo y dilemas éticos. ¡Embárcate en un viaje de descubrimiento y reflexión que solo la ciencia ficción puede brindar!",
-        "imagen": "../assets/categorias/ficcion.jpeg"
+        "imagen": "../assets/categorias/scifi.png"
       },
       {
         "titulo": "Suspense",
-        "subject": "religion",
+        "subject": "Religion",
         "url":"suspense",
         "descripcion": "El suspense literario te sumerge en un mundo de intrigas, secretos y giros inesperados. \nAtrévete a desentrañar misterios y sentir la adrenalina mientras cada página te atrapa más en su red. ¡Ven y sumérgete en un emocionante juego de suspense que te mantendrá al borde de tu asiento!",
-        "imagen": "../assets/categorias/misterio.jpeg"
+        "imagen": "../assets/categorias/suspense.png"
       },
       {
         "titulo": "Romantica",
@@ -34,28 +33,28 @@ export const categorias = {
         "subject": "Horror",
         "url":"terror",
         "descripcion": "El género del terror te adentra en un oscuro y escalofriante universo donde los miedos más profundos cobran vida. Prepárate para sentir el escalofrío en tu espina dorsal, enfrentarte a lo desconocido y experimentar la emoción de lo macabro. ¡Atrévete a explorar el lado más aterrador de la literatura y sumérgete en un mundo de horror que te mantendrá en vilo!",
-        "imagen": "../assets/categorias/terror.jpg"
+        "imagen": "../assets/categorias/terror.jpeg"
       },
       {
         "titulo": "Infantil",
         "subject": "Children",
         "url":"infantil",
         "descripcion": "Los libros infantiles son puertas mágicas hacia mundos llenos de aventuras, amistad y aprendizaje. Acompaña a los más pequeños en un viaje de imaginación, donde los personajes cobran vida y las historias enseñan valiosas lecciones. ¡Invita a los niños a descubrir la magia de la lectura y a crear recuerdos que perdurarán toda la vida!",
-        "imagen": "../assets/categorias/infantil.jpeg"
+        "imagen": "../assets/categorias/infantil.png"
       },
       {
         "titulo": "Psicologia",
         "subject": "psicologia",
         "url":"psicologia",
         "descripcion": "La psicología y la autoayuda te guían hacia un viaje de autoexploración y crecimiento personal. Descubre cómo comprender tu mente, superar desafíos y alcanzar tu máximo potencial. ¡Únete a un emocionante viaje de autodescubrimiento y transformación personal que te llevará hacia una vida más plena y satisfactoria!",
-        "imagen": "../assets/banner.png"
+        "imagen": "../assets/categorias/psicologia.png"
       },
       {
         "titulo": "Historica",
         "subject": "history",
         "url":"historia",
-        "descripcion": "La novela histórica te transporta a épocas pasadas, donde las intrigas, los personajes legendarios y los eventos históricos cobran vida. Sumérgete en un viaje en el tiempo, donde la recreación meticulosa del pasado te sumerge en una trama apasionante. ¡Explora las páginas de la historia y déjate envolver por una narrativa que te transportará a tiempos olvidados!",
-        "imagen": "../assets/categorias/historia.jpeg"
+        "descripcion": "La novela histórica te transporta a épocas pasadas, donde las intrigas, los personajes legendarios y los eventos históricos cobran vida. Sumérgete en un viaje en el tiempo, donde la recreación meticulosa del pasado te sumerge en una trama apasionante.",
+        "imagen": "../assets/categorias/historia.png"
       }
     ]
   }

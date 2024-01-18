@@ -1,11 +1,5 @@
 //Servicio que se utiliza para hacer peticiones a la API de Google Books y transforma las respuestas en objetos Libro
-/**
-   * ACLARACION
-   * las solicitudes HTTP son asincrónicas, 
-   * por lo que debes manejar la respuesta de manera asincrónica y, 
-   * en lugar de devolver directamente un Libro[] desde el método getAll, 
-   * se usa un observable para que el cliente pueda suscribirse a los resultados una vez que estén disponibles
-   */
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
@@ -14,15 +8,15 @@ import { Libro } from '../core/models/libro.model';
 import {BookVolumes, VolumeItem}  from '../core/models/libro.interface';
 
 @Injectable({
-  providedIn: 'root' //especifica que el servicio debe proporcionarse en el inyector raíz (AppModule).
+  providedIn: 'root'
 })
 export class GoogleBooksService {
 
   //url para listado de libros
-  private urlLista = 'http://localhost:3000/api/all'; //Ruta a la api de Express
+  private urlLista = 'http://localhost:3000/api/all'; 
 
   //url para detalle libro
-  private urlDetalle = 'http://localhost:3000/detalle'; //Ruta a la api de Express
+  private urlDetalle = 'http://localhost:3000/detalle';
 
 
 
@@ -35,13 +29,6 @@ export class GoogleBooksService {
    * @returns Un observable que emite un arreglo de objetos Libro que representan los libros encontrados.
    */
   private search(queryParams: string){
-
-    if (!queryParams || queryParams.trim() === '') {//TODO afinarlo
-      // Si queryParams está vacío o solo contiene espacios en blanco, no realizar la solicitud
-      // alert("Es necesario introducir un nombre o palabra clave");
-      //queryParams="Sanderson";
-      //return of(null); // o puedes devolver un observable vacío o un valor predeterminado según tus necesidades
-    }
 
     // Configurar encabezados para la solicitud HTTP
     const headers = new HttpHeaders({
@@ -142,7 +129,7 @@ export class GoogleBooksService {
     return this.search(queryParams);
   }
 
-  /*************************************************DETALLE LIBRO*************************************************************** */
+  /************DETALLE LIBRO***************** */
 
   /**
    * Realiza una solicitud HTTP a la API de Google Books para obtener detalles de un libro.
@@ -151,10 +138,8 @@ export class GoogleBooksService {
    */
   private searchLibro(idLibro: string | undefined){
 
-    if (!idLibro || idLibro.trim() === '') {//TODO afinarlo
+    if (!idLibro || idLibro.trim() === '') {
       // Si queryParams está vacío o solo contiene espacios en blanco, no realizar la solicitud
-      // alert("Es necesario introducir un nombre o palabra clave");
-      //return of(null); // o puedes devolver un observable vacío o un valor predeterminado según tus necesidades
     }
 
     // Configurar encabezados para la solicitud HTTP

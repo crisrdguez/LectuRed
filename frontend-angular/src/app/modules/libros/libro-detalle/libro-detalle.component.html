@@ -11,9 +11,10 @@
               <button (click)="agregarAFavoritos(libroSeleccionado)" (click)="openDialog('1000ms', '500ms')" [disabled]="!estaAutenticado">{{estadoLibro}}</button>
             </div>
           </div>
-            <!--PARA BBDD<app-puntuacion-media [puntuacionMedia]="obtenerPuntuacionMedia(libroSeleccionado)"></app-puntuacion-media>-->
+
           <app-puntuacion-media [puntuacionMedia]="puntuacionMedia"></app-puntuacion-media>
           <p>Puntuación Media: <strong> {{ puntuacionMedia }} / 5</strong></p>
+          
         </div>  
       </div>
     </div>
@@ -24,6 +25,7 @@
       <p class="editorial">Editorial: {{ libroSeleccionado.publisher }}</p>
       <div [innerHTML]="libroSeleccionado.description" class="resumen"></div>
       <!-- Otros detalles del libro -->
+      <div class="barra-espaciadora"></div>
       <h3>Opiniones de otros usuarios</h3>
       <div class="contenedor-actividad" *ngFor="let entrada of listaActividad">           
         <ng-container *ngIf="entrada.puntuacion === 0">
@@ -31,8 +33,10 @@
             <div class="entry-container">
               <div class="activity-item">
                 <p class="fecha">{{entrada.fecha}}</p>
-                <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
-                <p class="infoEstado">ha comenzado a leer este libro</p>
+                <div class="info-container">
+                  <span class="avatar"><strong>{{ entrada.nombre?.charAt(0) | uppercase }}</strong></span>
+                  <p class="infoEstado">{{ entrada.nombre }} ha comenzado a leer este libro</p>
+                </div>
               </div>
             </div>
           </ng-container>
@@ -41,8 +45,10 @@
             <div class="entry-container">
               <div class="activity-item">
                 <p class="fecha">{{entrada.fecha}}</p>
-                <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
-                <p class="infoEstado"> ha añadido este libro a su lista de deseos</p>
+                <div class="info-container">
+                  <span class="avatar"><strong>{{ entrada.nombre?.charAt(0) | uppercase }}</strong></span>
+                <p class="infoEstado"> {{ entrada.nombre }} ha añadido este libro a su lista de deseos</p>
+                </div>
               </div>
             </div>
           </ng-container>
@@ -53,9 +59,11 @@
           <div class="entry-container">
             <div class="activity-item">
               <p class="fecha">{{entrada.fecha}}</p>
-              <p class="infoEstado">👩🏻 {{ entrada.nombre }} </p>
-              <p class="infoEstado"> ha leído este libro</p>
-  
+              <div class="info-container">
+                <span class="avatar"><strong>{{ entrada.nombre?.charAt(0) | uppercase }}</strong></span>
+              <p class="infoEstado"> {{ entrada.nombre }} ha leído este libro </p>
+              <p class="infoEstado"></p>
+              </div>
               <div class="puntuacion-container">
                 <p class="infoEstado">Puntuación:</p>
                 <div class="estrellas-container">
@@ -65,7 +73,7 @@
                 </div>
               </div>
   
-              <ng-container *ngIf="entrada.critica !== '' ">
+              <ng-container *ngIf="entrada.critica !== '' && entrada.critica !== null ">
                 <p class="infoEstado">Reseña: </p>
                 <div class="infoRes">{{ entrada.critica }}</div>
               </ng-container>

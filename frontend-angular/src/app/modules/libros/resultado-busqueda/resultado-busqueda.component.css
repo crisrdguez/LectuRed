@@ -4,24 +4,29 @@
   align-items: center;
   margin: 0 auto;
   max-width: 100%; 
-  padding: 20px; 
+  padding: 10px; 
   background-color:#EFE8E8;
 }
 
 .container-form{
   width: 60%; 
+  padding: 30px;
+}
+
+.container-resultado{
+  width: 80%;
 }
 
 .boton-buscar{
   border-radius: 3px;
   border: 1px solid #D6D0C4;
-  font-size: 1.2em;
+  font-size: 1.3em;
   cursor: pointer;
   display: inline-block;
   color: #242222;
   background-color: #f3f0eb;
   line-height: 1;
-  padding: 8px 12px;
+  padding: 10px 12px;
   margin-left: 5px;
 }
 
@@ -33,13 +38,13 @@
     width: 80%; 
     padding: 10px;
     font-size: 1.2em;
-    margin-bottom: 20px; /* Espacio inferior para separar el input de los tabs */
+    margin-bottom: 20px; 
 }
 
 /* Estilo para mat-tab-group */
 mat-tab-group {
     width: 100%;
-    margin: 0 auto; /* Centra horizontalmente el tab group */
+    margin: 0 auto; 
   }
   
   /* Estilo para mat-tab */
@@ -52,7 +57,15 @@ mat-tab-group {
     --mat-tab-header-inactive-focus-label-text-color: rgba(117, 85, 85, 0.61);
     --mat-tab-header-inactive-hover-label-text-color: rgba(168, 166, 166, 0.911);
 }
+
+::ng-deep .mat-mdc-tab-header {
+  --mat-tab-header-label-text-size:20px 
+}
   /* Estilo para el contenido del mat-tab */
   mat-tab-content {
-    padding: 10px; /* Agrega espacio interno al contenido del tab */
+    padding: 15px; 
+  }
+
+.separacion{
+    margin-top:20px;
   }

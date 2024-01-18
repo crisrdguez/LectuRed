@@ -1,23 +1,25 @@
 <div class="container-busqueda">
     <div class="container-form">
-        <input class="input" type="text" [(ngModel)]='queryparams' placeholder="Buscar libros">
+        <input class="input" type="text" [(ngModel)]='queryparams' placeholder="Buscar libros" (keyup.enter)="buscarclick()">
         <button class="boton-buscar" (click)="buscarclick()">Buscar</button>
     </div>
-    <mat-tab-group animationDuration="0ms" [(selectedIndex)]="selectedTabIndex" (selectedTabChange)="onTabChange($event)">
-        <mat-tab class="custom-tab-label" label="Todo">
-            <div *ngIf="selectedTabIndex==0">
-                <app-libro-listas></app-libro-listas>
-            </div>
-        </mat-tab>
-        <mat-tab label="Autor">
-            <div *ngIf="selectedTabIndex==1">
-                <app-libro-listas></app-libro-listas>
-            </div>
-        </mat-tab>
-        <mat-tab label="Titulo">
-            <div *ngIf="selectedTabIndex==2">
-                <app-libro-listas></app-libro-listas>
-            </div>
-        </mat-tab>
-    </mat-tab-group>
+    <div class="container-resultado">
+        <mat-tab-group animationDuration="0ms" [(selectedIndex)]="selectedTabIndex" (selectedTabChange)="onTabChange($event)">
+            <mat-tab class="custom-tab-label" label="Todo">
+                <div class="separacion" *ngIf="selectedTabIndex==0">
+                    <app-libro-listas></app-libro-listas>
+                </div>
+            </mat-tab>
+            <mat-tab label="Autor">
+                <div class="separacion" *ngIf="selectedTabIndex==1">
+                    <app-libro-listas></app-libro-listas>
+                </div>
+            </mat-tab>
+            <mat-tab label="Titulo">
+                <div class="separacion" *ngIf="selectedTabIndex==2">
+                    <app-libro-listas></app-libro-listas>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
 </div>

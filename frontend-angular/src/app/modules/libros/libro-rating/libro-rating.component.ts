@@ -1,6 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, Renderer2 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ActividadService } from 'src/app/services/actividad.service';
+
 
 @Component({
   selector: 'app-libro-rating',
@@ -8,11 +9,12 @@ import { ActividadService } from 'src/app/services/actividad.service';
   styleUrls: ['./libro-rating.component.css']
 })
 export class LibroRatingComponent {
-
+  
   estadoActual = this.data.estadoLibro;
   miCritica = this.data.critica;
   puntuacion = this.data.puntuacion;
   mostrarModificarPuntuacion: boolean = false;
+
 
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog, private actividadService: ActividadService) { 
@@ -23,25 +25,7 @@ export class LibroRatingComponent {
     this.puntuacion = puntuacion;
   }
 
-  /*actualizarEstadoLibro(estado: string): void {
-    this.data.estadoLibro = estado;
-    this.estadoActual= estado;
-    console.log("Estado actualizado: ", this.data.estadoLibro);
-    
-    // Guardar en localStorage
-      const libroId = this.data.libroSeleccionado.id;
-      console.log("componente rating, el idLibro es: ", libroId);
-      const libroEstado = this.data.estadoLibro;
-      const libroPuntuacion = this.puntuacion;
-      const libroCritica = this.data.critica;
-      this.guardarLibroEnLocalStorage(libroId, libroEstado, libroPuntuacion, libroCritica);
-    
-    //TODO guardar en bbdd
-    //TODO ahora se pierden los datos cuando vuelvo al componente de mis libros, ya que obtiene los datos de un json y no de la bbdd. aqui se actualiza el localstorage con los datos de json, TIENE QUE ACTUALIZARSE CON LOS DE LA BBDD
-  }*/
-
   actualizarLibroLocalStorage(libroId: string, estado: string, critica:string): void {
-    //TODO GUARDAR EN LA BBDD
     const librosLocalStorage = JSON.parse(localStorage.getItem('misLibros') || '[]');
     const libroExistente = librosLocalStorage.find((libro: any) => libro.idLibro === libroId);
     var metodo;
@@ -109,7 +93,12 @@ export class LibroRatingComponent {
     }
     this.dialog.closeAll();
     window.location.reload();
-    ////TODO ELIMINAR EN LA BBDD
   }
+
+  
+
+
+
+
 
 }

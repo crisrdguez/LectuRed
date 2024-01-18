@@ -19,21 +19,13 @@ export class LibroActividadComponent implements OnInit{
   constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    //Si no se recibe el id del libro, obtengo toda la informacion
     if(!this.idLibroEnvio){
       this.actividadService.getActividadGeneralBBDD().subscribe(data => {
         this.listaActividad = data.items;
-        this.listaActividad = this.listaActividad.reverse();//para mostrar los mas nuevos primero
+        this.listaActividad = this.listaActividad.reverse();
         data.items.forEach((item:any) => this.getLibroId(item.idLibro));
       });
     }
-    /*
-    this.actividadService.getCriticas().subscribe(data => {
-      console.log(data.items);
-      this.listaActividad = data.items; // Accede a la propiedad "items" del JSON
-      //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
-      data.items.forEach((item:any) => this.getLibroId(item.idLibro));
-    });*/
   }
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros
