@@ -44,78 +44,81 @@ class MiListaFactory extends Factory
             "Hp7QEAAAQBAJ",
         ];
         $criticasDetalladas = [
-            'Me encantó la historia y los personajes. Altamente recomendado.',
-            'Una lectura fascinante que te atrapa desde el principio.',
-            'La narrativa es cautivadora. No pude dejar de leer.',
-            'Personajes complejos y giros inesperados. ¡Impresionante!',
-            'No esperaba el desenlace. ¡Sorprendentemente cautivador!',
-            'La prosa es hermosa y la historia es emocionante. Lo disfruté mucho.',
-            'Aunque la trama era predecible, los personajes la hicieron valer la pena.',
-            'No pude conectar con los personajes. La historia fue decepcionante.',
-            'Me decepcionó. La trama era predecible y los personajes eran planos.',
-            'Una historia conmovedora que te deja reflexionando.',
-            'La trama era intrigante, pero el final fue decepcionante.',
-            'Los personajes eran interesantes, pero la trama carecía de profundidad.',
-            'Me enganchó desde el principio. Muy recomendado.',
-            'No pude dejar de leer. La historia es adictiva.',
-            'Me gustó mucho la forma en que se desarrollaron los personajes.',
-            'La trama era interesante, pero algunos personajes eran poco convincentes.',
-            'La prosa era hermosa, pero la historia carecía de originalidad.',
-            'Los giros inesperados mantuvieron mi interés. ¡Muy bien hecho!',
-            'Una lectura ligera y entretenida. Perfecta para relajarse.',
-            'La historia era predecible, pero los personajes la hicieron interesante.',
-            'Me encantó el mundo que creó el autor. Una lectura envolvente.',
-            'No me gustó el desarrollo de la trama. Fue un poco confuso.',
-            'Los personajes eran entrañables, pero la trama carecía de emoción.',
-            'Me encantó cada página. Una historia que te hace pensar.',
-            'La trama era intrigante, pero el ritmo era un poco lento para mi gusto.',
-            'La historia me dejó sin palabras. ¡Absolutamente impactante!',
-            'Algunos personajes eran un poco cliché, pero la trama compensó.',
-            'La trama era única y original. ¡Recomendaría este libro!',
-            'Me hubiera gustado más desarrollo en algunos personajes.',
-            'La trama me mantuvo en vilo. No podía esperar a ver qué sucedía.',
-            'Los personajes eran complejos y bien escritos. Una joya literaria.',
-            'La historia era cautivadora, pero el final fue un poco abrupto.',
-            'Me encantó la diversidad de personajes. Una lectura enriquecedora.',
-            'La trama era intrigante, pero algunos diálogos eran forzados.',
-            'Una historia que te hace reflexionar sobre la vida. Muy conmovedora.',
-            'La trama era predecible, pero la prosa era encantadora.',
-            'No pude conectar con algunos personajes. La trama fue decepcionante.',
-            'La historia tenía un buen ritmo. No podía dejar de leer.',
-            'La trama era fascinante, pero el desarrollo de algunos personajes fue débil.',
-            'Me gustó la originalidad de la historia. Muy recomendado.',
+                "El mejor libro del mundo. Cada página es una sinfonía de imaginación con un sistema de magia ingeniosamente concebido y giros argumentales que desafían las expectativas. La narrativa envolvente y la habilidad de Sanderson para crear mundos vibrantes hacen de este libro una obra maestra, estableciendo un estándar excepcional en la literatura moderna.",
+                
+                "Una joya literaria que cautiva desde la primera página. La prosa delicada y evocadora transporta al lector a un mundo donde la realidad se entrelaza con la fantasía. Los personajes están tan bien desarrollados que es imposible no enamorarse de ellos. Una lectura que perdurará en la memoria.",
+                
+                "Este libro es una obra de arte literaria. La trama intrincada y los personajes complejos se combinan para crear una experiencia de lectura inolvidable. Cada capítulo revela capas más profundas de la historia, manteniendo al lector ansioso por descubrir qué sucederá a continuación. Una verdadera obra maestra.",
+                
+                "Una epopeya moderna que redefine el género. La escritura magistral del autor da vida a un mundo lleno de maravillas y peligros. La complejidad de los personajes y la trama absorbente hacen de este libro una lectura imprescindible para cualquier amante de la literatura.",
+                
+                "Un viaje emocional que deja una huella duradera. La profundidad psicológica de los personajes y la narrativa envolvente hacen que este libro sea una experiencia única. Cada palabra está impregnada de significado, y la conclusión es tan impactante como conmovedora.",
+                
+                "Una odisea literaria que desafía las convenciones. El autor ha creado un universo fascinante donde cada detalle contribuye a la riqueza de la historia. Las sorpresas constantes mantienen al lector en vilo, creando un vínculo emocional que perdura mucho después de cerrar el libro.",
+                
+                "Este libro es una joya escondida que merece ser descubierta. La prosa lírica y la trama bien construida se combinan para crear una experiencia de lectura cautivadora. Los personajes saltan de las páginas, y la resolución de la historia deja al lector reflexionando mucho después de terminar el libro.",
+                
+                "Una obra maestra de la narrativa contemporánea. La prosa elegante y la trama absorbente se entrelazan para formar un tapiz literario que captura la imaginación. Cada página revela nuevas capas de significado, manteniendo al lector comprometido de principio a fin.",
+                
+                "Este libro es un tesoro literario. La mezcla perfecta de suspense, romance y misterio lo convierte en una lectura adictiva. Los personajes son tan auténticos que es fácil perderse en sus mundos. Una experiencia de lectura que deja una impresión duradera.",
+                
+                "Un tour de force literario que desafía las convenciones del género. La narrativa magistral y los personajes complejos elevan este libro a nuevas alturas. Cada página es una revelación, y la conclusión es tan impactante como satisfactoria.",
+                
+                "Una joya literaria que merece un lugar destacado en cualquier estante. La maestría del autor para tejer una historia cautivadora es evidente en cada línea. Los giros argumentales mantienen al lector en vilo, y la resolución es tan sorprendente como satisfactoria.",
+                
+                "Este libro es una obra maestra de la creatividad. La originalidad de la trama y la profundidad de los personajes lo convierten en un viaje literario inolvidable. Cada página revela nuevos matices, manteniendo al lector intrigado de principio a fin.",
+                
+                "Una experiencia de lectura transformadora. La prosa poética y la profundidad emocional hacen que este libro sea más que una simple historia. Los temas universales explorados en la trama resuenan en el corazón del lector, creando una conexión duradera.",
+                
+                "Un triunfo literario que deja una impresión imborrable. La escritura envolvente y la trama magistralmente construida se combinan para crear un libro que no se puede dejar de leer. Cada página es un placer, y la conclusión es tan impactante como conmovedora.",
+                
+                "Este libro es un deleite para los amantes de la literatura. La maestría del autor para crear mundos vívidos y personajes memorables lo coloca en la cima del arte literario. Una lectura que transporta y cautiva desde el principio hasta el final."
         ];
 
         $user = User::inRandomOrder()->first();
         $idlibro = $this->faker->randomElement($idlibros);
+
+        // Generar una nueva combinación hasta que sea única
+        do {
+            $user = User::inRandomOrder()->first();
+            $idlibro = $this->faker->randomElement($idlibros);
+
+            // Verificar si ya existe una entrada con el mismo user_id e idlibro
+            $existingEntry = MiLista::where('user_id', $user->id)
+                ->where('idlibro', $idlibro)
+                ->first();
+        } while ($existingEntry);
+
         $estado = $this->faker->randomElement(['leido', 'leyendo', 'deseado']);
         $puntuacion = ($estado === 'leido') ? $this->faker->numberBetween(1, 5) : null;
-        $critica = ($estado === 'leido') ? $this->faker->text(200) : null;
-       
-            $miLista = MiLista::create([
-                'user_id' => $user->id,
-                'idlibro' => $idlibro,
-                'estado' => $estado,
-                'puntuacion' => ($estado === 'leido') ? $puntuacion : null,
-                'critica' => ($estado === 'leido') ? $this->faker->randomElement($criticasDetalladas) : null,
-            ]);
+        $critica = ($estado === 'leido') ? $this->faker->randomElement($criticasDetalladas) : null;
 
-                // Calculamos la media de puntuación después de insertar el registro
-    $mediaPuntuacion = MiLista::where('idlibro', $idlibro)
-    ->whereNotNull('puntuacion')
-    ->avg('puntuacion');
+        $miLista = MiLista::create([
+            'user_id' => $user->id,
+            'idlibro' => $idlibro,
+            'estado' => $estado,
+            'puntuacion' => ($estado === 'leido') ? $puntuacion : null,
+            'critica' => ($estado === 'leido') ? $this->faker->randomElement($criticasDetalladas) : null,
+        ]);
 
-    // Actualizamos el campo 'media_puntuacion' en el registro insertado
-     // Actualizamos el campo 'media_puntuacion' en todos los registros del libro
-     MiLista::where('idlibro', $idlibro)->update(['media_puntuacion' => $mediaPuntuacion]);
+        // Calculamos la media de puntuación después de insertar el registro
+        $mediaPuntuacion = MiLista::where('idlibro', $idlibro)
+            ->whereNotNull('puntuacion')
+            ->avg('puntuacion');
 
-    return [
-        'user_id' => $user->id,
-        'idlibro' => $idlibro,
-        'estado' => $estado,
-        'puntuacion' => ($estado === 'leido') ? $puntuacion : null,
-        'critica' => ($estado === 'leido') ? $this->faker->randomElement($criticasDetalladas) : null,
-        'media_puntuacion' => $mediaPuntuacion,
-    ];
+        // Actualizamos el campo 'media_puntuacion' en el registro insertado
+        MiLista::where('id', $miLista->id)->update(['media_puntuacion' => $mediaPuntuacion]);
+
+        // Actualizamos el campo 'media_puntuacion' en todos los registros del libro
+        MiLista::where('idlibro', $idlibro)->update(['media_puntuacion' => $mediaPuntuacion]);
+
+        return [
+            'user_id' => $user->id,
+            'idlibro' => $idlibro,
+            'estado' => $estado,
+            'puntuacion' => ($estado === 'leido') ? $puntuacion : null,
+            'critica' => ($estado === 'leido') ? $this->faker->randomElement($criticasDetalladas) : null,
+            'media_puntuacion' => $mediaPuntuacion,
+        ];
     }
 }

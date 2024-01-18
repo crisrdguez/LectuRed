@@ -40,10 +40,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::apiResources([
         'users'=>UserController::class,
-        'books' => BookController::class,
-        'mybooks' => MyBookController::class,
-        'ratings' => RatingController::class,
-        'reviews' => ReviewController::class,
         'misLibros'=> MiListaController::class,
 
     ]);

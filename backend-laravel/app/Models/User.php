@@ -42,28 +42,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function books()
-    {
-        return $this->belongsToMany(Book::class, 'my_books', 'user_id', 'book_id')
-            ->withPivot('status', 'soft_deleted')
-            ->withTimestamps();
-    }
-
-    public function ratings()
-    {
-        return $this->hasMany(Rating::class, 'user_id');
-    }
-
-    public function reviews()
-    {
-        return $this->hasMany(Review::class, 'user_id');
-    }
-
-    public function passwordResetTokens()
-    {
-        return $this->hasMany(PasswordResetToken::class);
-    }
-
     public function miLista()
     {
         return $this->hasMany(MiLista::class, 'user_id');
