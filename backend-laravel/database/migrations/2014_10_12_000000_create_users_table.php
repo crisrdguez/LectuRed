@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name',255);
             $table->string('last_name',255)->nullable();
             $table->date('birth_date')->nullable();
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->string('city')->nullable();
@@ -29,6 +29,8 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
+            
+            $table->unique(['email', 'authentication_provider']);
         });
     }
 

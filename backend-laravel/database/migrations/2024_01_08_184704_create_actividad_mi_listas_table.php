@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('actividad_mi_listas', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('nombre');
             $table->string('idlibro');
             $table->Integer('puntuacion')->check('rating >= 0 and rating <= 5')->nullable();
             $table->longText('critica')->nullable();
             $table->enum('estado', ['deseado', 'leyendo', 'leido']);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

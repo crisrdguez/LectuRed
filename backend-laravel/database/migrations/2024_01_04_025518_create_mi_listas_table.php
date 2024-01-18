@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('mi_listas', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('idlibro');
             $table->enum('estado', ['deseado', 'leyendo', 'leido']);
             $table->Integer('puntuacion')->check('rating >= 0 and rating <= 5')->nullable();
@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float('media_puntuacion')->nullable();
             $table->timestamps();
             
-
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unique(['user_id', 'idlibro']);
         });
     }
