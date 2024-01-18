@@ -15,9 +15,10 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-gray-900"  style="background:#122747">
-            {{-- @include('layouts.navigation') --}}
-
+        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-10 sm:pt-0 bg-gray-100 dark:bg-gray-900" style="background:#122747">
+            <a href="http://localhost:4200/home">
+                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+            </a>
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white dark:bg-gray-800 shadow">
@@ -31,5 +32,6 @@
                 {{ $slot }}
             </main>
         </div>
+    </div>
     </body>
 </html>
