@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Libro } from 'src/app/core/models';
-import { ActividadService } from 'src/app/services/actividad.service';
 import { GoogleBooksService } from 'src/app/services/google-books.service';
 
 @Component({
@@ -11,11 +10,11 @@ import { GoogleBooksService } from 'src/app/services/google-books.service';
 })
 export class LibroMisLibrosComponent implements OnInit{
 
-  listaMisLibros: any[] = []; // Definir una variable para almacenar los datos
+  listaMisLibros: any[] = [];
   misLibros : Libro[] = [];
   librosBBDD : any[] = [];
 
-  constructor(private actividadService: ActividadService, private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
+  constructor(private googleBooksService:GoogleBooksService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
       //TODO aqui deberia recuperarlo del localstorage
@@ -25,14 +24,6 @@ export class LibroMisLibrosComponent implements OnInit{
       //Por cada item que me llega del json, cojo el idLibro y llamo a la funcion getLibroId
       this.listaMisLibros.forEach((item:any) => this.getLibroId(item.idLibro));
     }
-
-
-    /* EJEMPLO PETICION A LA BBDD
-    this.actividadService.getMisLibrosBBDD().subscribe(data => {
-      console.log("dentro del componente ts")
-      console.log(data.data);
-      this.librosBBDD = data.data;
-    })*/
   
 
   //Metodo que busca un libro por id y lo guarda en mi array de libros

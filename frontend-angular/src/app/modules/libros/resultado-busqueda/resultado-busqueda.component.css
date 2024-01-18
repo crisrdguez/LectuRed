@@ -63,7 +63,7 @@ mat-tab-group {
 }
   /* Estilo para el contenido del mat-tab */
   mat-tab-content {
-    padding: 15px; /* Agrega espacio interno al contenido del tab */
+    padding: 15px; 
   }
 
 .separacion{

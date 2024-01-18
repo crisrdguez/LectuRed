@@ -40,8 +40,6 @@ export class HomePageComponent implements OnInit{
     this.buscadorService.setOpcionBusqueda(5);
 
     this.idUsuario = this.route.snapshot.queryParamMap.get('id');
-    console.log(this.idUsuario);
-    //this.authService.peticionToken();
     this.obtenerToken();
 
     this.router.navigate(['/home'], {});
@@ -61,10 +59,7 @@ export class HomePageComponent implements OnInit{
     this.http.post(url, body).subscribe(
       (data: any) => {
         // Maneja la respuesta del servidor (puedes almacenar el token, etc.)
-        console.log('Token recibido:', data.token);
-        console.log("nombre: " + data.user.name);
         this.authService.guardarToken(data.token, data.user.id, data.user.name);
-        console.log(data);
       },
       error => {
         console.error('Error al obtener el token:', error);
@@ -75,7 +70,6 @@ export class HomePageComponent implements OnInit{
   //Metodo que busca un libro por id y lo guarda en mi array de libros
   getLibroId(idLibro:string){
     this.route.params.subscribe(params => {
-      console.log(idLibro + "getIdLibro en recomendados");
       this.googleBooksService.getDetalleLibro(idLibro).subscribe({
         next: (libro: Libro) => {
           this.librosRecomendados?.push(libro);
@@ -92,9 +86,7 @@ export class HomePageComponent implements OnInit{
   }
   //Busco en mi array de libros el libro con el id que paso por parametro, este libro es el que se mandara al componente app-libro
   buscaLibro(idLibro:string): Libro | undefined{
-
     const libroEncontrado = this.librosRecomendados.find(libro => libro.id === idLibro);
-
     return libroEncontrado;
 
   }

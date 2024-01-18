@@ -28,20 +28,20 @@
 .contenedor-actividad {
   padding-left: 20px;
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una sola fila */
-    gap: 25px; /* Espacio entre elementos */
+    flex-wrap: wrap;
+    gap: 25px;
   }
 
   .barra-espaciadora {
     margin-top:40px;
     width: 60%;
-    height: 40px; /* Grosor de la línea */
+    height: 40px;
     background: rgb(239,232,232);
     background: linear-gradient(90deg, rgba(239,232,232,1) 0%, rgba(0,66,108,1) 50%, rgba(239,232,232,1) 100%);
   }
   
   .activity-item {
-    flex: 1; /* Los elementos ocuparán un espacio igual en el contenedor */
+    flex: 1;
   }
   
 h3{

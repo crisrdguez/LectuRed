@@ -19,11 +19,11 @@ export class LibroDetalleComponent implements OnInit{
   idLibroEnvio:string | undefined;
   idLibro:string | undefined;
   
-  listaActividad: any[] = []; // Definir una variable para almacenar los datos
+  listaActividad: any[] = []; 
   librosActividad : Libro[] = [];
 
   libroSeleccionado:Libro | null = null;
-  estadoLibro: string = 'Añadir a Favoritos'; // Estado predeterminado
+  estadoLibro: string = 'Añadir a Favoritos'; 
   puntuacion: number = 0;
   puntuacionMedia: number = 0; //TODO se pide la puntuacion media del libro a la bbdd, en el metodo de mas abajo obtenerPuntuacionMedia
   critica: string = '';
@@ -121,12 +121,12 @@ export class LibroDetalleComponent implements OnInit{
     this.renderer2.setStyle(canvas, 'left', '0');
     this.renderer2.setStyle(canvas, 'width', '100%');
     this.renderer2.setStyle(canvas, 'height', '100%');
-    this.renderer2.setStyle(canvas, 'z-index', '9999'); // Asegura que esté en la capa superior
+    this.renderer2.setStyle(canvas, 'z-index', '9999');
   
     this.renderer2.appendChild(document.body, canvas);
   
     const myConfetti = confetti.create(canvas, {
-      resize: true, // ajustará al tamaño de toda la pantalla
+      resize: true,
     });
   
     myConfetti ( { 
@@ -162,13 +162,12 @@ export class LibroDetalleComponent implements OnInit{
       data:{
         enterAnimationDuration,
         exitAnimationDuration,
-        libroSeleccionado: this.libroSeleccionado,  // Paso el libro seleccionado al Dialog
-        estadoLibro: this.estadoLibro,  // Paso el estado del libro al diálogo
-        puntuacion: this.puntuacion,  // Paso mi puntuación al diálogo
-        critica: this.critica  // Paso la crítica al diálogo
+        libroSeleccionado: this.libroSeleccionado,  
+        estadoLibro: this.estadoLibro,  
+        puntuacion: this.puntuacion,  
+        critica: this.critica  
       }
     });
-    // Recargar la página
   
   }
 
@@ -198,28 +197,20 @@ export class LibroDetalleComponent implements OnInit{
   }
 
   contarLibrosLeidos(): number {
-    // Obtén los datos del Local Storage
+
     const librosGuardados = localStorage.getItem('misLibros');
 
-    // Verifica si hay datos en el Local Storage
+
     if (librosGuardados) {
-        // Parsea los datos a formato JSON
+
         const libros = JSON.parse(librosGuardados);
-
-        // Filtra los libros con estado "leido"
         const librosLeidos = libros.filter((libro: any) => libro.estado === 'leido');
-
-        // Obtiene el número de libros leidos
         const numeroLibrosLeidos = librosLeidos.length;
-
-        // Guarda el número de libros leidos en el Local Storage
         localStorage.setItem('numeroLibrosLeidos', numeroLibrosLeidos.toString());
-
-        // Devuelve el número de libros leidos
         return numeroLibrosLeidos;
     } else {
         console.log('No hay datos de libros en el Local Storage.');
-        return 0; // Devuelve 0 si no hay datos
+        return 0;
     }
 }
 }

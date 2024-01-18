@@ -20,7 +20,7 @@ export class LibroCategoriasComponent implements OnInit{
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.url = params['url']; // Obtengo categorias.url del json de categorias
+      this.url = params['url'];
       this.categoria = categorias.categorias.find(categoria => categoria.url === this.url);
       this.buscadorService.setQueryParams(this.categoria.subject);
       this.buscadorService.setOpcionBusqueda(4);

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { ActividadService } from './actividad.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -16,7 +15,7 @@ export class AuthService {
   urlBase = 'http://localhost:3000';
   urlLogout = `${this.urlBase}/api/logout`;
 
-  constructor(private router: Router, private actividadService: ActividadService, private http: HttpClient) { }
+  constructor(private actividadService: ActividadService, private http: HttpClient) { }
 
   // Método para guardar el token en el localStorage
   guardarToken(token: string, idPersona: string, name: string): void {
@@ -25,13 +24,9 @@ export class AuthService {
     localStorage.setItem('name', name);
     localStorage.setItem('confeti','false');
     if(this.estaAutenticado()){
-      //TODO Accedo a los libros que vienen de la bbdd y los guardo en localstorage
+      //Accedo a los libros que vienen de la bbdd y los guardo en localstorage
       this.actividadService.getMisLibros().subscribe(data => {
-        console.log("<<<<<<<<<<<<<<<<<<<");
-        console.log(data.items);
         this.listaMisLibros = data.items; // Accede a la propiedad "misLibros" del JSON
-        console.log("Mi lista de libros que guardo en localstorage:");
-        console.log(this.listaMisLibros);
 
         // Guardar en localStorage
         this.listaMisLibros.forEach(item => {
@@ -80,11 +75,7 @@ export class AuthService {
     window.location.reload(); //actualiza la pagina
   }
   private logout() {
-
-    console.log("llamamos al logout de express");
-    console.log(this.urlLogout);
     // Define el cuerpo de la solicitud (body)
-    
     const body = {};
 
     const token = this.obtenerToken();
@@ -97,11 +88,9 @@ export class AuthService {
     this.http.post(this.urlLogout, body, { headers: headers }).subscribe(
       (response) => {
         console.log("Respuesta exitosa:", response);
-        // Puedes realizar acciones adicionales con la respuesta si es necesario
       },
       (error) => {
         console.error("Error en la solicitud:", error);
-        // Puedes manejar el error de acuerdo a tus necesidades
       }
     );
 
@@ -123,7 +112,6 @@ export class AuthService {
       librosLocalStorage.push({ idLibro: libroId, estado, puntuacion, critica });
     }
 
-    // Guardar en localStorage
     localStorage.setItem('misLibros', JSON.stringify(librosLocalStorage));
   }
 }

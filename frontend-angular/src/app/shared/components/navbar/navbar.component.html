@@ -45,8 +45,7 @@
             </button>
             <p class="logo-text">{{name}}</p>
         </div>
-         <!-- Menú desplegable con todas las opciones para pantallas pequeñas -->
-    
+         <!-- Menú desplegable con todas las opciones -->    
         <mat-menu class="submenu-contenedor" #menuOptions="matMenu">
             <ng-container *ngIf="!estaLogueado(); else noLogin">
               <a mat-menu-item class="item-categoria" href="http://127.0.0.1:8000/login">Iniciar sesión</a>
@@ -57,9 +56,7 @@
               <a mat-menu-item class="item-categoria" (click)="logout()">Cerrar sesión</a>
             </ng-template>
           </mat-menu>
-        <!--
-        <button mat-button><a routerLink="/auth/login">Login</a></button>
-        -->
+
     </div>
 </nav>
 </span>

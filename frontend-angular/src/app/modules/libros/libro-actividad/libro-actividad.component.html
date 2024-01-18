@@ -2,7 +2,6 @@
     <div class="contenedor-actividad" *ngFor="let entrada of listaActividad">
 
       <ng-container *ngIf="entrada.puntuacion === 0">
-        <!-- Si la puntuación es 0, el usuario no ha leído el libro -->
 
         <ng-container *ngIf="entrada.estado === 'leyendo'">
           <div class="entry-container">

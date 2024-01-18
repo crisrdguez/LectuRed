@@ -9,15 +9,15 @@ export class ActividadService {
   
 
   // Rutas a los archivos JSON que contienen datos de simulacion (actividad, recomendados, mis libros)
-  jsonURL = 'assets/mock/actividad.json'; // Ruta al archivo JSON
+  jsonURL = 'assets/mock/actividad.json';
   jsonURLMiActividad = 'assets/mock/miActividad.json';
-  json_Recomendados_URL = 'assets/mock/recomendados.json'; // Ruta al archivo JSON
+  json_Recomendados_URL = 'assets/mock/recomendados.json';
   json_misLibros = 'assets/mock/misLibros.json';
   json_misDatosLibros = 'assets/mock/misDatos.json';
 
   urlBase = 'http://localhost:3000';
 
-  urlMisLibrosBBDD = `${this.urlBase}/api/mybooks`; //Ruta a la api de Express, Obtiene información de la lista de mis libros, necesito idPersona
+  urlMisLibrosBBDD = `${this.urlBase}/api/mybooks`; 
 
   urlActividadGeneral = `${this.urlBase}/api/actividad`;
 
@@ -27,8 +27,8 @@ export class ActividadService {
 
   urlPuntuacionMedia = `${this.urlBase}/api/puntuacionmedia`;
 
-  urlDatosLibros = `${this.urlBase}/api/misLibros`; //Ruta a la api de Express, //Permite hacer modificaciones en la BBDD -  añadir/eliminar libros a Mis Libros, cambiar estado, puntuacion y critica
-
+  //Ruta a la api de Express, //Permite hacer modificaciones en la BBDD -  añadir/eliminar libros a Mis Libros, cambiar estado, puntuacion y critica
+  urlDatosLibros = `${this.urlBase}/api/misLibros`; 
   constructor(private http: HttpClient) { }
   
 
@@ -96,16 +96,5 @@ export class ActividadService {
     console.log(this.http.get(this.json_Recomendados_URL));
     return this.http.get(this.json_Recomendados_URL);
   }
-
-  //NO LO USO YA
-    /**
-   * Obtiene la lista de los libros del usuario desde el archivo JSON.
-   * @returns Observable con los datos de los libros del usuario.
-   */
-    getMisLibrosOLD(): Observable<any> {
-      console.log(this.http.get(this.json_misDatosLibros));
-      return this.http.get(this.json_misDatosLibros);
-    }
-
   
 }

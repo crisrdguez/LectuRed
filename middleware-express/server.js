@@ -178,7 +178,7 @@ app.get("/api/actividadLibro", cors(), (req, res) => {
     });
 });
 
-//TODO ***************************
+
 //Obtiene informacion de Mi actividad
 app.get("/api/miActividad", cors(), (req, res) => {
   console.log("Entra en /api/miActividad");
@@ -222,8 +222,6 @@ app.post("/api/logout", cors(), (req, res) => {
       console.log(error);
     });
 });
-
-//TODO Obtiene puntuacion media de un libro
 
 
 app.get("/api/puntuacionmedia", cors(), (req, res) => {

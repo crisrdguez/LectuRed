@@ -21,7 +21,6 @@ p{
   padding-bottom: 20px;
 }
 
-/*listado de libros*/
 .container-reco {
   max-width: 100%;
   padding: 0 15px;
@@ -48,7 +47,7 @@ p{
 
 .container.text-center.rectangulo {
    width: 100%;
-  max-width: 1200px; /* O ajusta según tus necesidades */
+  max-width: 1200px;
 }
 
 .listado-recomendados .container{

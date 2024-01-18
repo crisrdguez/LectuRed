@@ -4,7 +4,6 @@
     min-height: 460px;
     display: flex;
     flex-direction: column;
-    /*align-items: flex-start;*/
     align-items: center;
     text-align: center;
   }
@@ -30,16 +29,16 @@
   
 
   h3 {
-    color: #302B2D; /* Cambiado a un color más oscuro */
+    color: #302B2D; 
   }
   
   ul {
-    list-style: none; /* Quita los puntos de la lista */
+    list-style: none;
     padding: 0;
   }
   
   li {
-    margin-bottom: 8px; /* Espaciado entre elementos de la lista */
+    margin-bottom: 8px; 
   }
   
   label {
@@ -50,12 +49,12 @@
   
   button {
     background-color: #EFE8E8;
-    color: #302B2D; /* Color del texto blanco */
+    color: #302B2D; 
     padding: 10px 15px;
     border:1px solid #E47171;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* Agrega una transición suave al color de fondo */
+    transition: background-color 0.3s ease; 
   }
 
   .boton{
@@ -69,17 +68,17 @@
 }
   
   button:hover {
-    background-color: #E47171; /* Cambia el color de fondo al pasar el ratón */
+    background-color: #E47171; 
   }
 
   .radio-group {
     display: flex;
     flex-direction: row;
-    gap: 10px; /* Espacio entre los radio buttons */
+    gap: 10px;
 }
 
 .radio-label {
-    margin-right: 10px; /* Espacio entre el radio button y su etiqueta */
+    margin-right: 10px;
     margin-top:10px;
 }
 

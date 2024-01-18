@@ -102,8 +102,6 @@ h2{
     line-height: 1.5;
 }
 
-/*probando actividad detalle*/
-
   .contenedor-actividad {
       width: 90%;
       display: flex;
@@ -112,8 +110,6 @@ h2{
       align-items: center;
   
     }
-  
-  
   .entry-container {
       display: flex;
       align-items: flex-start;;
@@ -121,11 +117,9 @@ h2{
       border-radius: 4px;
       box-shadow: 0px 1px 4px 1px #e4c57f;
       padding: 10px;
-      margin: 30px; /* Puedes ajustar el margen según tus preferencias */
+      margin: 30px;
       width: 80%;
-    }
-  
-    
+    } 
     .activity-item {
       color:#EFE8E8;
       margin-left: 20px;
@@ -152,9 +146,9 @@ h2{
       line-height: 30px;
       padding: 10px;
       width: 90%;
-      white-space: pre-line; /* Para respetar los saltos de línea */
-      border-radius: 4px; /* Añadir esquinas redondeadas opcional */
-      margin-top: 5px; /* Añadir margen superior opcional */
+      white-space: pre-line;
+      border-radius: 4px;
+      margin-top: 5px; 
     }
     .info-container {
       display: flex;
@@ -163,20 +157,20 @@ h2{
   
     .avatar {
       margin-right: 10px;
-      width: 35px; /* Ajusta el tamaño del círculo según sea necesario */
-      height: 35px; /* Ajusta el tamaño del círculo según sea necesario */
+      width: 35px; 
+      height: 35px; 
       background-color: #E47171;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 24px; /* Tamaño de la letra dentro del círculo */
-      color: #07162c; /* Color del texto dentro del círculo */
+      font-size: 24px; 
+      color: #07162c; 
     }
   
     .puntuacion-container {
       display: flex;
-      align-items: center; /* Alinea verticalmente los elementos dentro del contenedor */
+      align-items: center;
     }
   
     .estrellas{

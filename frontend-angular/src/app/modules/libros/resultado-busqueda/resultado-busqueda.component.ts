@@ -60,8 +60,6 @@ onTabChange(event: MatTabChangeEvent) {
 
 buscarclick(){
   this.buscadorService.setQueryParams(this.replaceSpaces(this.queryparams));
-  //this.buscadorService.setOpcionBusqueda(this.opcionBusqueda);
-  //todo vuelvo a llamar a la vista de applistas
   this.selectedTabIndex==0;
   this.buscadorService.setOpcionBusqueda(1);
 }

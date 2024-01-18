@@ -123,8 +123,6 @@ export class LibroListasComponent implements OnInit, OnDestroy{
       });
 
     }
-
-    console.log("****************Salgo del metodo busqueda libros");
   }
 
   ngOnDestroy(): void {
