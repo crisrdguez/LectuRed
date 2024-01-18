@@ -97,14 +97,14 @@ export class LibroDetalleComponent implements OnInit{
   private surpriseOnInit(): void {
 
     this.numeroDeLibrosLeidos = this.contarLibrosLeidos();
-    if(this.numeroDeLibrosLeidos < 6){
+    if(this.numeroDeLibrosLeidos < 5){
       localStorage.setItem('confeti', 'false');
       
     }
     this.confeti = localStorage.getItem('confeti');
-    if( this.confeti === 'false' && this.numeroDeLibrosLeidos === 6){
+    if( this.confeti === 'false' && this.numeroDeLibrosLeidos === 5){
       this.surprise();
-      this.snackBar.open('¡¡¡¡¡ENHORABUENA!!!! YA ERES UN LECTOR PROFESIONAL!!!!', 'Cerrar', { 
+      this.snackBar.open('¡¡¡¡¡ENHORABUENA!!!! PREMIO AL LECTOR DEL AÑO!!!!', 'Cerrar', { 
         duration: 3000,
         horizontalPosition: 'end', // Posición horizontal
         verticalPosition: 'top', // Posición vertical

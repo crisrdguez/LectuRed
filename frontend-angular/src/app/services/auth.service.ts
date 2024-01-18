@@ -74,7 +74,7 @@ export class AuthService {
     localStorage.removeItem('misLibros');
     localStorage.removeItem('idPersona');
     localStorage.removeItem('name');
-    localStorage.removeItem('numeroLibrosLeidos');
+    localStorage.removeItem('confeti');
 
     //this.router.navigate(['/home']);
     window.location.reload(); //actualiza la pagina

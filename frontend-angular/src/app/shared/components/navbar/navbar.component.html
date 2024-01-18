@@ -1,6 +1,6 @@
 <span translate="no">
 <nav class="horizontal-navigation" >
-    <div class="nav-opcion logo-container">
+    <div class="logo-container">
         <img src="../../../../assets/logoLectured.png" alt="logo proyecto" class="logo-pequeno">
     </div>
     <div class="nav-opcion logo-container" routerLinkActive="active">
@@ -29,7 +29,7 @@
     </ng-container>
     <div class="nav-opcion logo-container">
         <div class="container-form">
-            <input class="input" type="text" placeholder="Buscar libros" [(ngModel)]='queryparams'>
+            <input class="input" type="text" placeholder="Buscar libros" [(ngModel)]='queryparams' (keyup.enter)="buscarLibros()">
             <button mat-button (click)="buscarLibros()">Buscar</button>
         </div>
     </div>   
@@ -49,12 +49,12 @@
     
         <mat-menu class="submenu-contenedor" #menuOptions="matMenu">
             <ng-container *ngIf="!estaLogueado(); else noLogin">
-              <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/login">Iniciar sesión</a></button>
-              <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/register">Registrarse</a></button>
+              <a mat-menu-item class="item-categoria" href="http://127.0.0.1:8000/login">Iniciar sesión</a>
+              <a mat-menu-item class="item-categoria" href="http://127.0.0.1:8000/register">Registrarse</a>
             </ng-container>
             <ng-template #noLogin>
-              <button mat-menu-item class="item-categoria"><a href="http://127.0.0.1:8000/profile">Perfil</a></button>
-              <button mat-menu-item class="item-categoria"><a (click)="logout()">Cerrar sesión</a></button>
+              <a mat-menu-item class="item-categoria" href="http://127.0.0.1:8000/profile">Perfil</a>
+              <a mat-menu-item class="item-categoria" (click)="logout()">Cerrar sesión</a>
             </ng-template>
           </mat-menu>
         <!--

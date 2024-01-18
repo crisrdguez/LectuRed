@@ -1,6 +1,6 @@
 <div class="container-busqueda">
     <div class="container-form">
-        <input class="input" type="text" [(ngModel)]='queryparams' placeholder="Buscar libros">
+        <input class="input" type="text" [(ngModel)]='queryparams' placeholder="Buscar libros" (keyup.enter)="buscarclick()">
         <button class="boton-buscar" (click)="buscarclick()">Buscar</button>
     </div>
     <div class="container-resultado">
