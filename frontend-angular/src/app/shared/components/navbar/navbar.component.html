@@ -37,7 +37,7 @@
         <div class="container-icono">
             <button mat-icon-button [matMenuTriggerFor]="menuOptions">
                 <ng-container *ngIf="estaLogueado()">
-                    <div class="avatar-circle"><strong>{{ name?.charAt(0) | uppercase }}</strong></div>
+                    <div class="avatar"><strong>{{ name?.charAt(0) | uppercase }}</strong></div>
                   </ng-container>
                   <ng-container *ngIf="!estaLogueado()">
                     <mat-icon>account_circle</mat-icon>

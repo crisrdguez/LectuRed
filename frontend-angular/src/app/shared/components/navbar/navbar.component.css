@@ -136,7 +136,7 @@ button:hover {
 .mat-mdc-icon-button.mat-mdc-button-base {
   --mdc-icon-button-state-layer-size: 70px;
 } 
-.container-icono .avatar-circle {
+.container-icono .avatar {
   width: 45px; /* Ajusta el tamaño del círculo según sea necesario */
   height: 45px; /* Ajusta el tamaño del círculo según sea necesario */
   background-color: #E47171;

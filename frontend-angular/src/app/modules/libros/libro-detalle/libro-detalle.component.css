@@ -156,6 +156,23 @@ h2{
       border-radius: 4px; /* Añadir esquinas redondeadas opcional */
       margin-top: 5px; /* Añadir margen superior opcional */
     }
+    .info-container {
+      display: flex;
+      align-items: baseline;
+    }
+  
+    .avatar {
+      margin-right: 10px;
+      width: 35px; /* Ajusta el tamaño del círculo según sea necesario */
+      height: 35px; /* Ajusta el tamaño del círculo según sea necesario */
+      background-color: #E47171;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px; /* Tamaño de la letra dentro del círculo */
+      color: #07162c; /* Color del texto dentro del círculo */
+    }
   
     .puntuacion-container {
       display: flex;
