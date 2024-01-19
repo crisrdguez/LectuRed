@@ -54,7 +54,7 @@
           </ng-container>
         </ng-container>
   
-        <ng-container *ngIf="entrada.puntuacion !== 0">
+        <ng-container *ngIf="entrada.estado === 'leido'">
           <!-- Si la puntuación es distinta de 0, el usuario ha leído el libro -->
           <div class="entry-container">
             <div class="activity-item">
@@ -73,7 +73,7 @@
                 </div>
               </div>
   
-              <ng-container *ngIf="entrada.critica !== '' && entrada.critica !== null ">
+              <ng-container *ngIf="entrada.critica !== null && entrada.critica !== ''">
                 <p class="infoEstado">Reseña: </p>
                 <div class="infoRes">{{ entrada.critica }}</div>
               </ng-container>

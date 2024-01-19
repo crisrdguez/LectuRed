@@ -18,6 +18,8 @@ export class LibroCategoriasComponent implements OnInit{
 
   }
 
+  datosCargados: boolean = false;
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.url = params['url'];
