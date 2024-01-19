@@ -2,8 +2,7 @@
 Una aplicación web para críticas y valoraciones sobre libros
 
 Pasos para el frontend:
-- Clona el repositorio
-- Instala Node.js (incluye npm)
+- Instala Node.js V16.16.0 (incluye npm)
 - Instala angular/CLI  (npm install -g @angular/cli)
 - Instala las dependencias del proyecto (npm install)
 - Inicia el middleware (cd middleware-express, node server.js)
