@@ -63,9 +63,15 @@ mat-tab-group {
 }
   /* Estilo para el contenido del mat-tab */
   mat-tab-content {
-    padding: 15px; 
+    padding: 1px; 
   }
 
 .separacion{
     margin-top:20px;
   }
+
+  ::ng-deep.mat-mdc-tab-body-content {
+    height: 100% !important;
+    overflow-x: hidden !important;
+}
+

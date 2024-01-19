@@ -2,8 +2,7 @@
 Una aplicación web para críticas y valoraciones sobre libros
 
 Pasos para el frontend:
-- Clona el repositorio
-- Instala Node.js (incluye npm)
+- Instala Node.js V16.16.0 (incluye npm)
 - Instala angular/CLI  (npm install -g @angular/cli)
 - Instala las dependencias del proyecto (npm install)
 - Inicia el middleware (cd middleware-express, node server.js)
@@ -26,6 +25,7 @@ Pasos para el backend:
    - Cargar los datos de prueba: php artisan db:seed
    - En el fichero hosts que está en a ruta: C:\Windows\System32\drivers\etc añade lo siguiente:
         127.0.0.1      lectured.com
-       -instalar node.js ejecutar los comando : npm install y npm run dev
+-instalar node.js ejecutar los comando : npm install y npm run dev
    - Levantar el servidor del back con el siguiente comando: php artisan serve --host lectured.com
-   - Una vez levantado el servicio y finalizados los pasos para el front, accede a la aplicacion con http://localhost:4200/home. 
+   - Una vez levantado el servicio y finalizados los pasos para el front, accede a la aplicacion con http://localhost:4200/home.
+ 
