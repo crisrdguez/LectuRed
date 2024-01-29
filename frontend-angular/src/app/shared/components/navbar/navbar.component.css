@@ -23,6 +23,8 @@
   align-items: center;
 }
 
+
+
 .logo-pequeno {
   width: 100px;
   height: auto;
@@ -155,4 +157,52 @@ button:hover {
 
 .submenu-contenedor{
   background-color: #122747 !important;
+}
+
+.burger-menu{
+  padding: 0 10px;
+  display: none;
+  cursor: pointer;
+}
+
+i{
+  color:#F9F6F6;
+  line-height: 50px;
+}
+
+@media (max-width: 500px) {
+  .burger-menu {
+    display: block;
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 500px) {
+  .menu {
+    display: none;
+  }
+
+  .menu.is-open {
+    display: block;
+    position: absolute;
+    top: 50px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo-container img {
+    display: none; /* Oculta la imagen del logo */
+  }
+  .container-form {
+    width: 100%; /* Ajusta el ancho del contenedor del formulario al 100% */
+  }
+
+  .input {
+    width: 70%; /* Ajusta el ancho del campo de entrada del formulario según tus necesidades */
+  }
 }

@@ -23,6 +23,8 @@ export class NavbarComponent {
 
   queryparams:string="";
   showCategoriesDropdown: boolean = false;
+
+  isMenuOpen = false;
   
   constructor(private router: Router, private authService: AuthService, private breakpointObserver: BreakpointObserver) {}
 
@@ -53,6 +55,10 @@ export class NavbarComponent {
   logout(){
     this.estaLog = false;
     this.authService.cerrarSesion();
+  }
+
+  toggleMenu():void {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
 }
