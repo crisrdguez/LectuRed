@@ -1,4 +1,59 @@
-<p>login works!</p>
+
+<!--Montamos el login Form haciendo uso de componentes Material-->
+<mat-card>
+    <!--Imagen login-->
+
+        <img src="../../../../../assets/mujer.png">
+
+    <!--Cabecera de la tarjeta-->
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+            <mat-card-subtitle>Accede a tu cuenta</mat-card-subtitle>
+        </mat-card-header>
+    
+        <!--Contenido de la tarjeta-->
+        <mat-card-content>
+            <!--Formulario de login-->
+            <form [formGroup]="loginForm" (submit)="enviarFormulario()">
+           
+                <!--Campos del formulario-->
+                    <!--Email-->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
+                        <mat-error *ngIf="email?.errors?.['required'] && email?.touched">
+                            El campo email es obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                    <!--Password-->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput formControlName="password">
+                        <mat-error *ngIf="password?.errors?.['required'] && password?.touched">
+                            Password no valido
+                        </mat-error>
+                        <mat-error *ngIf="password?.errors?.['pattern'] && password?.touched">
+                            Password no valido
+                        </mat-error>
+                    </mat-form-field>
+    
+                    <!--Deshabilitado si la validacion da error-->
+                <input type="submit" [disabled]="loginForm.invalid" mat-raised-button color="primary" value="Login">
+                
+            
+            </form>
+            <mat-card class="fondolila">
+                <mat-card-content>Este proyecto está hecho con fines didácticos, si quieres acceder al área privada utiliza:</mat-card-content>
+                <mat-card-content>usuario: <strong (click)="copyToClipboard('admin@admin.com')" matTooltip="copy admin@admin.com">adminadmin.com<mat-icon style="color:rgb(69, 5, 112)">file_copy</mat-icon></strong></mat-card-content><br>
+                <mat-card-content>password: <strong (click)="copyToClipboard('admin1')" matTooltip="copy admin1">admin1<mat-icon style="color:rgb(69, 5, 112)">file_copy</mat-icon></strong></mat-card-content>
+                <i class="bi bi-search"></i>
+            </mat-card>
+        </mat-card-content>
+
+    </mat-card>
+    
+    
+
 <ul>
     <li><a routerLink="/auth/registro">Registro</a></li>
     <li>Olvide password</li>

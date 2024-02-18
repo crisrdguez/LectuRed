@@ -4,6 +4,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { RouterModule } from '@angular/router';
 import { AuthRoutingModule } from './auth-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +17,9 @@ import { AuthRoutingModule } from './auth-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    SharedModule,
+    ReactiveFormsModule
 
   ]
 })
